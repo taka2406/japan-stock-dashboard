@@ -1,91 +1,237 @@
 {
-  "updated_at": "2026-09-02 23:31",
+  "updated_at": "2026-09-02 23:53",
   "industries": [
     {
-      "industry": "銀行",
-      "change_percent": -0.54
+      "industry": "通信",
+      "change_percent": -0.28
     },
     {
-      "industry": "商社",
-      "change_percent": -1.94
+      "industry": "海運",
+      "change_percent": -0.38
+    },
+    {
+      "industry": "医薬品",
+      "change_percent": -0.45
+    },
+    {
+      "industry": "銀行",
+      "change_percent": -0.8
+    },
+    {
+      "industry": "鉄道・陸運",
+      "change_percent": -0.96
+    },
+    {
+      "industry": "保険",
+      "change_percent": -0.97
+    },
+    {
+      "industry": "小売",
+      "change_percent": -1.04
+    },
+    {
+      "industry": "食品・飲料",
+      "change_percent": -1.45
+    },
+    {
+      "industry": "総合商社",
+      "change_percent": -1.81
+    },
+    {
+      "industry": "建設",
+      "change_percent": -1.97
+    },
+    {
+      "industry": "旅行・レジャー",
+      "change_percent": -2.14
+    },
+    {
+      "industry": "電力・ガス",
+      "change_percent": -2.16
+    },
+    {
+      "industry": "ゲーム・エンタメ",
+      "change_percent": -2.48
+    },
+    {
+      "industry": "医療機器・ヘルスケア",
+      "change_percent": -2.56
     },
     {
       "industry": "半導体・製造装置",
-      "change_percent": -2.71
+      "change_percent": -2.63
+    },
+    {
+      "industry": "不動産",
+      "change_percent": -2.64
+    },
+    {
+      "industry": "自動車部品",
+      "change_percent": -2.78
+    },
+    {
+      "industry": "電機・精密",
+      "change_percent": -3.96
+    },
+    {
+      "industry": "自動車",
+      "change_percent": -4.1
+    },
+    {
+      "industry": "鉄鋼・素材",
+      "change_percent": -4.93
+    },
+    {
+      "industry": "通信・IT投資",
+      "change_percent": -5.17
+    },
+    {
+      "industry": "IT・インターネット",
+      "change_percent": -5.53
     }
   ],
   "top_gainers": [
     {
-      "code": "8316",
-      "name": "三井住友FG",
-      "industry": "銀行",
-      "price": 6971.0,
-      "change_percent": -0.54
+      "code": "4568",
+      "name": "第一三共",
+      "industry": "医薬品",
+      "price": 2883.0,
+      "change_percent": 1.14
     },
     {
-      "code": "8058",
-      "name": "三菱商事",
-      "industry": "商社",
-      "price": 4860.0,
-      "change_percent": -1.94
+      "code": "3382",
+      "name": "セブン&アイ・ホールディングス",
+      "industry": "小売",
+      "price": 2046.5,
+      "change_percent": 0.61
     },
     {
-      "code": "6920",
-      "name": "レーザーテック",
-      "industry": "半導体・製造装置",
-      "price": 32350.0,
-      "change_percent": -2.21
+      "code": "8001",
+      "name": "伊藤忠商事",
+      "industry": "総合商社",
+      "price": 2157.0,
+      "change_percent": 0.4
     },
     {
-      "code": "6857",
-      "name": "アドバンテスト",
-      "industry": "半導体・製造装置",
-      "price": 32540.0,
-      "change_percent": -2.52
+      "code": "2801",
+      "name": "キッコーマン",
+      "industry": "食品・飲料",
+      "price": 1832.5,
+      "change_percent": 0.3
     },
     {
-      "code": "8035",
-      "name": "東京エレクトロン",
-      "industry": "半導体・製造装置",
-      "price": 53110.0,
-      "change_percent": -3.4
+      "code": "1925",
+      "name": "大和ハウス工業",
+      "industry": "建設",
+      "price": 4750.0,
+      "change_percent": 0.13
+    },
+    {
+      "code": "9434",
+      "name": "ソフトバンク",
+      "industry": "通信",
+      "price": 241.3,
+      "change_percent": 0.08
+    },
+    {
+      "code": "9101",
+      "name": "日本郵船",
+      "industry": "海運",
+      "price": 7097.0,
+      "change_percent": 0.07
+    },
+    {
+      "code": "9008",
+      "name": "京王電鉄",
+      "industry": "鉄道・陸運",
+      "price": 786.5,
+      "change_percent": 0.01
+    },
+    {
+      "code": "8267",
+      "name": "イオン",
+      "industry": "小売",
+      "price": 1358.5,
+      "change_percent": -0.11
+    },
+    {
+      "code": "9104",
+      "name": "商船三井",
+      "industry": "海運",
+      "price": 7038.0,
+      "change_percent": -0.13
     }
   ],
   "top_losers": [
     {
-      "code": "8035",
-      "name": "東京エレクトロン",
-      "industry": "半導体・製造装置",
-      "price": 53110.0,
-      "change_percent": -3.4
+      "code": "5713",
+      "name": "住友金属鉱山",
+      "industry": "鉄鋼・素材",
+      "price": 10035.0,
+      "change_percent": -11.55
     },
     {
-      "code": "6857",
-      "name": "アドバンテスト",
-      "industry": "半導体・製造装置",
-      "price": 32540.0,
-      "change_percent": -2.52
+      "code": "5711",
+      "name": "三菱マテリアル",
+      "industry": "鉄鋼・素材",
+      "price": 5345.0,
+      "change_percent": -9.8
     },
     {
-      "code": "6920",
-      "name": "レーザーテック",
-      "industry": "半導体・製造装置",
-      "price": 32350.0,
-      "change_percent": -2.21
+      "code": "4385",
+      "name": "メルカリ",
+      "industry": "IT・インターネット",
+      "price": 4250.0,
+      "change_percent": -7.99
     },
     {
-      "code": "8058",
-      "name": "三菱商事",
-      "industry": "商社",
-      "price": 4860.0,
-      "change_percent": -1.94
+      "code": "9984",
+      "name": "ソフトバンクグループ",
+      "industry": "通信・IT投資",
+      "price": 4924.0,
+      "change_percent": -6.42
     },
     {
-      "code": "8316",
-      "name": "三井住友FG",
-      "industry": "銀行",
-      "price": 6971.0,
-      "change_percent": -0.54
+      "code": "9984",
+      "name": "ソフトバンクグループ",
+      "industry": "IT・インターネット",
+      "price": 4924.0,
+      "change_percent": -6.42
+    },
+    {
+      "code": "7201",
+      "name": "日産自動車",
+      "industry": "自動車",
+      "price": 317.6,
+      "change_percent": -6.29
+    },
+    {
+      "code": "7269",
+      "name": "スズキ",
+      "industry": "自動車",
+      "price": 2122.0,
+      "change_percent": -5.9
+    },
+    {
+      "code": "6645",
+      "name": "オムロン",
+      "industry": "電機・精密",
+      "price": 6235.0,
+      "change_percent": -4.85
+    },
+    {
+      "code": "3923",
+      "name": "ラクス",
+      "industry": "IT・インターネット",
+      "price": 1086.5,
+      "change_percent": -4.73
+    },
+    {
+      "code": "4689",
+      "name": "LINEヤフー",
+      "industry": "IT・インターネット",
+      "price": 534.4,
+      "change_percent": -4.67
     }
   ]
 }
