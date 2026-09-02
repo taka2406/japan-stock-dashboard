@@ -1,0 +1,91 @@
+{
+  "updated_at": "2026-09-02 23:31",
+  "industries": [
+    {
+      "industry": "銀行",
+      "change_percent": -0.54
+    },
+    {
+      "industry": "商社",
+      "change_percent": -1.94
+    },
+    {
+      "industry": "半導体・製造装置",
+      "change_percent": -2.71
+    }
+  ],
+  "top_gainers": [
+    {
+      "code": "8316",
+      "name": "三井住友FG",
+      "industry": "銀行",
+      "price": 6971.0,
+      "change_percent": -0.54
+    },
+    {
+      "code": "8058",
+      "name": "三菱商事",
+      "industry": "商社",
+      "price": 4860.0,
+      "change_percent": -1.94
+    },
+    {
+      "code": "6920",
+      "name": "レーザーテック",
+      "industry": "半導体・製造装置",
+      "price": 32350.0,
+      "change_percent": -2.21
+    },
+    {
+      "code": "6857",
+      "name": "アドバンテスト",
+      "industry": "半導体・製造装置",
+      "price": 32540.0,
+      "change_percent": -2.52
+    },
+    {
+      "code": "8035",
+      "name": "東京エレクトロン",
+      "industry": "半導体・製造装置",
+      "price": 53110.0,
+      "change_percent": -3.4
+    }
+  ],
+  "top_losers": [
+    {
+      "code": "8035",
+      "name": "東京エレクトロン",
+      "industry": "半導体・製造装置",
+      "price": 53110.0,
+      "change_percent": -3.4
+    },
+    {
+      "code": "6857",
+      "name": "アドバンテスト",
+      "industry": "半導体・製造装置",
+      "price": 32540.0,
+      "change_percent": -2.52
+    },
+    {
+      "code": "6920",
+      "name": "レーザーテック",
+      "industry": "半導体・製造装置",
+      "price": 32350.0,
+      "change_percent": -2.21
+    },
+    {
+      "code": "8058",
+      "name": "三菱商事",
+      "industry": "商社",
+      "price": 4860.0,
+      "change_percent": -1.94
+    },
+    {
+      "code": "8316",
+      "name": "三井住友FG",
+      "industry": "銀行",
+      "price": 6971.0,
+      "change_percent": -0.54
+    }
+  ]
+}
