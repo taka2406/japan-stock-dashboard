@@ -11,6 +11,8 @@
 
   <title>日本株モニター</title>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
 
     body {
@@ -147,6 +149,47 @@
 
     }
 
+
+    .chart-container {
+
+      position: relative;
+
+      height: 380px;
+
+      margin-top: 10px;
+
+    }
+
+
+    .legend-list {
+
+      margin-top: 16px;
+
+    }
+
+
+    .legend-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 7px 0;
+
+      border-bottom:
+        1px solid #eee;
+
+    }
+
+
+    .legend-row:last-child {
+
+      border-bottom: none;
+
+    }
+
   </style>
 
 </head>
@@ -156,6 +199,7 @@
 
 
   <h1>📊 日本株モニター</h1>
+
 
   <div
     class="updated"
@@ -178,6 +222,7 @@
 
 
   <script>
+
 
     function percentClass(value) {
 
@@ -218,7 +263,12 @@
 
 
 
-    fetch("data.json")
+    fetch(
+      "data.json",
+      {
+        cache: "no-store"
+      }
+    )
 
       .then(response => {
 
@@ -235,6 +285,7 @@
       })
 
       .then(data => {
+
 
         document
           .getElementById("updated")
@@ -264,7 +315,7 @@
           <div class="card">
 
             <h2>
-              📈 業界ランキング
+              📊 業界ランキング（1か月）
             </h2>
 
         `;
@@ -322,7 +373,7 @@
 
         /*
         =====================
-        上昇銘柄
+        1か月値上がり TOP10
         =====================
         */
 
@@ -331,135 +382,26 @@
           <div class="card">
 
             <h2>
-              🔥 上昇銘柄 TOP10
+              📈 1か月値上がり TOP10
             </h2>
 
-        `;
+
+            <div
+              class="chart-container"
+            >
+
+              <canvas
+                id="stockChart"
+              ></canvas>
+
+            </div>
 
 
-        data.top_gainers.forEach(
-          item => {
+            <div
+              class="legend-list"
+              id="legendList"
+            ></div>
 
-            html += `
-
-              <div class="row">
-
-                <div>
-
-                  <div class="name">
-
-                    ${item.name}
-
-                  </div>
-
-
-                  <div class="code">
-
-                    ${item.code}
-
-                    ・
-
-                    ${item.industry}
-
-                  </div>
-
-                </div>
-
-
-                <div
-                  class="${percentClass(
-                    item.change_percent
-                  )}"
-                >
-
-                  ${formatPercent(
-                    item.change_percent
-                  )}
-
-                </div>
-
-              </div>
-
-            `;
-
-          }
-        );
-
-
-        html += `
-
-          </div>
-
-        `;
-
-
-        /*
-        =====================
-        下落銘柄
-        =====================
-        */
-
-        html += `
-
-          <div class="card">
-
-            <h2>
-              🔻 下落銘柄 TOP10
-            </h2>
-
-        `;
-
-
-        data.top_losers.forEach(
-          item => {
-
-            html += `
-
-              <div class="row">
-
-                <div>
-
-                  <div class="name">
-
-                    ${item.name}
-
-                  </div>
-
-
-                  <div class="code">
-
-                    ${item.code}
-
-                    ・
-
-                    ${item.industry}
-
-                  </div>
-
-                </div>
-
-
-                <div
-                  class="${percentClass(
-                    item.change_percent
-                  )}"
-                >
-
-                  ${formatPercent(
-                    item.change_percent
-                  )}
-
-                </div>
-
-              </div>
-
-            `;
-
-          }
-        );
-
-
-        html += `
 
           </div>
 
@@ -468,16 +410,317 @@
 
         content.innerHTML = html;
 
+
+        /*
+        =====================
+        グラフ作成
+        =====================
+        */
+
+
+        if (
+          data.top_gainers
+          &&
+          data.top_gainers.length > 0
+        ) {
+
+
+          /*
+          日付ラベル
+
+          TOP1の履歴を基準にする
+          */
+
+          const labels =
+
+            data.top_gainers[0]
+
+            .history
+
+            .map(
+              item => item.date
+            );
+
+
+          /*
+          10銘柄の線を作る
+          */
+
+          const datasets =
+
+            data.top_gainers
+
+            .map(
+              item => {
+
+                return {
+
+                  label:
+
+                    item.name
+
+                    +
+
+                    " "
+
+                    +
+
+                    formatPercent(
+                      item.change_percent
+                    ),
+
+
+                  data:
+
+                    item.history
+
+                    .map(
+                      point =>
+                        point.value
+                    ),
+
+
+                  borderWidth: 2,
+
+
+                  pointRadius: 0,
+
+
+                  tension: 0.15
+
+
+                };
+
+              }
+            );
+
+
+          const ctx =
+
+            document
+
+            .getElementById(
+              "stockChart"
+            );
+
+
+          new Chart(
+            ctx,
+            {
+
+              type: "line",
+
+
+              data: {
+
+                labels:
+                  labels,
+
+
+                datasets:
+                  datasets
+
+              },
+
+
+              options: {
+
+
+                responsive:
+                  true,
+
+
+                maintainAspectRatio:
+                  false,
+
+
+                interaction: {
+
+                  mode:
+                    "index",
+
+
+                  intersect:
+                    false
+
+                },
+
+
+                plugins: {
+
+
+                  legend: {
+
+                    display:
+                      false
+
+                  },
+
+
+                  tooltip: {
+
+                    mode:
+                      "index",
+
+
+                    intersect:
+                      false
+
+                  }
+
+                },
+
+
+                scales: {
+
+
+                  x: {
+
+                    ticks: {
+
+                      maxTicksLimit:
+                        6
+
+                    }
+
+                  },
+
+
+                  y: {
+
+                    title: {
+
+                      display:
+                        true,
+
+
+                      text:
+                        "1か月前 = 100"
+
+                    }
+
+                  }
+
+                }
+
+              }
+
+            }
+
+          );
+
+
+          /*
+          =====================
+          グラフ下の銘柄一覧
+          =====================
+          */
+
+
+          const legendList =
+
+            document
+
+            .getElementById(
+              "legendList"
+            );
+
+
+          let legendHtml = "";
+
+
+          data.top_gainers
+
+            .forEach(
+              (item, index) => {
+
+
+                legendHtml += `
+
+
+                  <div
+                    class="legend-row"
+                  >
+
+
+                    <div>
+
+
+                      <div
+                        class="name"
+                      >
+
+                        ${index + 1}.
+                        ${item.name}
+
+                      </div>
+
+
+                      <div
+                        class="code"
+                      >
+
+                        ${item.code}
+
+                        ・
+
+                        ${item.industry}
+
+                      </div>
+
+
+                    </div>
+
+
+                    <div
+                      class="${percentClass(
+                        item.change_percent
+                      )}"
+                    >
+
+
+                      ${formatPercent(
+                        item.change_percent
+                      )}
+
+
+                    </div>
+
+
+                  </div>
+
+
+                `;
+
+
+              }
+            );
+
+
+          legendList.innerHTML =
+            legendHtml;
+
+
+        }
+
+
       })
 
 
       .catch(error => {
 
+
         document
-          .getElementById("content")
+
+          .getElementById(
+            "content"
+          )
+
           .innerHTML = `
 
-            <div class="loading">
+            <div
+              class="loading"
+            >
 
               データの読み込みに失敗しました
 
@@ -486,9 +729,13 @@
           `;
 
 
-        console.error(error);
+        console.error(
+          error
+        );
+
 
       });
+
 
   </script>
 
