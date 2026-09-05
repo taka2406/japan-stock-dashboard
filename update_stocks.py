@@ -43,16 +43,15 @@ data = yf.download(
 
 results = []
 
-# 銘柄ごとのグラフ用データ
+# 全銘柄のグラフデータ
 price_history = {}
 
-# 業界平均を作るための
-# 日付ごとのデータ
+# 業界平均用
 industry_history_records = []
 
 
 # -------------------------
-# 3. 各銘柄の1か月騰落率
+# 3. 各銘柄のデータ
 # -------------------------
 
 for _, stock in stocks.iterrows():
@@ -109,7 +108,7 @@ for _, stock in stocks.iterrows():
 
 
         # -------------------------
-        # ランキング用
+        # 銘柄ランキング用
         # -------------------------
 
         results.append({
@@ -139,7 +138,7 @@ for _, stock in stocks.iterrows():
 
 
         # -------------------------
-        # 銘柄グラフ用
+        # 1か月推移
         #
         # 1か月前 = 100
         # -------------------------
@@ -173,7 +172,7 @@ for _, stock in stocks.iterrows():
 
 
             # -------------------------
-            # 業界平均用データ
+            # 業界平均用
             # -------------------------
 
             industry_history_records.append({
@@ -192,6 +191,7 @@ for _, stock in stocks.iterrows():
             })
 
 
+        # ★ 全銘柄の履歴を保存
         price_history[code] = history
 
 
@@ -213,9 +213,6 @@ results_df = pd.DataFrame(
 
 # -------------------------
 # 5. 業界ランキング
-#
-# 各業界の
-# 構成銘柄の1か月騰落率平均
 # -------------------------
 
 industries = []
@@ -224,7 +221,6 @@ top_industry_names = []
 
 
 if not results_df.empty:
-
 
     industry_avg = (
 
@@ -246,6 +242,7 @@ if not results_df.empty:
 
 
     # 全業界ランキング
+
     for industry, avg in (
         industry_avg.items()
     ):
@@ -264,9 +261,7 @@ if not results_df.empty:
         })
 
 
-    # -------------------------
     # 上位10業界
-    # -------------------------
 
     top_industry_names = (
 
@@ -282,8 +277,7 @@ if not results_df.empty:
 
 
 # -------------------------
-# 6. 業界平均の
-# 日ごとの推移を計算
+# 6. 業界平均の推移
 # -------------------------
 
 industry_history_df = pd.DataFrame(
@@ -296,9 +290,6 @@ top_industries = []
 
 if not industry_history_df.empty:
 
-
-    # 日付ごと・業界ごとに
-    # 平均を計算
     industry_daily_avg = (
 
         industry_history_df
@@ -319,19 +310,16 @@ if not industry_history_df.empty:
     )
 
 
-    # 上位10業界だけ
-    for industry in top_industry_names:
+    # 上位10業界
 
+    for industry in top_industry_names:
 
         history_df = (
 
-            industry_daily_avg
-
-            [
+            industry_daily_avg[
                 industry_daily_avg[
                     "industry"
-                ]
-                == industry
+                ] == industry
             ]
 
             .copy()
@@ -343,11 +331,7 @@ if not industry_history_df.empty:
 
 
         for _, row in (
-
-            history_df
-
-            .iterrows()
-
+            history_df.iterrows()
         ):
 
             history.append({
@@ -366,29 +350,22 @@ if not industry_history_df.empty:
             })
 
 
-        # 業界の最終騰落率を取得
+        # 業界の最終騰落率
 
-        industry_change = (
+        industry_change = next(
 
-            next(
+            (
+                item[
+                    "change_percent"
+                ]
 
-                (
-                    item[
-                        "change_percent"
-                    ]
+                for item in industries
 
-                    for item in industries
+                if item["industry"]
+                == industry
+            ),
 
-                    if item[
-                        "industry"
-                    ]
-                    == industry
-
-                ),
-
-                0
-
-            )
+            0
 
         )
 
@@ -408,8 +385,7 @@ if not industry_history_df.empty:
 
 
 # -------------------------
-# 7. 1か月値上がり
-# TOP10銘柄
+# 7. 値上がりTOP10
 # -------------------------
 
 top_gainers_df = (
@@ -417,11 +393,8 @@ top_gainers_df = (
     results_df
 
     .sort_values(
-
         "month_change_percent",
-
         ascending=False
-
     )
 
     .head(10)
@@ -433,14 +406,10 @@ top_gainers = []
 
 
 for _, item in (
-
     top_gainers_df.iterrows()
-
 ):
 
-
     code = item["code"]
-
 
     top_gainers.append({
 
@@ -471,7 +440,69 @@ for _, item in (
 
 
 # -------------------------
-# 8. JSONを保存
+# 8. ★ 業界ごとの全銘柄データ
+# -------------------------
+
+industry_stocks = {}
+
+
+for _, item in results_df.iterrows():
+
+    industry = item["industry"]
+    code = item["code"]
+
+    stock_data = {
+
+        "code":
+            code,
+
+        "name":
+            item["name"],
+
+        "price":
+            item["price"],
+
+        "change_percent":
+            item[
+                "month_change_percent"
+            ],
+
+        "history":
+            price_history.get(
+                code,
+                []
+            )
+
+    }
+
+
+    if industry not in industry_stocks:
+
+        industry_stocks[industry] = []
+
+
+    industry_stocks[industry].append(
+        stock_data
+    )
+
+
+# 各業界の銘柄を
+# 1か月騰落率の高い順に並べる
+
+for industry in industry_stocks:
+
+    industry_stocks[industry].sort(
+
+        key=lambda x:
+            x["change_percent"],
+
+        reverse=True
+
+    )
+
+
+# -------------------------
+# 9. JSONを保存
 # -------------------------
 
 jst = timezone(
@@ -493,15 +524,19 @@ output = {
         industries,
 
 
-    # 上位10業界の
-    # 折れ線グラフ用データ
+    # 上位10業界
     "top_industries":
         top_industries,
 
 
-    # 値上がりTOP10銘柄
+    # 株価上昇TOP10
     "top_gainers":
-        top_gainers
+        top_gainers,
+
+
+    # ★ 業界別の全銘柄
+    "industry_stocks":
+        industry_stocks
 
 }
 
@@ -515,7 +550,6 @@ with open(
     encoding="utf-8"
 
 ) as f:
-
 
     json.dump(
 
