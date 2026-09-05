@@ -2,7 +2,6 @@
 <html lang="ja">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -14,8 +13,11 @@
 
 <style>
 
-body {
+* {
+    box-sizing: border-box;
+}
 
+body {
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -28,43 +30,34 @@ body {
     background: #f5f5f5;
 
     color: #222;
-
 }
 
-
 .container {
-
     max-width: 700px;
 
     margin: auto;
 
     padding: 16px;
-
 }
-
 
 h1 {
-
     font-size: 24px;
 
-    margin-bottom: 6px;
-
+    margin:
+        8px
+        0
+        6px;
 }
 
-
 .updated {
-
     color: #777;
 
     font-size: 13px;
 
     margin-bottom: 20px;
-
 }
 
-
 .card {
-
     background: white;
 
     border-radius: 14px;
@@ -75,59 +68,54 @@ h1 {
 
     box-shadow:
         0 2px 8px rgba(0,0,0,0.06);
-
 }
-
 
 h2 {
-
     font-size: 18px;
 
-    margin-top: 0;
-
+    margin:
+        0
+        0
+        14px;
 }
 
-
 .chart-container {
-
     position: relative;
 
     width: 100%;
 
     height: 330px;
-
 }
 
+.detail-chart {
+    position: relative;
+
+    width: 100%;
+
+    height: 280px;
+
+    margin-bottom: 14px;
+}
 
 canvas {
-
     max-width: 100%;
-
 }
 
-
 .legend {
-
     margin-top: 12px;
 
     font-size: 12px;
 
     line-height: 1.8;
-
 }
 
-
 .legend-item {
-
     display: inline-block;
 
     margin-right: 10px;
-
 }
 
-
 .legend-line {
-
     display: inline-block;
 
     width: 18px;
@@ -137,23 +125,18 @@ canvas {
     margin-right: 4px;
 
     vertical-align: middle;
-
 }
 
 
-/* -------------------------
-   業界ランキング
-------------------------- */
+/* =========================
+   ランキング共通
+========================= */
 
-.industry-row {
-
+.ranking-row {
     border-bottom: 1px solid #eee;
-
 }
 
-
-.industry-button {
-
+.ranking-button {
     width: 100%;
 
     border: none;
@@ -171,48 +154,33 @@ canvas {
     font-size: 15px;
 
     cursor: pointer;
-
 }
 
-
-.industry-button:active {
-
+.ranking-button:active {
     background: #f5f5f5;
-
 }
-
 
 .rank {
-
     width: 32px;
 
     font-weight: bold;
 
     color: #777;
-
 }
 
-
-.industry-name {
-
+.ranking-name {
     flex: 1;
 
     font-weight: 600;
-
 }
 
-
-.industry-change {
-
+.ranking-change {
     font-weight: bold;
 
     margin-right: 8px;
-
 }
 
-
 .arrow {
-
     width: 20px;
 
     text-align: center;
@@ -220,16 +188,14 @@ canvas {
     color: #888;
 
     font-size: 13px;
-
 }
 
 
-/* -------------------------
-   業界詳細
-------------------------- */
+/* =========================
+   詳細
+========================= */
 
-.industry-detail {
-
+.detail {
     display: none;
 
     padding:
@@ -239,19 +205,13 @@ canvas {
         36px;
 
     background: #fafafa;
-
 }
 
-
-.industry-detail.open {
-
+.detail.open {
     display: block;
-
 }
-
 
 .detail-title {
-
     font-size: 15px;
 
     font-weight: bold;
@@ -260,27 +220,14 @@ canvas {
         8px
         0
         12px;
-
 }
 
 
-.detail-chart {
-
-    position: relative;
-
-    height: 260px;
-
-    margin-bottom: 14px;
-
-}
-
-
-/* -------------------------
+/* =========================
    銘柄ランキング
-------------------------- */
+========================= */
 
 .stock-row {
-
     display: flex;
 
     align-items: center;
@@ -290,70 +237,103 @@ canvas {
     border-bottom: 1px solid #eee;
 
     font-size: 13px;
-
 }
 
-
 .stock-rank {
-
     width: 28px;
 
     color: #777;
-
 }
 
-
 .stock-code {
-
-    width: 48px;
+    width: 52px;
 
     color: #888;
 
     font-size: 11px;
-
 }
 
-
 .stock-name {
-
     flex: 1;
 
     font-weight: 500;
-
 }
-
 
 .stock-change {
-
     font-weight: bold;
-
 }
-
 
 .positive {
-
     color: #d33;
-
 }
-
 
 .negative {
-
     color: #1670c5;
-
 }
 
-
 .no-data {
-
     color: #888;
 
     font-size: 13px;
 
     padding: 10px 0;
-
 }
 
+
+/* =========================
+   テーマ見出し
+========================= */
+
+.theme-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+.fire {
+    font-size: 18px;
+}
+
+
+/* =========================
+   スマホ調整
+========================= */
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .chart-container {
+        height: 300px;
+    }
+
+    .detail-chart {
+        height: 250px;
+    }
+
+    .detail {
+        padding-left: 24px;
+    }
+
+    .ranking-button {
+        padding:
+            13px
+            2px;
+    }
+
+    .ranking-name {
+        font-size: 14px;
+    }
+
+}
 
 </style>
 
@@ -362,30 +342,27 @@ canvas {
 
 <body>
 
-
 <div class="container">
 
-
 <h1>
-日本株ダッシュボード
+    日本株ダッシュボード
 </h1>
-
 
 <div
     class="updated"
     id="updated">
-読み込み中...
+    読み込み中...
 </div>
 
 
-<!-- =========================
-     業界TOP10グラフ
-========================= -->
+<!-- ==================================================
+     1. 業界 TOP10
+================================================== -->
 
 <div class="card">
 
 <h2>
-上昇業界 TOP10
+    業界 TOP10
 </h2>
 
 <div class="chart-container">
@@ -402,14 +379,14 @@ canvas {
 </div>
 
 
-<!-- =========================
-     全業界ランキング
-========================= -->
+<!-- ==================================================
+     2. 業界ランキング
+================================================== -->
 
 <div class="card">
 
 <h2>
-業界ランキング
+    業界ランキング
 </h2>
 
 <div id="industryRanking"></div>
@@ -417,14 +394,55 @@ canvas {
 </div>
 
 
-<!-- =========================
-     株価上昇TOP10
-========================= -->
+<!-- ==================================================
+     3. テーマ TOP10
+================================================== -->
+
+<div class="card">
+
+<h2 class="theme-heading">
+    <span class="fire">🔥</span>
+    テーマ TOP10
+</h2>
+
+<div class="chart-container">
+
+<canvas id="themeChart"></canvas>
+
+</div>
+
+<div
+    id="themeLegend"
+    class="legend">
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     4. テーマランキング
+================================================== -->
+
+<div class="card">
+
+<h2 class="theme-heading">
+    <span class="fire">🔥</span>
+    テーマランキング
+</h2>
+
+<div id="themeRanking"></div>
+
+</div>
+
+
+<!-- ==================================================
+     5. 1か月値上がり銘柄 TOP10
+================================================== -->
 
 <div class="card">
 
 <h2>
-1か月値上がり銘柄 TOP10
+    1か月値上がり銘柄 TOP10
 </h2>
 
 <div class="chart-container">
@@ -447,16 +465,22 @@ canvas {
 <script>
 
 
+/* ==================================================
+   グローバル
+================================================== */
+
 let industryChart = null;
+
+let themeChart = null;
 
 let stockChart = null;
 
 let detailCharts = {};
 
 
-// -------------------------
-// データ取得
-// -------------------------
+/* ==================================================
+   データ取得
+================================================== */
 
 fetch(
     "data.json",
@@ -465,7 +489,17 @@ fetch(
     }
 )
 
-.then(response => response.json())
+.then(response => {
+
+    if (!response.ok) {
+        throw new Error(
+            "data.json の取得に失敗しました"
+        );
+    }
+
+    return response.json();
+
+})
 
 .then(data => {
 
@@ -476,25 +510,50 @@ fetch(
         + data.updated_at;
 
 
-    // 業界TOP10グラフ
+    /* --------------------------------
+       業界 TOP10
+    -------------------------------- */
 
     createIndustryChart(
-        data.top_industries
+        data.top_industries || []
     );
 
 
-    // 全業界ランキング
+    /* --------------------------------
+       業界ランキング
+    -------------------------------- */
 
     createIndustryRanking(
-        data.industries,
-        data.industry_stocks
+        data.industries || [],
+        data.industry_stocks || {}
     );
 
 
-    // 株価TOP10
+    /* --------------------------------
+       テーマ TOP10
+    -------------------------------- */
+
+    createThemeChart(
+        data.top_themes || []
+    );
+
+
+    /* --------------------------------
+       テーマランキング
+    -------------------------------- */
+
+    createThemeRanking(
+        data.themes || [],
+        data.theme_stocks || {}
+    );
+
+
+    /* --------------------------------
+       値上がりTOP10
+    -------------------------------- */
 
     createStockChart(
-        data.top_gainers
+        data.top_gainers || []
     );
 
 })
@@ -511,108 +570,64 @@ fetch(
 });
 
 
-// =========================
-// 業界TOP10グラフ
-// =========================
+/* ==================================================
+   共通：グラフ設定
+================================================== */
 
-function createIndustryChart(
-    industries
+function createLineChart(
+    canvas,
+    datasets,
+    labels
 ) {
 
-    const ctx =
-        document
-        .getElementById(
-            "industryChart"
-        )
-        .getContext("2d");
+    return new Chart(
+        canvas.getContext("2d"),
+        {
 
+            type: "line",
 
-    const datasets =
-        industries.map(
-            (industry, index) => {
+            data: {
 
-                return {
+                labels: labels,
 
-                    label:
-                        industry.industry,
+                datasets: datasets
 
-                    data:
-                        industry.history.map(
-                            item =>
-                                item.value
-                        ),
+            },
 
-                    borderWidth: 2,
+            options: {
 
-                    pointRadius: 0,
+                responsive: true,
 
-                    tension: 0.2
+                maintainAspectRatio: false,
 
-                };
+                interaction: {
 
-            }
-        );
+                    mode: "index",
 
-
-    const labels =
-        industries.length > 0
-        ? industries[0].history.map(
-            item => item.date
-          )
-        : [];
-
-
-    industryChart =
-        new Chart(
-            ctx,
-            {
-
-                type: "line",
-
-                data: {
-
-                    labels: labels,
-
-                    datasets: datasets
+                    intersect: false
 
                 },
 
-                options: {
+                plugins: {
 
-                    responsive: true,
+                    legend: {
 
-                    maintainAspectRatio: false,
+                        display: false
 
-                    interaction: {
+                    }
 
-                        mode: "index",
+                },
 
-                        intersect: false
+                scales: {
 
-                    },
+                    y: {
 
-                    plugins: {
+                        title: {
 
-                        legend: {
+                            display: true,
 
-                            display: false
-
-                        }
-
-                    },
-
-                    scales: {
-
-                        y: {
-
-                            title: {
-
-                                display: true,
-
-                                text:
-                                    "1か月前 = 100"
-
-                            }
+                            text:
+                                "1か月前 = 100"
 
                         }
 
@@ -621,20 +636,114 @@ function createIndustryChart(
                 }
 
             }
-        );
 
-
-    createLegend(
-        "industryLegend",
-        industries
+        }
     );
 
 }
 
 
-// =========================
-// 業界ランキング
-// =========================
+/* ==================================================
+   共通：データセット作成
+================================================== */
+
+function makeDatasets(
+    items,
+    labelFunction
+) {
+
+    return items.map(
+        (item, index) => {
+
+            return {
+
+                label:
+                    labelFunction(item),
+
+                data:
+                    (item.history || []).map(
+                        point => point.value
+                    ),
+
+                borderWidth: 2,
+
+                pointRadius: 0,
+
+                tension: 0.2,
+
+                borderColor:
+                    `hsl(${index * 37 % 360}, 70%, 50%)`
+
+            };
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   1. 業界 TOP10
+================================================== */
+
+function createIndustryChart(
+    industries
+) {
+
+    const canvas =
+        document.getElementById(
+            "industryChart"
+        );
+
+    if (!canvas) {
+        return;
+    }
+
+
+    const labels =
+        industries.length > 0
+        ? industries[0].history.map(
+            item => item.date
+        )
+        : [];
+
+
+    const datasets =
+        makeDatasets(
+            industries,
+            industry =>
+                industry.industry
+        );
+
+
+    if (industryChart) {
+
+        industryChart.destroy();
+
+    }
+
+
+    industryChart =
+        createLineChart(
+            canvas,
+            datasets,
+            labels
+        );
+
+
+    createLegend(
+        "industryLegend",
+        industries,
+        item =>
+            item.industry
+    );
+
+}
+
+
+/* ==================================================
+   2. 業界ランキング
+================================================== */
 
 function createIndustryRanking(
     industries,
@@ -650,9 +759,18 @@ function createIndustryRanking(
     container.innerHTML = "";
 
 
+    if (!industries.length) {
+
+        container.innerHTML =
+            '<div class="no-data">業界データがありません</div>';
+
+        return;
+
+    }
+
+
     industries.forEach(
         (industry, index) => {
-
 
             const row =
                 document.createElement(
@@ -660,12 +778,12 @@ function createIndustryRanking(
                 );
 
             row.className =
-                "industry-row";
+                "ranking-row";
 
 
-            // -------------------------
-            // 業界ボタン
-            // -------------------------
+            /* --------------------------------
+               ボタン
+            -------------------------------- */
 
             const button =
                 document.createElement(
@@ -673,7 +791,7 @@ function createIndustryRanking(
                 );
 
             button.className =
-                "industry-button";
+                "ranking-button";
 
 
             const changeClass =
@@ -688,11 +806,13 @@ function createIndustryRanking(
                     ${index + 1}
                 </span>
 
-                <span class="industry-name">
-                    ${industry.industry}
+                <span class="ranking-name">
+                    ${escapeHtml(
+                        industry.industry
+                    )}
                 </span>
 
-                <span class="industry-change ${changeClass}">
+                <span class="ranking-change ${changeClass}">
                     ${formatPercent(
                         industry.change_percent
                     )}
@@ -705,9 +825,9 @@ function createIndustryRanking(
             `;
 
 
-            // -------------------------
-            // 詳細部分
-            // -------------------------
+            /* --------------------------------
+               詳細
+            -------------------------------- */
 
             const detail =
                 document.createElement(
@@ -715,7 +835,7 @@ function createIndustryRanking(
                 );
 
             detail.className =
-                "industry-detail";
+                "detail";
 
 
             const stocks =
@@ -727,40 +847,35 @@ function createIndustryRanking(
             detail.innerHTML = `
 
                 <div class="detail-title">
-                    ${industry.industry} の銘柄
+                    ${escapeHtml(
+                        industry.industry
+                    )} の銘柄
                 </div>
 
                 <div class="detail-chart">
 
                     <canvas
-                        id="chart-${index}">
+                        id="industry-chart-${index}">
                     </canvas>
 
                 </div>
 
-                <div id="stocks-${index}">
+                <div id="industry-stocks-${index}">
                 </div>
 
             `;
 
 
-            row.appendChild(
-                button
-            );
+            row.appendChild(button);
 
-            row.appendChild(
-                detail
-            );
+            row.appendChild(detail);
+
+            container.appendChild(row);
 
 
-            container.appendChild(
-                row
-            );
-
-
-            // -------------------------
-            // クリック処理
-            // -------------------------
+            /* --------------------------------
+               クリック
+            -------------------------------- */
 
             button.addEventListener(
                 "click",
@@ -772,8 +887,7 @@ function createIndustryRanking(
                         );
 
 
-                    // 一度開いている場合
-                    // → 閉じる
+                    /* 閉じる */
 
                     if (isOpen) {
 
@@ -793,13 +907,11 @@ function createIndustryRanking(
                     }
 
 
-                    // -------------------------
-                    // 他の業界を閉じる
-                    // -------------------------
+                    /* 他の業界を閉じる */
 
                     document
                         .querySelectorAll(
-                            ".industry-detail.open"
+                            "#industryRanking .detail.open"
                         )
                         .forEach(
                             other => {
@@ -814,7 +926,7 @@ function createIndustryRanking(
 
                     document
                         .querySelectorAll(
-                            ".industry-button .arrow"
+                            "#industryRanking .arrow"
                         )
                         .forEach(
                             arrow => {
@@ -826,14 +938,11 @@ function createIndustryRanking(
                         );
 
 
-                    // -------------------------
-                    // この業界を開く
-                    // -------------------------
+                    /* 開く */
 
                     detail.classList.add(
                         "open"
                     );
-
 
                     button
                         .querySelector(
@@ -853,32 +962,43 @@ function createIndustryRanking(
             );
 
         }
+
     );
 
 }
 
 
-// =========================
-// 業界詳細
-// =========================
+/* ==================================================
+   業界詳細
+================================================== */
 
 function createIndustryDetail(
     index,
     stocks
 ) {
 
-    // -------------------------
-    // 銘柄ランキング
-    // -------------------------
-
     const stockContainer =
         document.getElementById(
-            `stocks-${index}`
+            `industry-stocks-${index}`
         );
 
 
     stockContainer.innerHTML = "";
 
+
+    if (!stocks.length) {
+
+        stockContainer.innerHTML =
+            '<div class="no-data">銘柄データがありません</div>';
+
+        return;
+
+    }
+
+
+    /* --------------------------------
+       銘柄ランキング
+    -------------------------------- */
 
     stocks.forEach(
         (stock, stockIndex) => {
@@ -906,11 +1026,15 @@ function createIndustryDetail(
                 </span>
 
                 <span class="stock-code">
-                    ${stock.code}
+                    ${escapeHtml(
+                        stock.code
+                    )}
                 </span>
 
                 <span class="stock-name">
-                    ${stock.name}
+                    ${escapeHtml(
+                        stock.name
+                    )}
                 </span>
 
                 <span class="stock-change ${changeClass}">
@@ -930,13 +1054,13 @@ function createIndustryDetail(
     );
 
 
-    // -------------------------
-    // 業界銘柄グラフ
-    // -------------------------
+    /* --------------------------------
+       業界銘柄グラフ
+    -------------------------------- */
 
     const canvas =
         document.getElementById(
-            `chart-${index}`
+            `industry-chart-${index}`
         );
 
 
@@ -945,269 +1069,554 @@ function createIndustryDetail(
     }
 
 
-    // 以前のグラフを削除
+    const labels =
+        stocks[0].history
+            ? stocks[0].history.map(
+                item => item.date
+            )
+            : [];
 
-    if (detailCharts[index]) {
 
-        detailCharts[index].destroy();
+    const datasets =
+        makeDatasets(
+            stocks,
+            stock =>
+                stock.code
+                + " "
+                + stock.name
+        );
+
+
+    const chartKey =
+        "industry-" + index;
+
+
+    if (detailCharts[chartKey]) {
+
+        detailCharts[chartKey].destroy();
 
     }
 
 
-    if (stocks.length === 0) {
+    detailCharts[chartKey] =
+        createLineChart(
+            canvas,
+            datasets,
+            labels
+        );
+
+}
+
+
+/* ==================================================
+   3. テーマ TOP10
+================================================== */
+
+function createThemeChart(
+    themes
+) {
+
+    const canvas =
+        document.getElementById(
+            "themeChart"
+        );
+
+    if (!canvas) {
+        return;
+    }
+
+
+    const labels =
+        themes.length > 0
+        ? themes[0].history.map(
+            item => item.date
+        )
+        : [];
+
+
+    const datasets =
+        makeDatasets(
+            themes,
+            theme =>
+                theme.theme
+        );
+
+
+    if (themeChart) {
+
+        themeChart.destroy();
+
+    }
+
+
+    themeChart =
+        createLineChart(
+            canvas,
+            datasets,
+            labels
+        );
+
+
+    createLegend(
+        "themeLegend",
+        themes,
+        item =>
+            item.theme
+    );
+
+}
+
+
+/* ==================================================
+   4. テーマランキング
+================================================== */
+
+function createThemeRanking(
+    themes,
+    themeStocks
+) {
+
+    const container =
+        document.getElementById(
+            "themeRanking"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (!themes.length) {
+
+        container.innerHTML =
+            '<div class="no-data">テーマデータがありません</div>';
 
         return;
 
     }
 
 
-    const labels =
-        stocks[0].history.map(
-            item => item.date
-        );
+    themes.forEach(
+        (theme, index) => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "ranking-row";
 
 
-    const datasets =
-        stocks.map(
-            stock => {
+            /* --------------------------------
+               ボタン
+            -------------------------------- */
 
-                return {
+            const button =
+                document.createElement(
+                    "button"
+                );
 
-                    label:
-                        stock.code
-                        + " "
-                        + stock.name,
-
-                    data:
-                        stock.history.map(
-                            item =>
-                                item.value
-                        ),
-
-                    borderWidth: 2,
-
-                    pointRadius: 0,
-
-                    tension: 0.2
-
-                };
-
-            }
-        );
+            button.className =
+                "ranking-button";
 
 
-    detailCharts[index] =
-        new Chart(
+            const changeClass =
+                theme.change_percent >= 0
+                ? "positive"
+                : "negative";
 
-            canvas.getContext(
-                "2d"
-            ),
 
-            {
+            button.innerHTML = `
 
-                type: "line",
+                <span class="rank">
+                    ${index + 1}
+                </span>
 
-                data: {
+                <span class="ranking-name">
+                    ${escapeHtml(
+                        theme.theme
+                    )}
+                </span>
 
-                    labels:
-                        labels,
+                <span class="ranking-change ${changeClass}">
+                    ${formatPercent(
+                        theme.change_percent
+                    )}
+                </span>
 
-                    datasets:
-                        datasets
+                <span class="arrow">
+                    ▼
+                </span>
 
-                },
+            `;
 
-                options: {
 
-                    responsive: true,
+            /* --------------------------------
+               詳細
+            -------------------------------- */
 
-                    maintainAspectRatio: false,
+            const detail =
+                document.createElement(
+                    "div"
+                );
 
-                    interaction: {
+            detail.className =
+                "detail";
 
-                        mode: "index",
 
-                        intersect: false
+            const stocks =
+                themeStocks[
+                    theme.theme
+                ] || [];
 
-                    },
 
-                    plugins: {
+            detail.innerHTML = `
 
-                        legend: {
+                <div class="detail-title">
+                    ${escapeHtml(
+                        theme.theme
+                    )}
+                    関連銘柄
+                </div>
 
-                            display: false
+                <div class="detail-chart">
 
-                        }
+                    <canvas
+                        id="theme-chart-${index}">
+                    </canvas>
 
-                    },
+                </div>
 
-                    scales: {
+                <div id="theme-stocks-${index}">
+                </div>
 
-                        y: {
+            `;
 
-                            title: {
 
-                                display: true,
+            row.appendChild(button);
 
-                                text:
-                                    "1か月前 = 100"
+            row.appendChild(detail);
 
-                            }
+            container.appendChild(row);
 
-                        }
+
+            /* --------------------------------
+               クリック
+            -------------------------------- */
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const isOpen =
+                        detail.classList.contains(
+                            "open"
+                        );
+
+
+                    /* 閉じる */
+
+                    if (isOpen) {
+
+                        detail.classList.remove(
+                            "open"
+                        );
+
+                        button
+                            .querySelector(
+                                ".arrow"
+                            )
+                            .textContent =
+                                "▼";
+
+                        return;
 
                     }
 
+
+                    /* 他のテーマを閉じる */
+
+                    document
+                        .querySelectorAll(
+                            "#themeRanking .detail.open"
+                        )
+                        .forEach(
+                            other => {
+
+                                other.classList.remove(
+                                    "open"
+                                );
+
+                            }
+                        );
+
+
+                    document
+                        .querySelectorAll(
+                            "#themeRanking .arrow"
+                        )
+                        .forEach(
+                            arrow => {
+
+                                arrow.textContent =
+                                    "▼";
+
+                            }
+                        );
+
+
+                    /* 開く */
+
+                    detail.classList.add(
+                        "open"
+                    );
+
+                    button
+                        .querySelector(
+                            ".arrow"
+                        )
+                        .textContent =
+                            "▲";
+
+
+                    createThemeDetail(
+                        index,
+                        stocks
+                    );
+
                 }
 
-            }
+            );
 
+        }
+
+    );
+
+}
+
+
+/* ==================================================
+   テーマ詳細
+================================================== */
+
+function createThemeDetail(
+    index,
+    stocks
+) {
+
+    const stockContainer =
+        document.getElementById(
+            `theme-stocks-${index}`
+        );
+
+
+    stockContainer.innerHTML = "";
+
+
+    if (!stocks.length) {
+
+        stockContainer.innerHTML =
+            '<div class="no-data">このテーマの銘柄データがありません</div>';
+
+        return;
+
+    }
+
+
+    /* --------------------------------
+       テーマ銘柄ランキング
+    -------------------------------- */
+
+    stocks.forEach(
+        (stock, stockIndex) => {
+
+            const changeClass =
+                stock.change_percent >= 0
+                ? "positive"
+                : "negative";
+
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "stock-row";
+
+
+            row.innerHTML = `
+
+                <span class="stock-rank">
+                    ${stockIndex + 1}
+                </span>
+
+                <span class="stock-code">
+                    ${escapeHtml(
+                        stock.code
+                    )}
+                </span>
+
+                <span class="stock-name">
+                    ${escapeHtml(
+                        stock.name
+                    )}
+                </span>
+
+                <span class="stock-change ${changeClass}">
+                    ${formatPercent(
+                        stock.change_percent
+                    )}
+                </span>
+
+            `;
+
+
+            stockContainer.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+    /* --------------------------------
+       テーマ銘柄グラフ
+    -------------------------------- */
+
+    const canvas =
+        document.getElementById(
+            `theme-chart-${index}`
+        );
+
+
+    if (!canvas) {
+        return;
+    }
+
+
+    const labels =
+        stocks[0].history
+            ? stocks[0].history.map(
+                item => item.date
+            )
+            : [];
+
+
+    const datasets =
+        makeDatasets(
+            stocks,
+            stock =>
+                stock.code
+                + " "
+                + stock.name
+        );
+
+
+    const chartKey =
+        "theme-" + index;
+
+
+    if (detailCharts[chartKey]) {
+
+        detailCharts[chartKey].destroy();
+
+    }
+
+
+    detailCharts[chartKey] =
+        createLineChart(
+            canvas,
+            datasets,
+            labels
         );
 
 }
 
 
-// =========================
-// 株価TOP10グラフ
-// =========================
+/* ==================================================
+   5. 値上がり銘柄 TOP10
+================================================== */
 
 function createStockChart(
     stocks
 ) {
 
-    const ctx =
-        document
-        .getElementById(
+    const canvas =
+        document.getElementById(
             "stockChart"
-        )
-        .getContext("2d");
+        );
+
+    if (!canvas) {
+        return;
+    }
 
 
     const labels =
         stocks.length > 0
         ? stocks[0].history.map(
             item => item.date
-          )
+        )
         : [];
 
 
     const datasets =
-        stocks.map(
-            stock => {
-
-                return {
-
-                    label:
-                        stock.code
-                        + " "
-                        + stock.name,
-
-                    data:
-                        stock.history.map(
-                            item =>
-                                item.value
-                        ),
-
-                    borderWidth: 2,
-
-                    pointRadius: 0,
-
-                    tension: 0.2
-
-                };
-
-            }
+        makeDatasets(
+            stocks,
+            stock =>
+                stock.code
+                + " "
+                + stock.name
         );
 
 
+    if (stockChart) {
+
+        stockChart.destroy();
+
+    }
+
+
     stockChart =
-        new Chart(
-
-            ctx,
-
-            {
-
-                type: "line",
-
-                data: {
-
-                    labels:
-                        labels,
-
-                    datasets:
-                        datasets
-
-                },
-
-                options: {
-
-                    responsive: true,
-
-                    maintainAspectRatio: false,
-
-                    interaction: {
-
-                        mode: "index",
-
-                        intersect: false
-
-                    },
-
-                    plugins: {
-
-                        legend: {
-
-                            display: false
-
-                        }
-
-                    },
-
-                    scales: {
-
-                        y: {
-
-                            title: {
-
-                                display: true,
-
-                                text:
-                                    "1か月前 = 100"
-
-                            }
-
-                        }
-
-                    }
-
-                }
-
-            }
-
+        createLineChart(
+            canvas,
+            datasets,
+            labels
         );
 
 
     createLegend(
         "stockLegend",
-        stocks
+        stocks,
+        item =>
+            item.code
+            + " "
+            + item.name
     );
 
 }
 
 
-// =========================
-// 凡例
-// =========================
+/* ==================================================
+   凡例
+================================================== */
 
 function createLegend(
     elementId,
-    items
+    items,
+    labelFunction
 ) {
 
     const container =
         document.getElementById(
             elementId
         );
+
+
+    if (!container) {
+        return;
+    }
 
 
     container.innerHTML = "";
@@ -1240,15 +1649,9 @@ function createLegend(
                     ">
                 </span>
 
-                ${item.code
-                    ? item.code + " "
-                    : ""
-                }
-
-                ${item.name
-                    ? item.name
-                    : item.industry
-                }
+                ${escapeHtml(
+                    labelFunction(item)
+                )}
 
             `;
 
@@ -1263,27 +1666,49 @@ function createLegend(
 }
 
 
-// =========================
-// %表示
-// =========================
+/* ==================================================
+   %表示
+================================================== */
 
 function formatPercent(
     value
 ) {
 
+    const number =
+        Number(value);
+
+
     const sign =
-        value >= 0
+        number >= 0
         ? "+"
         : "";
 
+
     return (
         sign
-        + Number(value).toFixed(2)
+        + number.toFixed(2)
         + "%"
     );
 
 }
 
+
+/* ==================================================
+   HTMLエスケープ
+================================================== */
+
+function escapeHtml(
+    value
+) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
 
 </script>
 
