@@ -1,4 +1,4 @@
-```python
+
 import pandas as pd
 import yfinance as yf
 import json
@@ -1395,4 +1395,4 @@ print(
 print(
     "1か月・半年・5年のデータを保存しました"
 )
-```
+
