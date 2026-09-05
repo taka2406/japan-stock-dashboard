@@ -3,225 +3,359 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-  <title>日本株モニター</title>
+<title>日本株ダッシュボード</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <style>
+<style>
 
-    body {
-      font-family:
+body {
+
+    font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Helvetica Neue",
         Arial,
         sans-serif;
 
-      margin: 0;
-      padding: 16px;
+    margin: 0;
 
-      background: #f5f5f7;
+    background: #f5f5f5;
 
-      color: #222;
-    }
+    color: #222;
 
-    h1 {
-      font-size: 24px;
-      margin-bottom: 4px;
-    }
+}
 
-    .updated {
-      font-size: 13px;
-      color: #666;
-      margin-bottom: 20px;
-    }
 
-    .card {
+.container {
 
-      background: white;
+    max-width: 700px;
 
-      border-radius: 14px;
+    margin: auto;
 
-      padding: 16px;
+    padding: 16px;
 
-      margin-bottom: 16px;
+}
 
-      box-shadow:
-        0 2px 8px
-        rgba(0,0,0,0.08);
 
-    }
+h1 {
 
-    h2 {
+    font-size: 24px;
 
-      font-size: 18px;
+    margin-bottom: 6px;
 
-      margin-top: 0;
+}
 
-      margin-bottom: 8px;
 
-    }
+.updated {
 
-    .description {
+    color: #777;
 
-      font-size: 13px;
+    font-size: 13px;
 
-      color: #666;
+    margin-bottom: 20px;
 
-      margin-top: 0;
+}
 
-      margin-bottom: 12px;
 
-    }
+.card {
 
-    .row {
+    background: white;
 
-      display: flex;
+    border-radius: 14px;
 
-      justify-content: space-between;
+    padding: 16px;
 
-      align-items: center;
+    margin-bottom: 18px;
 
-      padding: 9px 0;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.06);
 
-      border-bottom:
-        1px solid #eee;
+}
 
-    }
 
-    .row:last-child {
-      border-bottom: none;
-    }
+h2 {
 
-    .name {
-      font-weight: 600;
-    }
+    font-size: 18px;
 
-    .code {
+    margin-top: 0;
 
-      font-size: 12px;
+}
 
-      color: #888;
 
-    }
+.chart-container {
 
-    .up {
+    position: relative;
 
-      color: #d33;
+    width: 100%;
 
-      font-weight: 700;
+    height: 330px;
 
-    }
+}
 
-    .down {
 
-      color: #1677d2;
+canvas {
 
-      font-weight: 700;
+    max-width: 100%;
 
-    }
+}
 
-    .flat {
 
-      color: #666;
+.legend {
 
-      font-weight: 700;
+    margin-top: 12px;
 
-    }
+    font-size: 12px;
 
-    .loading {
+    line-height: 1.8;
 
-      text-align: center;
+}
 
-      padding: 40px;
 
-      color: #777;
+.legend-item {
 
-    }
+    display: inline-block;
 
-    .chart-container {
+    margin-right: 10px;
 
-      position: relative;
+}
 
-      height: 330px;
 
-      margin-top: 10px;
+.legend-line {
 
-    }
+    display: inline-block;
 
-    .legend-list {
+    width: 18px;
 
-      margin-top: 14px;
+    height: 3px;
 
-    }
+    margin-right: 4px;
 
-    .legend-row {
+    vertical-align: middle;
 
-      display: flex;
+}
 
-      justify-content: space-between;
 
-      align-items: center;
+/* -------------------------
+   業界ランキング
+------------------------- */
 
-      padding: 8px 0;
+.industry-row {
 
-      border-bottom:
-        1px solid #eee;
+    border-bottom: 1px solid #eee;
 
-    }
+}
 
-    .legend-row:last-child {
-      border-bottom: none;
-    }
 
-    .legend-left {
+.industry-button {
 
-      display: flex;
+    width: 100%;
 
-      align-items: center;
+    border: none;
 
-      gap: 8px;
+    background: white;
 
-    }
+    padding: 14px 4px;
 
-    .color-dot {
+    display: flex;
 
-      width: 10px;
+    align-items: center;
 
-      height: 10px;
+    text-align: left;
 
-      border-radius: 50%;
+    font-size: 15px;
 
-      flex-shrink: 0;
+    cursor: pointer;
 
-    }
+}
 
-    .note {
 
-      background: #eef6ff;
+.industry-button:active {
 
-      border-radius: 12px;
+    background: #f5f5f5;
 
-      padding: 12px;
+}
 
-      font-size: 13px;
 
-      color: #444;
+.rank {
 
-      line-height: 1.6;
+    width: 32px;
 
-      margin-bottom: 16px;
+    font-weight: bold;
 
-    }
+    color: #777;
 
-  </style>
+}
+
+
+.industry-name {
+
+    flex: 1;
+
+    font-weight: 600;
+
+}
+
+
+.industry-change {
+
+    font-weight: bold;
+
+    margin-right: 8px;
+
+}
+
+
+.arrow {
+
+    width: 20px;
+
+    text-align: center;
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+
+/* -------------------------
+   業界詳細
+------------------------- */
+
+.industry-detail {
+
+    display: none;
+
+    padding:
+        4px
+        4px
+        18px
+        36px;
+
+    background: #fafafa;
+
+}
+
+
+.industry-detail.open {
+
+    display: block;
+
+}
+
+
+.detail-title {
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin:
+        8px
+        0
+        12px;
+
+}
+
+
+.detail-chart {
+
+    position: relative;
+
+    height: 260px;
+
+    margin-bottom: 14px;
+
+}
+
+
+/* -------------------------
+   銘柄ランキング
+------------------------- */
+
+.stock-row {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 13px;
+
+}
+
+
+.stock-rank {
+
+    width: 28px;
+
+    color: #777;
+
+}
+
+
+.stock-code {
+
+    width: 48px;
+
+    color: #888;
+
+    font-size: 11px;
+
+}
+
+
+.stock-name {
+
+    flex: 1;
+
+    font-weight: 500;
+
+}
+
+
+.stock-change {
+
+    font-weight: bold;
+
+}
+
+
+.positive {
+
+    color: #d33;
+
+}
+
+
+.negative {
+
+    color: #1670c5;
+
+}
+
+
+.no-data {
+
+    color: #888;
+
+    font-size: 13px;
+
+    padding: 10px 0;
+
+}
+
+
+</style>
 
 </head>
 
@@ -229,931 +363,929 @@
 <body>
 
 
-  <h1>📊 日本株モニター</h1>
+<div class="container">
 
 
-  <div
+<h1>
+日本株ダッシュボード
+</h1>
+
+
+<div
     class="updated"
-    id="updated"
-  >
-    読み込み中...
-  </div>
+    id="updated">
+読み込み中...
+</div>
 
 
-  <div id="content">
+<!-- =========================
+     業界TOP10グラフ
+========================= -->
 
-    <div class="loading">
+<div class="card">
 
-      データを読み込んでいます...
+<h2>
+上昇業界 TOP10
+</h2>
 
-    </div>
+<div class="chart-container">
 
-  </div>
+<canvas id="industryChart"></canvas>
 
+</div>
 
-  <script>
+<div
+    id="industryLegend"
+    class="legend">
+</div>
 
-
-    /*
-    =====================
-    グラフの色
-    =====================
-    */
-
-    const chartColors = [
-
-      "#e63946",
-      "#f77f00",
-      "#ffbe0b",
-      "#70b23f",
-      "#2a9d8f",
-      "#219ebc",
-      "#3a86ff",
-      "#8338ec",
-      "#ff006e",
-      "#6c757d"
-
-    ];
+</div>
 
 
-    /*
-    =====================
-    騰落率の色
-    =====================
-    */
+<!-- =========================
+     全業界ランキング
+========================= -->
 
-    function percentClass(value) {
+<div class="card">
 
-      if (value > 0) {
+<h2>
+業界ランキング
+</h2>
 
-        return "up";
+<div id="industryRanking"></div>
 
-      }
-
-      if (value < 0) {
-
-        return "down";
-
-      }
-
-      return "flat";
-
-    }
+</div>
 
 
-    /*
-    =====================
-    パーセント表示
-    =====================
-    */
+<!-- =========================
+     株価上昇TOP10
+========================= -->
 
-    function formatPercent(value) {
+<div class="card">
 
-      const sign =
-        value > 0
-          ? "+"
-          : "";
+<h2>
+1か月値上がり銘柄 TOP10
+</h2>
 
-      return (
-        sign
-        +
-        Number(value).toFixed(2)
-        +
-        "%"
-      );
+<div class="chart-container">
 
-    }
+<canvas id="stockChart"></canvas>
+
+</div>
+
+<div
+    id="stockLegend"
+    class="legend">
+</div>
+
+</div>
 
 
-    /*
-    =====================
-    data.json取得
-    =====================
-    */
+</div>
 
-    fetch(
-      "data.json",
-      {
+
+<script>
+
+
+let industryChart = null;
+
+let stockChart = null;
+
+let detailCharts = {};
+
+
+// -------------------------
+// データ取得
+// -------------------------
+
+fetch(
+    "data.json",
+    {
         cache: "no-store"
-      }
-    )
+    }
+)
 
-      .then(response => {
+.then(response => response.json())
 
-        if (!response.ok) {
+.then(data => {
 
-          throw new Error(
-            "data.jsonを取得できません"
-          );
-
-        }
-
-        return response.json();
-
-      })
-
-      .then(data => {
+    document.getElementById(
+        "updated"
+    ).textContent =
+        "最終更新: "
+        + data.updated_at;
 
 
-        /*
-        =====================
-        最終更新時刻
-        =====================
-        */
+    // 業界TOP10グラフ
 
+    createIndustryChart(
+        data.top_industries
+    );
+
+
+    // 全業界ランキング
+
+    createIndustryRanking(
+        data.industries,
+        data.industry_stocks
+    );
+
+
+    // 株価TOP10
+
+    createStockChart(
+        data.top_gainers
+    );
+
+})
+
+.catch(error => {
+
+    console.error(error);
+
+    document.getElementById(
+        "updated"
+    ).textContent =
+        "データ取得エラー";
+
+});
+
+
+// =========================
+// 業界TOP10グラフ
+// =========================
+
+function createIndustryChart(
+    industries
+) {
+
+    const ctx =
         document
-          .getElementById("updated")
-          .textContent =
-          "最終更新: "
-          +
-          data.updated_at;
-
-
-        const content =
-          document.getElementById(
-            "content"
-          );
-
-
-        let html = "";
-
-
-        /*
-        ==================================
-        ① 業界TOP10 折れ線グラフ
-        ==================================
-        */
-
-        html += `
-
-          <div class="card">
-
-            <h2>
-              📈 業界別平均の値動き
-            </h2>
-
-            <p class="description">
-
-              1か月騰落率が現在上位の
-              10業界
-
-              <br>
-
-              1か月前 = 100
-
-            </p>
-
-            <div
-              class="chart-container"
-            >
-
-              <canvas
-                id="industryChart"
-              ></canvas>
-
-            </div>
-
-            <div
-              class="legend-list"
-              id="industryLegend"
-            ></div>
-
-          </div>
-
-        `;
-
-
-        /*
-        ==================================
-        ② 全業界ランキング
-        ==================================
-        */
-
-        html += `
-
-          <div class="card">
-
-            <h2>
-              📊 業界ランキング
-            </h2>
-
-            <p class="description">
-
-              全20業界・1か月騰落率
-
-            </p>
-
-            <div
-              id="industryRanking"
-            ></div>
-
-          </div>
-
-        `;
-
-
-        /*
-        ==================================
-        ③ 銘柄TOP10 折れ線グラフ
-        ==================================
-        */
-
-        html += `
-
-          <div class="card">
-
-            <h2>
-              📈 1か月値上がり TOP10
-            </h2>
-
-            <p class="description">
-
-              1か月前 = 100
-
-            </p>
-
-            <div
-              class="chart-container"
-            >
-
-              <canvas
-                id="stockChart"
-              ></canvas>
-
-            </div>
-
-            <div
-              class="legend-list"
-              id="stockLegend"
-            ></div>
-
-          </div>
-
-        `;
-
-
-        /*
-        ==================================
-        説明
-        ==================================
-        */
-
-        html += `
-
-          <div class="note">
-
-            💡 <b>グラフの見方</b>
-
-            <br>
-
-            すべての線は
-            「1か月前＝100」
-            として表示しています。
-
-            <br>
-
-            業界グラフは、
-            その業界に登録された
-            銘柄の平均値動きです。
-
-            <br>
-
-            グラフは上位10業界ですが、
-            下のランキングでは
-            全20業界を確認できます。
-
-          </div>
-
-        `;
-
-
-        content.innerHTML = html;
-
-
-        /*
-        ==================================
-        ① 業界TOP10グラフ
-        ==================================
-        */
-
-        if (
-
-          data.top_industries
-
-          &&
-
-          data.top_industries.length > 0
-
-        ) {
-
-
-          const industryLabels =
-
-            data.top_industries[0]
-
-            .history
-
-            .map(
-              item => item.date
-            );
-
-
-          const industryDatasets =
-
-            data.top_industries
-
-            .map(
-              (item, index) => {
+        .getElementById(
+            "industryChart"
+        )
+        .getContext("2d");
+
+
+    const datasets =
+        industries.map(
+            (industry, index) => {
 
                 return {
 
-                  label:
+                    label:
+                        industry.industry,
 
-                    item.industry
-                    +
-                    " "
-                    +
-                    formatPercent(
-                      item.change_percent
-                    ),
+                    data:
+                        industry.history.map(
+                            item =>
+                                item.value
+                        ),
 
-                  data:
+                    borderWidth: 2,
 
-                    item.history
+                    pointRadius: 0,
 
-                    .map(
-                      point =>
-                        point.value
-                    ),
-
-                  borderColor:
-
-                    chartColors[
-                      index
-                      %
-                      chartColors.length
-                    ],
-
-                  backgroundColor:
-
-                    chartColors[
-                      index
-                      %
-                      chartColors.length
-                    ],
-
-                  borderWidth: 2,
-
-                  pointRadius: 0,
-
-                  tension: 0.15
+                    tension: 0.2
 
                 };
 
-              }
-            );
+            }
+        );
 
 
-          new Chart(
+    const labels =
+        industries.length > 0
+        ? industries[0].history.map(
+            item => item.date
+          )
+        : [];
 
-            document.getElementById(
-              "industryChart"
-            ),
 
+    industryChart =
+        new Chart(
+            ctx,
             {
 
-              type: "line",
+                type: "line",
 
-              data: {
+                data: {
 
-                labels:
-                  industryLabels,
+                    labels: labels,
 
-                datasets:
-                  industryDatasets
-
-              },
-
-              options: {
-
-                responsive: true,
-
-                maintainAspectRatio:
-                  false,
-
-                interaction: {
-
-                  mode: "index",
-
-                  intersect: false
+                    datasets: datasets
 
                 },
 
-                plugins: {
+                options: {
 
-                  legend: {
+                    responsive: true,
 
-                    display: false
+                    maintainAspectRatio: false,
 
-                  },
+                    interaction: {
 
-                  tooltip: {
+                        mode: "index",
 
-                    mode: "index",
+                        intersect: false
 
-                    intersect: false
+                    },
 
-                  }
+                    plugins: {
 
-                },
+                        legend: {
 
-                scales: {
+                            display: false
 
-                  x: {
+                        }
 
-                    ticks: {
+                    },
 
-                      maxTicksLimit: 6
+                    scales: {
+
+                        y: {
+
+                            title: {
+
+                                display: true,
+
+                                text:
+                                    "1か月前 = 100"
+
+                            }
+
+                        }
 
                     }
-
-                  },
-
-                  y: {
-
-                    title: {
-
-                      display: true,
-
-                      text:
-                        "1か月前 = 100"
-
-                    }
-
-                  }
 
                 }
 
-              }
-
             }
-
-          );
-
-
-          /*
-          業界TOP10の一覧
-          */
-
-          const industryLegend =
-
-            document.getElementById(
-              "industryLegend"
-            );
+        );
 
 
-          let legendHtml = "";
+    createLegend(
+        "industryLegend",
+        industries
+    );
+
+}
 
 
-          data.top_industries
+// =========================
+// 業界ランキング
+// =========================
 
-            .forEach(
-              (item, index) => {
+function createIndustryRanking(
+    industries,
+    industryStocks
+) {
 
-
-                const color =
-
-                  chartColors[
-
-                    index
-                    %
-                    chartColors.length
-
-                  ];
-
-
-                legendHtml += `
-
-                  <div
-                    class="legend-row"
-                  >
-
-                    <div
-                      class="legend-left"
-                    >
-
-                      <div
-                        class="color-dot"
-                        style="
-                          background:
-                          ${color}
-                        "
-                      ></div>
-
-                      <div>
-
-                        <div
-                          class="name"
-                        >
-
-                          ${index + 1}.
-                          ${item.industry}
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    <div
-                      class="${percentClass(
-                        item.change_percent
-                      )}"
-                    >
-
-                      ${formatPercent(
-                        item.change_percent
-                      )}
-
-                    </div>
-
-                  </div>
-
-                `;
-
-              }
-            );
-
-
-          industryLegend.innerHTML =
-            legendHtml;
-
-        }
-
-
-        /*
-        ==================================
-        ② 全20業界ランキング
-        ==================================
-        */
-
-        const industryRanking =
-
-          document.getElementById(
+    const container =
+        document.getElementById(
             "industryRanking"
-          );
+        );
 
 
-        let rankingHtml = "";
+    container.innerHTML = "";
 
 
-        data.industries
-
-          .forEach(
-            (item, index) => {
+    industries.forEach(
+        (industry, index) => {
 
 
-              rankingHtml += `
+            const row =
+                document.createElement(
+                    "div"
+                );
 
-                <div class="row">
+            row.className =
+                "industry-row";
 
-                  <div>
 
-                    <div class="name">
+            // -------------------------
+            // 業界ボタン
+            // -------------------------
 
-                      ${index + 1}.
-                      ${item.industry}
+            const button =
+                document.createElement(
+                    "button"
+                );
 
-                    </div>
+            button.className =
+                "industry-button";
 
-                  </div>
 
-                  <div
-                    class="${percentClass(
-                      item.change_percent
-                    )}"
-                  >
+            const changeClass =
+                industry.change_percent >= 0
+                ? "positive"
+                : "negative";
 
+
+            button.innerHTML = `
+
+                <span class="rank">
+                    ${index + 1}
+                </span>
+
+                <span class="industry-name">
+                    ${industry.industry}
+                </span>
+
+                <span class="industry-change ${changeClass}">
                     ${formatPercent(
-                      item.change_percent
+                        industry.change_percent
                     )}
+                </span>
 
-                  </div>
+                <span class="arrow">
+                    ▼
+                </span>
+
+            `;
+
+
+            // -------------------------
+            // 詳細部分
+            // -------------------------
+
+            const detail =
+                document.createElement(
+                    "div"
+                );
+
+            detail.className =
+                "industry-detail";
+
+
+            const stocks =
+                industryStocks[
+                    industry.industry
+                ] || [];
+
+
+            detail.innerHTML = `
+
+                <div class="detail-title">
+                    ${industry.industry} の銘柄
+                </div>
+
+                <div class="detail-chart">
+
+                    <canvas
+                        id="chart-${index}">
+                    </canvas>
 
                 </div>
 
-              `;
+                <div id="stocks-${index}">
+                </div>
 
-            }
-          );
-
-
-        industryRanking.innerHTML =
-          rankingHtml;
+            `;
 
 
-        /*
-        ==================================
-        ③ 銘柄TOP10グラフ
-        ==================================
-        */
+            row.appendChild(
+                button
+            );
 
-        if (
-
-          data.top_gainers
-
-          &&
-
-          data.top_gainers.length > 0
-
-        ) {
-
-
-          const stockLabels =
-
-            data.top_gainers[0]
-
-            .history
-
-            .map(
-              item => item.date
+            row.appendChild(
+                detail
             );
 
 
-          const stockDatasets =
+            container.appendChild(
+                row
+            );
 
-            data.top_gainers
 
-            .map(
-              (item, index) => {
+            // -------------------------
+            // クリック処理
+            // -------------------------
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const isOpen =
+                        detail.classList.contains(
+                            "open"
+                        );
+
+
+                    // 一度開いている場合
+                    // → 閉じる
+
+                    if (isOpen) {
+
+                        detail.classList.remove(
+                            "open"
+                        );
+
+                        button
+                            .querySelector(
+                                ".arrow"
+                            )
+                            .textContent =
+                                "▼";
+
+                        return;
+
+                    }
+
+
+                    // -------------------------
+                    // 他の業界を閉じる
+                    // -------------------------
+
+                    document
+                        .querySelectorAll(
+                            ".industry-detail.open"
+                        )
+                        .forEach(
+                            other => {
+
+                                other.classList.remove(
+                                    "open"
+                                );
+
+                            }
+                        );
+
+
+                    document
+                        .querySelectorAll(
+                            ".industry-button .arrow"
+                        )
+                        .forEach(
+                            arrow => {
+
+                                arrow.textContent =
+                                    "▼";
+
+                            }
+                        );
+
+
+                    // -------------------------
+                    // この業界を開く
+                    // -------------------------
+
+                    detail.classList.add(
+                        "open"
+                    );
+
+
+                    button
+                        .querySelector(
+                            ".arrow"
+                        )
+                        .textContent =
+                            "▲";
+
+
+                    createIndustryDetail(
+                        index,
+                        stocks
+                    );
+
+                }
+
+            );
+
+        }
+    );
+
+}
+
+
+// =========================
+// 業界詳細
+// =========================
+
+function createIndustryDetail(
+    index,
+    stocks
+) {
+
+    // -------------------------
+    // 銘柄ランキング
+    // -------------------------
+
+    const stockContainer =
+        document.getElementById(
+            `stocks-${index}`
+        );
+
+
+    stockContainer.innerHTML = "";
+
+
+    stocks.forEach(
+        (stock, stockIndex) => {
+
+            const changeClass =
+                stock.change_percent >= 0
+                ? "positive"
+                : "negative";
+
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "stock-row";
+
+
+            row.innerHTML = `
+
+                <span class="stock-rank">
+                    ${stockIndex + 1}
+                </span>
+
+                <span class="stock-code">
+                    ${stock.code}
+                </span>
+
+                <span class="stock-name">
+                    ${stock.name}
+                </span>
+
+                <span class="stock-change ${changeClass}">
+                    ${formatPercent(
+                        stock.change_percent
+                    )}
+                </span>
+
+            `;
+
+
+            stockContainer.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+    // -------------------------
+    // 業界銘柄グラフ
+    // -------------------------
+
+    const canvas =
+        document.getElementById(
+            `chart-${index}`
+        );
+
+
+    if (!canvas) {
+        return;
+    }
+
+
+    // 以前のグラフを削除
+
+    if (detailCharts[index]) {
+
+        detailCharts[index].destroy();
+
+    }
+
+
+    if (stocks.length === 0) {
+
+        return;
+
+    }
+
+
+    const labels =
+        stocks[0].history.map(
+            item => item.date
+        );
+
+
+    const datasets =
+        stocks.map(
+            stock => {
 
                 return {
 
-                  label:
+                    label:
+                        stock.code
+                        + " "
+                        + stock.name,
 
-                    item.name
-                    +
-                    " "
-                    +
-                    formatPercent(
-                      item.change_percent
-                    ),
+                    data:
+                        stock.history.map(
+                            item =>
+                                item.value
+                        ),
 
-                  data:
+                    borderWidth: 2,
 
-                    item.history
+                    pointRadius: 0,
 
-                    .map(
-                      point =>
-                        point.value
-                    ),
-
-                  borderColor:
-
-                    chartColors[
-                      index
-                      %
-                      chartColors.length
-                    ],
-
-                  backgroundColor:
-
-                    chartColors[
-                      index
-                      %
-                      chartColors.length
-                    ],
-
-                  borderWidth: 2,
-
-                  pointRadius: 0,
-
-                  tension: 0.15
+                    tension: 0.2
 
                 };
 
-              }
-            );
+            }
+        );
 
 
-          new Chart(
+    detailCharts[index] =
+        new Chart(
 
-            document.getElementById(
-              "stockChart"
+            canvas.getContext(
+                "2d"
             ),
 
             {
 
-              type: "line",
+                type: "line",
 
-              data: {
+                data: {
 
-                labels:
-                  stockLabels,
+                    labels:
+                        labels,
 
-                datasets:
-                  stockDatasets
-
-              },
-
-              options: {
-
-                responsive: true,
-
-                maintainAspectRatio:
-                  false,
-
-                interaction: {
-
-                  mode: "index",
-
-                  intersect: false
+                    datasets:
+                        datasets
 
                 },
 
-                plugins: {
+                options: {
 
-                  legend: {
+                    responsive: true,
 
-                    display: false
+                    maintainAspectRatio: false,
 
-                  },
+                    interaction: {
 
-                  tooltip: {
+                        mode: "index",
 
-                    mode: "index",
+                        intersect: false
 
-                    intersect: false
+                    },
 
-                  }
+                    plugins: {
 
-                },
+                        legend: {
 
-                scales: {
+                            display: false
 
-                  x: {
+                        }
 
-                    ticks: {
+                    },
 
-                      maxTicksLimit: 6
+                    scales: {
+
+                        y: {
+
+                            title: {
+
+                                display: true,
+
+                                text:
+                                    "1か月前 = 100"
+
+                            }
+
+                        }
 
                     }
-
-                  },
-
-                  y: {
-
-                    title: {
-
-                      display: true,
-
-                      text:
-                        "1か月前 = 100"
-
-                    }
-
-                  }
 
                 }
 
-              }
+            }
+
+        );
+
+}
+
+
+// =========================
+// 株価TOP10グラフ
+// =========================
+
+function createStockChart(
+    stocks
+) {
+
+    const ctx =
+        document
+        .getElementById(
+            "stockChart"
+        )
+        .getContext("2d");
+
+
+    const labels =
+        stocks.length > 0
+        ? stocks[0].history.map(
+            item => item.date
+          )
+        : [];
+
+
+    const datasets =
+        stocks.map(
+            stock => {
+
+                return {
+
+                    label:
+                        stock.code
+                        + " "
+                        + stock.name,
+
+                    data:
+                        stock.history.map(
+                            item =>
+                                item.value
+                        ),
+
+                    borderWidth: 2,
+
+                    pointRadius: 0,
+
+                    tension: 0.2
+
+                };
+
+            }
+        );
+
+
+    stockChart =
+        new Chart(
+
+            ctx,
+
+            {
+
+                type: "line",
+
+                data: {
+
+                    labels:
+                        labels,
+
+                    datasets:
+                        datasets
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    interaction: {
+
+                        mode: "index",
+
+                        intersect: false
+
+                    },
+
+                    plugins: {
+
+                        legend: {
+
+                            display: false
+
+                        }
+
+                    },
+
+                    scales: {
+
+                        y: {
+
+                            title: {
+
+                                display: true,
+
+                                text:
+                                    "1か月前 = 100"
+
+                            }
+
+                        }
+
+                    }
+
+                }
 
             }
 
-          );
+        );
 
 
-          /*
-          銘柄TOP10一覧
-          */
+    createLegend(
+        "stockLegend",
+        stocks
+    );
 
-          const stockLegend =
+}
 
-            document.getElementById(
-              "stockLegend"
+
+// =========================
+// 凡例
+// =========================
+
+function createLegend(
+    elementId,
+    items
+) {
+
+    const container =
+        document.getElementById(
+            elementId
+        );
+
+
+    container.innerHTML = "";
+
+
+    items.forEach(
+        (item, index) => {
+
+            const div =
+                document.createElement(
+                    "span"
+                );
+
+
+            div.className =
+                "legend-item";
+
+
+            div.innerHTML = `
+
+                <span
+                    class="legend-line"
+                    style="
+                        background:
+                        hsl(
+                            ${index * 37 % 360},
+                            70%,
+                            50%
+                        );
+                    ">
+                </span>
+
+                ${item.code
+                    ? item.code + " "
+                    : ""
+                }
+
+                ${item.name
+                    ? item.name
+                    : item.industry
+                }
+
+            `;
+
+
+            container.appendChild(
+                div
             );
-
-
-          let stockLegendHtml = "";
-
-
-          data.top_gainers
-
-            .forEach(
-              (item, index) => {
-
-
-                const color =
-
-                  chartColors[
-
-                    index
-                    %
-                    chartColors.length
-
-                  ];
-
-
-                stockLegendHtml += `
-
-                  <div
-                    class="legend-row"
-                  >
-
-                    <div
-                      class="legend-left"
-                    >
-
-                      <div
-                        class="color-dot"
-                        style="
-                          background:
-                          ${color}
-                        "
-                      ></div>
-
-                      <div>
-
-                        <div
-                          class="name"
-                        >
-
-                          ${index + 1}.
-                          ${item.name}
-
-                        </div>
-
-                        <div
-                          class="code"
-                        >
-
-                          ${item.code}
-                          ・
-                          ${item.industry}
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    <div
-                      class="${percentClass(
-                        item.change_percent
-                      )}"
-                    >
-
-                      ${formatPercent(
-                        item.change_percent
-                      )}
-
-                    </div>
-
-                  </div>
-
-                `;
-
-              }
-            );
-
-
-          stockLegend.innerHTML =
-            stockLegendHtml;
 
         }
+    );
+
+}
 
 
-      })
+// =========================
+// %表示
+// =========================
+
+function formatPercent(
+    value
+) {
+
+    const sign =
+        value >= 0
+        ? "+"
+        : "";
+
+    return (
+        sign
+        + Number(value).toFixed(2)
+        + "%"
+    );
+
+}
 
 
-      .catch(error => {
-
-
-        document
-
-          .getElementById(
-            "content"
-          )
-
-          .innerHTML = `
-
-            <div
-              class="loading"
-            >
-
-              データの読み込みに失敗しました
-
-            </div>
-
-          `;
-
-
-        console.error(error);
-
-      });
-
-
-  </script>
+</script>
 
 </body>
 
