@@ -14,7 +14,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-
   <style>
 
     body {
@@ -33,19 +32,16 @@
       color: #222;
     }
 
-
     h1 {
       font-size: 24px;
       margin-bottom: 4px;
     }
-
 
     .updated {
       font-size: 13px;
       color: #666;
       margin-bottom: 20px;
     }
-
 
     .card {
 
@@ -63,7 +59,6 @@
 
     }
 
-
     h2 {
 
       font-size: 18px;
@@ -73,7 +68,6 @@
       margin-bottom: 8px;
 
     }
-
 
     .description {
 
@@ -87,7 +81,6 @@
 
     }
 
-
     .row {
 
       display: flex;
@@ -96,27 +89,20 @@
 
       align-items: center;
 
-      padding: 10px 0;
+      padding: 9px 0;
 
       border-bottom:
         1px solid #eee;
 
     }
 
-
     .row:last-child {
-
       border-bottom: none;
-
     }
-
 
     .name {
-
       font-weight: 600;
-
     }
-
 
     .code {
 
@@ -126,7 +112,6 @@
 
     }
 
-
     .up {
 
       color: #d33;
@@ -134,7 +119,6 @@
       font-weight: 700;
 
     }
-
 
     .down {
 
@@ -144,7 +128,6 @@
 
     }
 
-
     .flat {
 
       color: #666;
@@ -152,7 +135,6 @@
       font-weight: 700;
 
     }
-
 
     .loading {
 
@@ -164,7 +146,6 @@
 
     }
 
-
     .chart-container {
 
       position: relative;
@@ -175,13 +156,11 @@
 
     }
 
-
     .legend-list {
 
       margin-top: 14px;
 
     }
-
 
     .legend-row {
 
@@ -198,13 +177,9 @@
 
     }
 
-
     .legend-row:last-child {
-
       border-bottom: none;
-
     }
-
 
     .legend-left {
 
@@ -215,7 +190,6 @@
       gap: 8px;
 
     }
-
 
     .color-dot {
 
@@ -228,7 +202,6 @@
       flex-shrink: 0;
 
     }
-
 
     .note {
 
@@ -278,13 +251,12 @@
   </div>
 
 
-
   <script>
 
 
     /*
     =====================
-    色
+    グラフの色
     =====================
     */
 
@@ -302,7 +274,6 @@
       "#6c757d"
 
     ];
-
 
 
     /*
@@ -330,7 +301,6 @@
     }
 
 
-
     /*
     =====================
     パーセント表示
@@ -353,7 +323,6 @@
       );
 
     }
-
 
 
     /*
@@ -387,7 +356,9 @@
 
 
         /*
-        最終更新
+        =====================
+        最終更新時刻
+        =====================
         */
 
         document
@@ -409,7 +380,7 @@
 
         /*
         ==================================
-        業界別平均グラフ
+        ① 業界TOP10 折れ線グラフ
         ==================================
         */
 
@@ -423,16 +394,14 @@
 
             <p class="description">
 
-              直近1か月の騰落率が
-              現在上位10業界
+              1か月騰落率が現在上位の
+              10業界
 
               <br>
 
-              各業界の開始時点を
-              100として表示
+              1か月前 = 100
 
             </p>
-
 
             <div
               class="chart-container"
@@ -443,7 +412,6 @@
               ></canvas>
 
             </div>
-
 
             <div
               class="legend-list"
@@ -457,7 +425,36 @@
 
         /*
         ==================================
-        銘柄TOP10グラフ
+        ② 全業界ランキング
+        ==================================
+        */
+
+        html += `
+
+          <div class="card">
+
+            <h2>
+              📊 業界ランキング
+            </h2>
+
+            <p class="description">
+
+              全20業界・1か月騰落率
+
+            </p>
+
+            <div
+              id="industryRanking"
+            ></div>
+
+          </div>
+
+        `;
+
+
+        /*
+        ==================================
+        ③ 銘柄TOP10 折れ線グラフ
         ==================================
         */
 
@@ -471,11 +468,9 @@
 
             <p class="description">
 
-              1か月前の株価を
-              100として比較
+              1か月前 = 100
 
             </p>
-
 
             <div
               class="chart-container"
@@ -486,7 +481,6 @@
               ></canvas>
 
             </div>
-
 
             <div
               class="legend-list"
@@ -499,7 +493,9 @@
 
 
         /*
+        ==================================
         説明
+        ==================================
         */
 
         html += `
@@ -510,20 +506,21 @@
 
             <br>
 
-            ・すべての線は
+            すべての線は
             「1か月前＝100」
             として表示しています。
 
             <br>
 
-            ・業界グラフは、
-            その業界に登録されている
+            業界グラフは、
+            その業界に登録された
             銘柄の平均値動きです。
 
             <br>
 
-            ・業界は現在の1か月騰落率で
-            上位10業界だけを表示しています。
+            グラフは上位10業界ですが、
+            下のランキングでは
+            全20業界を確認できます。
 
           </div>
 
@@ -535,7 +532,7 @@
 
         /*
         ==================================
-        業界グラフ作成
+        ① 業界TOP10グラフ
         ==================================
         */
 
@@ -550,10 +547,6 @@
         ) {
 
 
-          /*
-          日付ラベル
-          */
-
           const industryLabels =
 
             data.top_industries[0]
@@ -564,10 +557,6 @@
               item => item.date
             );
 
-
-          /*
-          データセット
-          */
 
           const industryDatasets =
 
@@ -581,17 +570,12 @@
                   label:
 
                     item.industry
-
                     +
-
                     " "
-
                     +
-
                     formatPercent(
                       item.change_percent
                     ),
-
 
                   data:
 
@@ -602,7 +586,6 @@
                         point.value
                     ),
 
-
                   borderColor:
 
                     chartColors[
@@ -610,7 +593,6 @@
                       %
                       chartColors.length
                     ],
-
 
                   backgroundColor:
 
@@ -620,12 +602,9 @@
                       chartColors.length
                     ],
 
-
                   borderWidth: 2,
 
-
                   pointRadius: 0,
-
 
                   tension: 0.15
 
@@ -635,107 +614,76 @@
             );
 
 
-          const industryCtx =
-
-            document
-
-            .getElementById(
-              "industryChart"
-            );
-
-
           new Chart(
 
-            industryCtx,
+            document.getElementById(
+              "industryChart"
+            ),
 
             {
 
-              type:
-                "line",
-
+              type: "line",
 
               data: {
 
                 labels:
                   industryLabels,
 
-
                 datasets:
                   industryDatasets
 
               },
 
-
               options: {
 
-
-                responsive:
-                  true,
-
+                responsive: true,
 
                 maintainAspectRatio:
                   false,
 
-
                 interaction: {
 
-                  mode:
-                    "index",
+                  mode: "index",
 
-
-                  intersect:
-                    false
+                  intersect: false
 
                 },
 
-
                 plugins: {
-
 
                   legend: {
 
-                    display:
-                      false
+                    display: false
 
                   },
 
-
                   tooltip: {
 
-                    mode:
-                      "index",
+                    mode: "index",
 
-
-                    intersect:
-                      false
+                    intersect: false
 
                   }
 
                 },
 
-
                 scales: {
-
 
                   x: {
 
                     ticks: {
 
-                      maxTicksLimit:
-                        6
+                      maxTicksLimit: 6
 
                     }
 
                   },
 
-
                   y: {
 
                     title: {
 
-                      display:
-                        true,
-
+                      display: true,
 
                       text:
                         "1か月前 = 100"
@@ -754,19 +702,17 @@
 
 
           /*
-          業界凡例
+          業界TOP10の一覧
           */
 
           const industryLegend =
 
-            document
-
-            .getElementById(
+            document.getElementById(
               "industryLegend"
             );
 
 
-          let industryLegendHtml = "";
+          let legendHtml = "";
 
 
           data.top_industries
@@ -786,32 +732,25 @@
                   ];
 
 
-                industryLegendHtml += `
+                legendHtml += `
 
                   <div
                     class="legend-row"
                   >
 
-
                     <div
                       class="legend-left"
                     >
 
-
                       <div
-
                         class="color-dot"
-
                         style="
                           background:
                           ${color}
                         "
-
                       ></div>
 
-
                       <div>
-
 
                         <div
                           class="name"
@@ -822,19 +761,14 @@
 
                         </div>
 
-
                       </div>
-
 
                     </div>
 
-
                     <div
-
                       class="${percentClass(
                         item.change_percent
                       )}"
-
                     >
 
                       ${formatPercent(
@@ -843,28 +777,84 @@
 
                     </div>
 
-
                   </div>
 
                 `;
 
-
               }
-
             );
 
 
           industryLegend.innerHTML =
-
-            industryLegendHtml;
+            legendHtml;
 
         }
 
 
+        /*
+        ==================================
+        ② 全20業界ランキング
+        ==================================
+        */
+
+        const industryRanking =
+
+          document.getElementById(
+            "industryRanking"
+          );
+
+
+        let rankingHtml = "";
+
+
+        data.industries
+
+          .forEach(
+            (item, index) => {
+
+
+              rankingHtml += `
+
+                <div class="row">
+
+                  <div>
+
+                    <div class="name">
+
+                      ${index + 1}.
+                      ${item.industry}
+
+                    </div>
+
+                  </div>
+
+                  <div
+                    class="${percentClass(
+                      item.change_percent
+                    )}"
+                  >
+
+                    ${formatPercent(
+                      item.change_percent
+                    )}
+
+                  </div>
+
+                </div>
+
+              `;
+
+            }
+          );
+
+
+        industryRanking.innerHTML =
+          rankingHtml;
+
 
         /*
         ==================================
-        銘柄TOP10グラフ
+        ③ 銘柄TOP10グラフ
         ==================================
         */
 
@@ -879,10 +869,6 @@
         ) {
 
 
-          /*
-          日付ラベル
-          */
-
           const stockLabels =
 
             data.top_gainers[0]
@@ -893,10 +879,6 @@
               item => item.date
             );
 
-
-          /*
-          データセット
-          */
 
           const stockDatasets =
 
@@ -910,17 +892,12 @@
                   label:
 
                     item.name
-
                     +
-
                     " "
-
                     +
-
                     formatPercent(
                       item.change_percent
                     ),
-
 
                   data:
 
@@ -931,7 +908,6 @@
                         point.value
                     ),
 
-
                   borderColor:
 
                     chartColors[
@@ -939,7 +915,6 @@
                       %
                       chartColors.length
                     ],
-
 
                   backgroundColor:
 
@@ -949,12 +924,9 @@
                       chartColors.length
                     ],
 
-
                   borderWidth: 2,
 
-
                   pointRadius: 0,
-
 
                   tension: 0.15
 
@@ -964,107 +936,76 @@
             );
 
 
-          const stockCtx =
-
-            document
-
-            .getElementById(
-              "stockChart"
-            );
-
-
           new Chart(
 
-            stockCtx,
+            document.getElementById(
+              "stockChart"
+            ),
 
             {
 
-              type:
-                "line",
-
+              type: "line",
 
               data: {
 
                 labels:
                   stockLabels,
 
-
                 datasets:
                   stockDatasets
 
               },
 
-
               options: {
 
-
-                responsive:
-                  true,
-
+                responsive: true,
 
                 maintainAspectRatio:
                   false,
 
-
                 interaction: {
 
-                  mode:
-                    "index",
+                  mode: "index",
 
-
-                  intersect:
-                    false
+                  intersect: false
 
                 },
 
-
                 plugins: {
-
 
                   legend: {
 
-                    display:
-                      false
+                    display: false
 
                   },
 
-
                   tooltip: {
 
-                    mode:
-                      "index",
+                    mode: "index",
 
-
-                    intersect:
-                      false
+                    intersect: false
 
                   }
 
                 },
 
-
                 scales: {
-
 
                   x: {
 
                     ticks: {
 
-                      maxTicksLimit:
-                        6
+                      maxTicksLimit: 6
 
                     }
 
                   },
 
-
                   y: {
 
                     title: {
 
-                      display:
-                        true,
-
+                      display: true,
 
                       text:
                         "1か月前 = 100"
@@ -1083,14 +1024,12 @@
 
 
           /*
-          銘柄凡例
+          銘柄TOP10一覧
           */
 
           const stockLegend =
 
-            document
-
-            .getElementById(
+            document.getElementById(
               "stockLegend"
             );
 
@@ -1121,26 +1060,19 @@
                     class="legend-row"
                   >
 
-
                     <div
                       class="legend-left"
                     >
 
-
                       <div
-
                         class="color-dot"
-
                         style="
                           background:
                           ${color}
                         "
-
                       ></div>
 
-
                       <div>
-
 
                         <div
                           class="name"
@@ -1151,32 +1083,24 @@
 
                         </div>
 
-
                         <div
                           class="code"
                         >
 
                           ${item.code}
-
                           ・
-
                           ${item.industry}
 
                         </div>
 
-
                       </div>
-
 
                     </div>
 
-
                     <div
-
                       class="${percentClass(
                         item.change_percent
                       )}"
-
                     >
 
                       ${formatPercent(
@@ -1185,19 +1109,15 @@
 
                     </div>
 
-
                   </div>
 
                 `;
 
-
               }
-
             );
 
 
           stockLegend.innerHTML =
-
             stockLegendHtml;
 
         }
@@ -1228,15 +1148,12 @@
           `;
 
 
-        console.error(
-          error
-        );
+        console.error(error);
 
       });
 
 
   </script>
-
 
 </body>
 
