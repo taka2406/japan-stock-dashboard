@@ -4,21 +4,28 @@ import json
 from datetime import datetime, timezone, timedelta
 
 
-# -------------------------
-# 1. 銘柄リストを読み込む
-# -------------------------
+# =========================
+# 1. 銘柄リスト
+# =========================
 
 stocks = pd.read_csv("stocks.csv")
 
 stocks = stocks[
     stocks["enabled"] == True
-]
+].copy()
 
 stocks["code"] = (
     stocks["code"]
     .astype(str)
     .str.zfill(4)
 )
+
+# テーマ列が存在しない場合に備える
+for col in ["theme1", "theme2", "theme3"]:
+
+    if col not in stocks.columns:
+        stocks[col] = ""
+
 
 tickers = [
     f"{code}.T"
@@ -28,9 +35,9 @@ tickers = [
 print("取得する銘柄数:", len(tickers))
 
 
-# -------------------------
-# 2. 約1か月分の株価を取得
-# -------------------------
+# =========================
+# 2. 株価取得
+# =========================
 
 data = yf.download(
     tickers,
@@ -43,16 +50,16 @@ data = yf.download(
 
 results = []
 
-# 全銘柄のグラフデータ
 price_history = {}
 
-# 業界平均用
 industry_history_records = []
 
+theme_history_records = []
 
-# -------------------------
-# 3. 各銘柄のデータ
-# -------------------------
+
+# =========================
+# 3. 各銘柄
+# =========================
 
 for _, stock in stocks.iterrows():
 
@@ -75,27 +82,14 @@ for _, stock in stocks.iterrows():
             continue
 
 
-        # -------------------------
-        # 1か月前の価格
-        # -------------------------
-
         first_price = float(
             prices.iloc[0]
         )
-
-
-        # -------------------------
-        # 最新価格
-        # -------------------------
 
         current_price = float(
             prices.iloc[-1]
         )
 
-
-        # -------------------------
-        # 1か月騰落率
-        # -------------------------
 
         change_percent = (
             (
@@ -107,26 +101,18 @@ for _, stock in stocks.iterrows():
         )
 
 
-        # -------------------------
-        # 銘柄ランキング用
-        # -------------------------
-
         results.append({
 
-            "code":
-                code,
+            "code": code,
 
-            "name":
-                stock["name"],
+            "name": stock["name"],
 
-            "industry":
-                stock["industry"],
+            "industry": stock["industry"],
 
-            "price":
-                round(
-                    current_price,
-                    2
-                ),
+            "price": round(
+                current_price,
+                2
+            ),
 
             "month_change_percent":
                 round(
@@ -137,11 +123,9 @@ for _, stock in stocks.iterrows():
         })
 
 
-        # -------------------------
-        # 1か月推移
-        #
-        # 1か月前 = 100
-        # -------------------------
+        # =========================
+        # 銘柄の1か月推移
+        # =========================
 
         history = []
 
@@ -154,44 +138,82 @@ for _, stock in stocks.iterrows():
                 * 100
             )
 
+            date_text = date.strftime(
+                "%m/%d"
+            )
+
 
             history.append({
 
-                "date":
-                    date.strftime(
-                        "%m/%d"
-                    ),
+                "date": date_text,
 
-                "value":
-                    round(
-                        normalized,
-                        2
-                    )
+                "value": round(
+                    normalized,
+                    2
+                )
 
             })
 
 
-            # -------------------------
-            # 業界平均用
-            # -------------------------
+            # 業界平均
 
             industry_history_records.append({
 
-                "date":
-                    date.strftime(
-                        "%m/%d"
-                    ),
+                "date": date_text,
 
                 "industry":
                     stock["industry"],
 
-                "value":
-                    normalized
+                "value": normalized
 
             })
 
 
-        # ★ 全銘柄の履歴を保存
+            # =========================
+            # テーマ
+            # =========================
+
+            themes = []
+
+
+            for col in [
+                "theme1",
+                "theme2",
+                "theme3"
+            ]:
+
+                value = stock[col]
+
+                if pd.notna(value):
+
+                    value = str(value).strip()
+
+                    if value != "":
+
+                        themes.append(value)
+
+
+            # 同じテーマが
+            # 複数欄に入っていても1回だけ
+
+            themes = list(
+                dict.fromkeys(themes)
+            )
+
+
+            for theme in themes:
+
+                theme_history_records.append({
+
+                    "date": date_text,
+
+                    "theme": theme,
+
+                    "value": normalized
+
+                })
+
+
         price_history[code] = history
 
 
@@ -202,18 +224,18 @@ for _, stock in stocks.iterrows():
         )
 
 
-# -------------------------
+# =========================
 # 4. DataFrame
-# -------------------------
+# =========================
 
 results_df = pd.DataFrame(
     results
 )
 
 
-# -------------------------
+# =========================
 # 5. 業界ランキング
-# -------------------------
+# =========================
 
 industries = []
 
@@ -226,11 +248,8 @@ if not results_df.empty:
 
         results_df
 
-        .groupby(
-            "industry"
-        )[
-            "month_change_percent"
-        ]
+        .groupby("industry")
+        ["month_change_percent"]
 
         .mean()
 
@@ -241,16 +260,13 @@ if not results_df.empty:
     )
 
 
-    # 全業界ランキング
-
     for industry, avg in (
         industry_avg.items()
     ):
 
         industries.append({
 
-            "industry":
-                industry,
+            "industry": industry,
 
             "change_percent":
                 round(
@@ -260,8 +276,6 @@ if not results_df.empty:
 
         })
 
-
-    # 上位10業界
 
     top_industry_names = (
 
@@ -276,21 +290,20 @@ if not results_df.empty:
     )
 
 
-# -------------------------
-# 6. 業界平均の推移
-# -------------------------
+# =========================
+# 6. 業界グラフ
+# =========================
 
 industry_history_df = pd.DataFrame(
     industry_history_records
 )
-
 
 top_industries = []
 
 
 if not industry_history_df.empty:
 
-    industry_daily_avg = (
+    daily = (
 
         industry_history_df
 
@@ -299,9 +312,7 @@ if not industry_history_df.empty:
                 "industry",
                 "date"
             ]
-        )[
-            "value"
-        ]
+        )["value"]
 
         .mean()
 
@@ -310,58 +321,38 @@ if not industry_history_df.empty:
     )
 
 
-    # 上位10業界
-
     for industry in top_industry_names:
 
-        history_df = (
-
-            industry_daily_avg[
-                industry_daily_avg[
-                    "industry"
-                ] == industry
-            ]
-
-            .copy()
-
-        )
-
+        temp = daily[
+            daily["industry"]
+            == industry
+        ]
 
         history = []
 
 
-        for _, row in (
-            history_df.iterrows()
-        ):
+        for _, row in temp.iterrows():
 
             history.append({
 
-                "date":
-                    row["date"],
+                "date": row["date"],
 
-                "value":
-                    round(
-                        float(
-                            row["value"]
-                        ),
-                        2
-                    )
+                "value": round(
+                    float(row["value"]),
+                    2
+                )
 
             })
 
 
-        # 業界の最終騰落率
-
-        industry_change = next(
+        change = next(
 
             (
-                item[
-                    "change_percent"
-                ]
+                x["change_percent"]
 
-                for item in industries
+                for x in industries
 
-                if item["industry"]
+                if x["industry"]
                 == industry
             ),
 
@@ -372,21 +363,350 @@ if not industry_history_df.empty:
 
         top_industries.append({
 
-            "industry":
-                industry,
+            "industry": industry,
 
-            "change_percent":
-                industry_change,
+            "change_percent": change,
 
-            "history":
-                history
+            "history": history
 
         })
 
 
-# -------------------------
-# 7. 値上がりTOP10
-# -------------------------
+# =========================
+# 7. 業界別銘柄
+# =========================
+
+industry_stocks = {}
+
+
+for _, item in results_df.iterrows():
+
+    industry = item["industry"]
+
+    code = item["code"]
+
+
+    stock_data = {
+
+        "code": code,
+
+        "name": item["name"],
+
+        "price": item["price"],
+
+        "change_percent":
+            item["month_change_percent"],
+
+        "history":
+            price_history.get(
+                code,
+                []
+            )
+
+    }
+
+
+    if industry not in industry_stocks:
+
+        industry_stocks[industry] = []
+
+
+    industry_stocks[industry].append(
+        stock_data
+    )
+
+
+for industry in industry_stocks:
+
+    industry_stocks[industry].sort(
+
+        key=lambda x:
+            x["change_percent"],
+
+        reverse=True
+
+    )
+
+
+# =========================
+# 8. テーマランキング
+# =========================
+
+theme_stock_records = []
+
+
+for _, stock in stocks.iterrows():
+
+    code = stock["code"]
+
+    result = results_df[
+        results_df["code"]
+        == code
+    ]
+
+    if result.empty:
+        continue
+
+
+    change = float(
+        result.iloc[0]
+        ["month_change_percent"]
+    )
+
+
+    themes = []
+
+
+    for col in [
+        "theme1",
+        "theme2",
+        "theme3"
+    ]:
+
+        value = stock[col]
+
+        if pd.notna(value):
+
+            value = str(value).strip()
+
+            if value != "":
+                themes.append(value)
+
+
+    themes = list(
+        dict.fromkeys(themes)
+    )
+
+
+    for theme in themes:
+
+        theme_stock_records.append({
+
+            "theme": theme,
+
+            "code": code,
+
+            "name": stock["name"],
+
+            "price":
+                float(
+                    result.iloc[0]
+                    ["price"]
+                ),
+
+            "change_percent": change,
+
+            "history":
+                price_history.get(
+                    code,
+                    []
+                )
+
+        })
+
+
+theme_stock_df = pd.DataFrame(
+    theme_stock_records
+)
+
+
+themes = []
+
+top_theme_names = []
+
+
+if not theme_stock_df.empty:
+
+    theme_avg = (
+
+        theme_stock_df
+
+        .groupby("theme")
+        ["change_percent"]
+
+        .mean()
+
+        .sort_values(
+            ascending=False
+        )
+
+    )
+
+
+    for theme, avg in (
+        theme_avg.items()
+    ):
+
+        themes.append({
+
+            "theme": theme,
+
+            "change_percent":
+                round(
+                    float(avg),
+                    2
+                )
+
+        })
+
+
+    top_theme_names = (
+
+        theme_avg
+
+        .head(10)
+
+        .index
+
+        .tolist()
+
+    )
+
+
+# =========================
+# 9. テーマの日次平均
+# =========================
+
+theme_history_df = pd.DataFrame(
+    theme_history_records
+)
+
+top_themes = []
+
+
+if not theme_history_df.empty:
+
+    theme_daily = (
+
+        theme_history_df
+
+        .groupby(
+            [
+                "theme",
+                "date"
+            ]
+        )["value"]
+
+        .mean()
+
+        .reset_index()
+
+    )
+
+
+    for theme in top_theme_names:
+
+        temp = theme_daily[
+            theme_daily["theme"]
+            == theme
+        ]
+
+        history = []
+
+
+        for _, row in temp.iterrows():
+
+            history.append({
+
+                "date": row["date"],
+
+                "value": round(
+                    float(row["value"]),
+                    2
+                )
+
+            })
+
+
+        change = next(
+
+            (
+                x["change_percent"]
+
+                for x in themes
+
+                if x["theme"]
+                == theme
+            ),
+
+            0
+
+        )
+
+
+        top_themes.append({
+
+            "theme": theme,
+
+            "change_percent": change,
+
+            "history": history
+
+        })
+
+
+# =========================
+# 10. テーマ別銘柄
+# =========================
+
+theme_stocks = {}
+
+
+if not theme_stock_df.empty:
+
+    for theme in (
+        theme_stock_df["theme"]
+        .unique()
+    ):
+
+        temp = theme_stock_df[
+            theme_stock_df["theme"]
+            == theme
+        ].copy()
+
+
+        temp = temp.sort_values(
+
+            "change_percent",
+
+            ascending=False
+
+        )
+
+
+        theme_stocks[theme] = []
+
+
+        for _, row in temp.iterrows():
+
+            theme_stocks[theme].append({
+
+                "code":
+                    row["code"],
+
+                "name":
+                    row["name"],
+
+                "price":
+                    row["price"],
+
+                "change_percent":
+                    round(
+                        float(
+                            row["change_percent"]
+                        ),
+                        2
+                    ),
+
+                "history":
+                    row["history"]
+
+            })
+
+
+# =========================
+# 11. 株価TOP10
+# =========================
 
 top_gainers_df = (
 
@@ -411,24 +731,19 @@ for _, item in (
 
     code = item["code"]
 
+
     top_gainers.append({
 
-        "code":
-            code,
+        "code": code,
 
-        "name":
-            item["name"],
+        "name": item["name"],
 
-        "industry":
-            item["industry"],
+        "industry": item["industry"],
 
-        "price":
-            item["price"],
+        "price": item["price"],
 
         "change_percent":
-            item[
-                "month_change_percent"
-            ],
+            item["month_change_percent"],
 
         "history":
             price_history.get(
@@ -439,71 +754,9 @@ for _, item in (
     })
 
 
-# -------------------------
-# 8. ★ 業界ごとの全銘柄データ
-# -------------------------
-
-industry_stocks = {}
-
-
-for _, item in results_df.iterrows():
-
-    industry = item["industry"]
-    code = item["code"]
-
-    stock_data = {
-
-        "code":
-            code,
-
-        "name":
-            item["name"],
-
-        "price":
-            item["price"],
-
-        "change_percent":
-            item[
-                "month_change_percent"
-            ],
-
-        "history":
-            price_history.get(
-                code,
-                []
-            )
-
-    }
-
-
-    if industry not in industry_stocks:
-
-        industry_stocks[industry] = []
-
-
-    industry_stocks[industry].append(
-        stock_data
-    )
-
-
-# 各業界の銘柄を
-# 1か月騰落率の高い順に並べる
-
-for industry in industry_stocks:
-
-    industry_stocks[industry].sort(
-
-        key=lambda x:
-            x["change_percent"],
-
-        reverse=True
-
-    )
-
-
-# -------------------------
-# 9. JSONを保存
-# -------------------------
+# =========================
+# 12. JSON
+# =========================
 
 jst = timezone(
     timedelta(hours=9)
@@ -513,54 +766,48 @@ jst = timezone(
 output = {
 
     "updated_at":
-
         datetime.now(jst).strftime(
             "%Y-%m-%d %H:%M"
         ),
 
-
-    # 全業界ランキング
+    # 業界
     "industries":
         industries,
 
-
-    # 上位10業界
     "top_industries":
         top_industries,
 
-
-    # 株価上昇TOP10
-    "top_gainers":
-        top_gainers,
-
-
-    # ★ 業界別の全銘柄
     "industry_stocks":
-        industry_stocks
+        industry_stocks,
+
+    # テーマ
+    "themes":
+        themes,
+
+    "top_themes":
+        top_themes,
+
+    "theme_stocks":
+        theme_stocks,
+
+    # 銘柄
+    "top_gainers":
+        top_gainers
 
 }
 
 
 with open(
-
     "data.json",
-
     "w",
-
     encoding="utf-8"
-
 ) as f:
 
     json.dump(
-
         output,
-
         f,
-
         ensure_ascii=False,
-
         indent=2
-
     )
 
 
