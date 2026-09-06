@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -820,7 +821,8 @@ const boundaryPlugin = {
 
         const target =
             new Date(
-                options.date
+                options.date +
+                "T00:00:00"
             ).getTime();
 
 
@@ -829,7 +831,8 @@ const boundaryPlugin = {
 
                 const t =
                     new Date(
-                        label
+                        label +
+                        "T00:00:00"
                     ).getTime();
 
 
@@ -909,8 +912,7 @@ const boundaryPlugin = {
 
 
         /* --------------------------------
-           赤い▽
-           小さいマーカーは作らない
+           赤▽
         -------------------------------- */
 
         const y =
@@ -1077,15 +1079,6 @@ function changeFromHistory(
 /* ==================================================
    ランキング％表示
 ================================================== */
-
-/*
-   正常：
-   40.91 → +40.91%
-
-   もし現在のJSON側の値が
-   4091 → +40.91%
-   になっていても自動修正する。
-*/
 
 function rankingPercent(
     value
@@ -1279,7 +1272,8 @@ function createLineChart(
     canvas,
     datasets,
     labels,
-    markerDate = null
+    markerDate = null,
+    period = "1m"
 ) {
 
     return new Chart(
@@ -1312,6 +1306,28 @@ function createLineChart(
 
                 maintainAspectRatio:
                     false,
+
+
+                /*
+                   グラフ左側の余白を小さくして
+                   グラフを広く使う
+                */
+
+                layout: {
+
+                    padding: {
+
+                        left: 0,
+
+                        right: 4,
+
+                        top: 0,
+
+                        bottom: 0
+
+                    }
+
+                },
 
 
                 interaction: {
@@ -1349,13 +1365,22 @@ function createLineChart(
 
                     y: {
 
+                        /*
+                           「基準値 = 100」を削除
+                        */
+
                         title: {
 
                             display:
-                                true,
+                                false
 
-                            text:
-                                "基準値 = 100"
+                        },
+
+
+                        ticks: {
+
+                            padding:
+                                2
 
                         }
 
@@ -1369,11 +1394,105 @@ function createLineChart(
                             maxRotation:
                                 0,
 
+                            minRotation:
+                                0,
+
                             autoSkip:
                                 true,
 
                             maxTicksLimit:
-                                8
+                                8,
+
+
+                            /*
+                               1月・半年：
+                               2026/09/06 → 9/6
+
+                               5年：
+                               2026/09/06 → 26/9
+                            */
+
+                            callback:
+                                function(
+                                    value,
+                                    index
+                                ) {
+
+                                    const label =
+                                        this.getLabelForValue(
+                                            value
+                                        );
+
+
+                                    if (
+                                        !label
+                                    ) {
+
+                                        return "";
+
+                                    }
+
+
+                                    const date =
+                                        new Date(
+                                            label +
+                                            "T00:00:00"
+                                        );
+
+
+                                    if (
+                                        Number.isNaN(
+                                            date.getTime()
+                                        )
+                                    ) {
+
+                                        return label;
+
+                                    }
+
+
+                                    const month =
+                                        date.getMonth()
+                                        + 1;
+
+
+                                    const day =
+                                        date.getDate();
+
+
+                                    if (
+                                        period ===
+                                        "5y"
+                                    ) {
+
+                                        const year =
+                                            String(
+                                                date.getFullYear()
+                                            ).slice(
+                                                -2
+                                            );
+
+
+                                        return (
+                                            year
+                                            +
+                                            "/"
+                                            +
+                                            month
+                                        );
+
+                                    }
+
+
+                                    return (
+                                        month
+                                        +
+                                        "/"
+                                        +
+                                        day
+                                    );
+
+                                }
 
                         }
 
@@ -1555,7 +1674,8 @@ function getMarkerDate(
         new Date(
             history[
                 history.length - 1
-            ].date
+            ].date +
+            "T00:00:00"
         );
 
 
@@ -1566,12 +1686,39 @@ function getMarkerDate(
     );
 
 
-    return latest
-        .toISOString()
-        .slice(
-            0,
-            10
+    const year =
+        latest.getFullYear();
+
+
+    const month =
+        String(
+            latest.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
         );
+
+
+    const day =
+        String(
+            latest.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    return (
+        year
+        +
+        "-"
+        +
+        month
+        +
+        "-"
+        +
+        day
+    );
 
 }
 
@@ -1777,7 +1924,9 @@ function renderTopChart(
 
                 prepared.labels,
 
-                markerDate
+                markerDate,
+
+                selectedPeriod
 
             );
 
@@ -1803,7 +1952,9 @@ function renderTopChart(
 
                 prepared.labels,
 
-                markerDate
+                markerDate,
+
+                selectedPeriod
 
             );
 
@@ -2342,21 +2493,6 @@ function getDetailHistory(
     period
 ) {
 
-    /*
-       ここが重要。
-
-       1月
-       → 1m
-
-       半年
-       → from_1m_6m
-          （1か月前 = 100）
-
-       5年
-       → from_1m_5y
-          （1か月前 = 100）
-    */
-
     return historyOf(
         stock,
         period,
@@ -2493,7 +2629,9 @@ function renderGroupDetailChart(
 
             prepared.labels,
 
-            markerDate
+            markerDate,
+
+            period
 
         );
 
@@ -2646,7 +2784,7 @@ function renderStockList(
 
 
             /* --------------------------------
-               値上がりTOP10などの銘柄詳細
+               銘柄詳細
             -------------------------------- */
 
             if (
@@ -2866,7 +3004,9 @@ function renderStockList(
 
                                 prepared.labels,
 
-                                markerDate
+                                markerDate,
+
+                                currentPeriod
 
                             );
 
@@ -3132,9 +3272,7 @@ function setupGlobalPeriodButtons() {
 
 
                         /*
-                           ここが今回の重要ポイント。
-
-                           押した瞬間のスクロール位置を保存。
+                           現在位置を保存
                         */
 
                         const scrollY =
@@ -3150,16 +3288,15 @@ function setupGlobalPeriodButtons() {
 
 
                         /*
-                           業界・テーマ・銘柄ランキング、
-                           TOP10グラフを全部再描画。
+                           全体を再描画
                         */
 
                         renderAll();
 
 
                         /*
-                           iPhone Safariでも
-                           再描画後に元の位置へ戻す。
+                           再描画後に
+                           元のスクロール位置へ戻す
                         */
 
                         requestAnimationFrame(
