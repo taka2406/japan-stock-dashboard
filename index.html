@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -24,39 +24,21 @@ body {
         sans-serif;
 
     margin: 0;
-
     background: #f5f5f5;
-
     color: #222;
 }
 
-
-/* ==================================================
-   全体
-================================================== */
-
 .container {
     max-width: 700px;
-
     margin: auto;
-
     padding: 16px;
 }
 
-
-/* ==================================================
-   上部固定ヘッダー
-================================================== */
-
 .header {
     position: sticky;
-
     top: 0;
-
     z-index: 1000;
-
     background: rgba(245,245,245,0.96);
-
     backdrop-filter: blur(8px);
 
     padding:
@@ -73,36 +55,21 @@ body {
     padding-right: 16px;
 }
 
-
 h1 {
     font-size: 24px;
-
-    margin:
-        0
-        0
-        6px;
+    margin: 0 0 6px;
 }
-
 
 .updated {
     color: #777;
-
     font-size: 13px;
-
     margin-bottom: 10px;
 }
 
-
-/* ==================================================
-   一番上の期間ボタン
-================================================== */
-
 .period-bar {
     display: flex;
-
     gap: 8px;
 }
-
 
 .period-button {
     flex: 1;
@@ -112,7 +79,6 @@ h1 {
         #ccc;
 
     background: white;
-
     border-radius: 9px;
 
     padding:
@@ -120,33 +86,21 @@ h1 {
         6px;
 
     font-size: 14px;
-
     font-weight: 600;
-
     cursor: pointer;
 }
 
-
 .period-button.active {
     background: #222;
-
     color: white;
-
     border-color: #222;
 }
 
-
-/* ==================================================
-   カード
-================================================== */
-
 .card {
     background: white;
-
     border-radius: 14px;
 
     padding: 16px;
-
     margin-bottom: 18px;
 
     box-shadow:
@@ -156,35 +110,20 @@ h1 {
         rgba(0,0,0,0.06);
 }
 
-
 h2 {
     font-size: 18px;
-
-    margin:
-        0
-        0
-        14px;
+    margin: 0 0 14px;
 }
-
-
-/* ==================================================
-   グラフ
-================================================== */
 
 .chart-container {
     position: relative;
-
     width: 100%;
-
     height: 330px;
 }
 
-
 .detail-chart {
     position: relative;
-
     width: 100%;
-
     height: 280px;
 
     margin:
@@ -193,48 +132,30 @@ h2 {
         14px;
 }
 
-
 canvas {
     max-width: 100%;
 }
 
-
-/* ==================================================
-   凡例
-================================================== */
-
 .legend {
     margin-top: 12px;
-
     font-size: 12px;
-
     line-height: 1.8;
 }
 
-
 .legend-item {
     display: inline-block;
-
     margin-right: 10px;
 }
-
 
 .legend-line {
     display: inline-block;
 
     width: 18px;
-
     height: 3px;
 
     margin-right: 4px;
-
     vertical-align: middle;
 }
-
-
-/* ==================================================
-   ランキング
-================================================== */
 
 .ranking-row {
     border-bottom:
@@ -242,12 +163,9 @@ canvas {
         #eee;
 }
 
-
 .ranking-button {
     width: 100%;
-
     border: none;
-
     background: white;
 
     padding:
@@ -255,59 +173,39 @@ canvas {
         4px;
 
     display: flex;
-
     align-items: center;
 
     text-align: left;
-
     font-size: 15px;
-
     cursor: pointer;
 }
-
 
 .ranking-button:active {
     background: #f5f5f5;
 }
 
-
 .rank {
     width: 32px;
-
     font-weight: bold;
-
     color: #777;
 }
 
-
 .ranking-name {
     flex: 1;
-
     font-weight: 600;
 }
 
-
 .ranking-change {
     font-weight: bold;
-
     margin-right: 8px;
 }
 
-
 .arrow {
     width: 20px;
-
     text-align: center;
-
     color: #888;
-
     font-size: 13px;
 }
-
-
-/* ==================================================
-   詳細
-================================================== */
 
 .detail {
     display: none;
@@ -321,15 +219,12 @@ canvas {
     background: #fafafa;
 }
 
-
 .detail.open {
     display: block;
 }
 
-
 .detail-title {
     font-size: 15px;
-
     font-weight: bold;
 
     margin:
@@ -338,19 +233,11 @@ canvas {
         10px;
 }
 
-
-/* ==================================================
-   詳細グラフの期間ボタン
-================================================== */
-
 .detail-period-bar {
     display: flex;
-
     gap: 6px;
-
     margin-bottom: 8px;
 }
-
 
 .detail-period-button {
     border:
@@ -358,7 +245,6 @@ canvas {
         #ccc;
 
     background: white;
-
     border-radius: 7px;
 
     padding:
@@ -366,27 +252,17 @@ canvas {
         10px;
 
     font-size: 12px;
-
     cursor: pointer;
 }
 
-
 .detail-period-button.active {
     background: #eee;
-
     border-color: #888;
-
     font-weight: bold;
 }
 
-
-/* ==================================================
-   銘柄ランキング
-================================================== */
-
 .stock-row {
     display: flex;
-
     align-items: center;
 
     padding:
@@ -400,55 +276,40 @@ canvas {
     font-size: 13px;
 }
 
-
 .stock-row.clickable {
     cursor: pointer;
 }
-
 
 .stock-row.clickable:active {
     background: #f5f5f5;
 }
 
-
 .stock-rank {
     width: 28px;
-
     color: #777;
 }
 
-
 .stock-code {
     width: 52px;
-
     color: #888;
-
     font-size: 11px;
 }
 
-
 .stock-name {
     flex: 1;
-
     font-weight: 500;
 }
 
-
 .stock-change {
     font-weight: bold;
-
     margin-right: 8px;
 }
 
-
 .stock-arrow {
     width: 18px;
-
     color: #888;
-
     text-align: center;
 }
-
 
 .stock-detail {
     display: none;
@@ -462,52 +323,64 @@ canvas {
     background: #fafafa;
 }
 
-
 .stock-detail.open {
     display: block;
 }
-
-
-/* ==================================================
-   色
-================================================== */
 
 .positive {
     color: #d33;
 }
 
-
 .negative {
     color: #1670c5;
 }
 
-
 .no-data {
     color: #888;
-
     font-size: 13px;
-
     padding:
         10px
         0;
 }
 
-
-/* ==================================================
-   テーマ
-================================================== */
-
 .theme-heading {
     display: flex;
-
     align-items: center;
-
     gap: 6px;
 }
 
-
 .fire {
     font-size: 18px;
+}
+
+
+/* ==================================================
+   ランキングの「もっと見る」
+================================================== */
+
+.ranking-expand-button {
+    width: 100%;
+
+    border: none;
+
+    background: white;
+
+    color: #777;
+
+    font-size: 20px;
+
+    padding:
+        8px
+        0
+        4px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+.ranking-expand-button:active {
+    background: #f5f5f5;
 }
 
 
@@ -528,7 +401,6 @@ canvas {
             18px;
 
         padding-left: 12px;
-
         padding-right: 12px;
     }
 
@@ -557,60 +429,56 @@ canvas {
     .ranking-name {
         font-size: 14px;
     }
+
 }
 
 </style>
-</head>
 
+</head>
 
 <body>
 
 <div class="container">
 
-
-<!-- ==================================================
-     上部
-================================================== -->
-
 <div class="header">
 
-    <h1>
-        日本株ダッシュボード
-    </h1>
+```
+<h1>
+    日本株ダッシュボード
+</h1>
 
-    <div
-        class="updated"
-        id="updated">
-        読み込み中...
-    </div>
-
-
-    <div
-        class="period-bar"
-        id="globalPeriodBar">
-
-        <button
-            class="period-button active"
-            data-period="1m">
-            1月
-        </button>
-
-        <button
-            class="period-button"
-            data-period="6m">
-            半年
-        </button>
-
-        <button
-            class="period-button"
-            data-period="5y">
-            5年
-        </button>
-
-    </div>
-
+<div
+    class="updated"
+    id="updated">
+    読み込み中...
 </div>
 
+<div
+    class="period-bar"
+    id="globalPeriodBar">
+
+    <button
+        class="period-button active"
+        data-period="1m">
+        1月
+    </button>
+
+    <button
+        class="period-button"
+        data-period="6m">
+        半年
+    </button>
+
+    <button
+        class="period-button"
+        data-period="5y">
+        5年
+    </button>
+
+</div>
+```
+
+</div>
 
 <!-- ==================================================
      業界 TOP10
@@ -618,25 +486,26 @@ canvas {
 
 <div class="card">
 
-    <h2>
-        業界 TOP10
-    </h2>
+```
+<h2>
+    業界 TOP10
+</h2>
 
-    <div class="chart-container">
+<div class="chart-container">
 
-        <canvas
-            id="industryChart">
-        </canvas>
-
-    </div>
-
-    <div
-        id="industryLegend"
-        class="legend">
-    </div>
+    <canvas
+        id="industryChart">
+    </canvas>
 
 </div>
 
+<div
+    id="industryLegend"
+    class="legend">
+</div>
+```
+
+</div>
 
 <!-- ==================================================
      業界ランキング
@@ -644,16 +513,17 @@ canvas {
 
 <div class="card">
 
-    <h2>
-        業界ランキング
-    </h2>
+```
+<h2>
+    業界ランキング
+</h2>
 
-    <div
-        id="industryRanking">
-    </div>
+<div
+    id="industryRanking">
+</div>
+```
 
 </div>
-
 
 <!-- ==================================================
      テーマ TOP10
@@ -661,31 +531,32 @@ canvas {
 
 <div class="card">
 
-    <h2 class="theme-heading">
+```
+<h2 class="theme-heading">
 
-        <span class="fire">
-            🔥
-        </span>
+    <span class="fire">
+        🔥
+    </span>
 
-        テーマ TOP10
+    テーマ TOP10
 
-    </h2>
+</h2>
 
-    <div class="chart-container">
+<div class="chart-container">
 
-        <canvas
-            id="themeChart">
-        </canvas>
-
-    </div>
-
-    <div
-        id="themeLegend"
-        class="legend">
-    </div>
+    <canvas
+        id="themeChart">
+</canvas>
 
 </div>
 
+<div
+    id="themeLegend"
+    class="legend">
+</div>
+```
+
+</div>
 
 <!-- ==================================================
      テーマランキング
@@ -693,22 +564,23 @@ canvas {
 
 <div class="card">
 
-    <h2 class="theme-heading">
+```
+<h2 class="theme-heading">
 
-        <span class="fire">
-            🔥
-        </span>
+    <span class="fire">
+        🔥
+    </span>
 
-        テーマランキング
+    テーマランキング
 
-    </h2>
+</h2>
 
-    <div
-        id="themeRanking">
-    </div>
+<div
+    id="themeRanking">
+</div>
+```
 
 </div>
-
 
 <!-- ==================================================
      値上がり銘柄 TOP10
@@ -716,19 +588,19 @@ canvas {
 
 <div class="card">
 
-    <h2 id="gainerTitle">
-        値上がり銘柄 TOP10
-    </h2>
+```
+<h2 id="gainerTitle">
+    値上がり銘柄 TOP10
+</h2>
 
-    <div
-        id="stockRanking">
-    </div>
+<div
+    id="stockRanking">
+</div>
+```
 
 </div>
 
-
 </div>
-
 
 <script>
 
@@ -757,26 +629,139 @@ let detailPeriods = {};
 const chartColors = [
 
     "#e74c3c",
-
     "#3498db",
-
     "#2ecc71",
-
     "#9b59b6",
-
     "#f39c12",
-
     "#1abc9c",
-
     "#e67e22",
-
     "#34495e",
-
     "#e84393",
-
     "#16a085"
 
 ];
+
+
+/* ==================================================
+   ランキング展開状態
+================================================== */
+
+let rankingExpanded = {
+
+    industry: false,
+
+    theme: false
+
+};
+
+
+/* ==================================================
+   日付を安全にDateへ変換
+================================================== */
+
+function parseDate(value) {
+
+    if (!value) {
+        return null;
+    }
+
+    const text =
+        String(value);
+
+    let date =
+        new Date(
+            text +
+            (
+                text.includes("T")
+                    ? ""
+                    : "T00:00:00"
+            )
+        );
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        date =
+            new Date(value);
+
+    }
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return null;
+
+    }
+
+    return date;
+
+}
+
+
+/* ==================================================
+   グラフ用日付表示
+================================================== */
+
+function formatChartDate(
+    value,
+    period
+) {
+
+    const date =
+        parseDate(value);
+
+    if (!date) {
+        return String(value ?? "");
+    }
+
+    const month =
+        date.getMonth() + 1;
+
+    const day =
+        date.getDate();
+
+    /* --------------------------------
+       5年 → 26/9
+    -------------------------------- */
+
+    if (
+        period === "5y"
+    ) {
+
+        const year =
+            String(
+                date.getFullYear()
+            ).slice(-2);
+
+        return (
+            year
+            +
+            "/"
+            +
+            month
+        );
+
+    }
+
+    /* --------------------------------
+       1月・半年 → 9/6
+    -------------------------------- */
+
+    return (
+        month
+        +
+        "/"
+        +
+        day
+    );
+
+}
 
 
 /* ==================================================
@@ -788,7 +773,6 @@ const boundaryPlugin = {
     id:
         "boundaryMarker",
 
-
     afterDraw(
         chart,
         args,
@@ -799,53 +783,61 @@ const boundaryPlugin = {
             !options ||
             !options.date
         ) {
-            return;
-        }
 
+            return;
+
+        }
 
         const labels =
             chart.data.labels || [];
 
-
         if (
             !labels.length
         ) {
+
+            return;
+
+        }
+
+        const targetDate =
+            parseDate(
+                options.date
+            );
+
+        if (!targetDate) {
             return;
         }
 
+        const target =
+            targetDate.getTime();
 
         let index = -1;
 
-        let best = Infinity;
-
-
-        const target =
-            new Date(
-                options.date +
-                "T00:00:00"
-            ).getTime();
+        let best =
+            Infinity;
 
 
         labels.forEach(
-            (label, i) => {
+            (
+                label,
+                i
+            ) => {
 
-                const t =
-                    new Date(
-                        label +
-                        "T00:00:00"
-                    ).getTime();
+                const date =
+                    parseDate(label);
 
+                if (!date) {
+                    return;
+                }
 
                 const diff =
                     Math.abs(
-                        t - target
+                        date.getTime()
+                        -
+                        target
                     );
 
-
                 if (
-                    Number.isFinite(
-                        diff
-                    ) &&
                     diff < best
                 ) {
 
@@ -862,7 +854,9 @@ const boundaryPlugin = {
         if (
             index < 0
         ) {
+
             return;
+
         }
 
 
@@ -876,7 +870,6 @@ const boundaryPlugin = {
         const area =
             chart.chartArea;
 
-
         const ctx =
             chart.ctx;
 
@@ -885,7 +878,7 @@ const boundaryPlugin = {
 
 
         /* --------------------------------
-           細いグレー縦線
+           グレー縦線
         -------------------------------- */
 
         ctx.strokeStyle =
@@ -900,7 +893,7 @@ const boundaryPlugin = {
 
         ctx.moveTo(
             x,
-            area.top + 12
+            area.top
         );
 
         ctx.lineTo(
@@ -912,7 +905,7 @@ const boundaryPlugin = {
 
 
         /* --------------------------------
-           赤▽
+           赤い▽
         -------------------------------- */
 
         const y =
@@ -925,6 +918,9 @@ const boundaryPlugin = {
             "#d33";
 
         ctx.lineWidth = 2;
+
+        ctx.lineJoin =
+            "round";
 
 
         ctx.beginPath();
@@ -973,14 +969,9 @@ function historyOf(
         return [];
     }
 
-
     const p =
         stock.periods || {};
 
-
-    /* --------------------------------
-       1か月前 = 100 のまま半年
-    -------------------------------- */
 
     if (
         fixedTo1m &&
@@ -995,10 +986,6 @@ function historyOf(
     }
 
 
-    /* --------------------------------
-       1か月前 = 100 のまま5年
-    -------------------------------- */
-
     if (
         fixedTo1m &&
         period === "5y"
@@ -1012,10 +999,6 @@ function historyOf(
     }
 
 
-    /* --------------------------------
-       通常の期間
-    -------------------------------- */
-
     if (
         p[period] &&
         p[period].history
@@ -1026,8 +1009,12 @@ function historyOf(
     }
 
 
-    if (stock.history) {
+    if (
+        stock.history
+    ) {
+
         return stock.history;
+
     }
 
 
@@ -1037,7 +1024,7 @@ function historyOf(
 
 
 /* ==================================================
-   グラフの最後の値から変化率を計算
+   グラフの最後の値から変化率
 ================================================== */
 
 function changeFromHistory(
@@ -1087,7 +1074,6 @@ function rankingPercent(
     const n =
         Number(value);
 
-
     if (
         !Number.isFinite(n)
     ) {
@@ -1123,7 +1109,6 @@ function formatPercent(
         rankingPercent(
             value
         );
-
 
     if (n === null) {
         return "--";
@@ -1182,7 +1167,10 @@ function groupAverageChange(
 
     return (
         values.reduce(
-            (a, b) =>
+            (
+                a,
+                b
+            ) =>
                 a + b,
             0
         )
@@ -1207,7 +1195,8 @@ function groupList(
             type === "industry"
                 ? "industry_stocks"
                 : "theme_stocks"
-        ] || {};
+        ]
+        || {};
 
 
     const key =
@@ -1249,7 +1238,10 @@ function groupList(
         )
 
         .sort(
-            (a, b) =>
+            (
+                a,
+                b
+            ) =>
                 (
                     b.change_percent ??
                     -Infinity
@@ -1287,7 +1279,6 @@ function createLineChart(
             type:
                 "line",
 
-
             data: {
 
                 labels:
@@ -1298,7 +1289,6 @@ function createLineChart(
 
             },
 
-
             options: {
 
                 responsive:
@@ -1306,12 +1296,6 @@ function createLineChart(
 
                 maintainAspectRatio:
                     false,
-
-
-                /*
-                   グラフ左側の余白を小さくして
-                   グラフを広く使う
-                */
 
                 layout: {
 
@@ -1321,14 +1305,13 @@ function createLineChart(
 
                         right: 4,
 
-                        top: 0,
+                        top: 2,
 
                         bottom: 0
 
                     }
 
                 },
-
 
                 interaction: {
 
@@ -1340,7 +1323,6 @@ function createLineChart(
 
                 },
 
-
                 plugins: {
 
                     legend: {
@@ -1349,7 +1331,6 @@ function createLineChart(
                             false
 
                     },
-
 
                     boundaryMarker: {
 
@@ -1360,14 +1341,9 @@ function createLineChart(
 
                 },
 
-
                 scales: {
 
                     y: {
-
-                        /*
-                           「基準値 = 100」を削除
-                        */
 
                         title: {
 
@@ -1375,7 +1351,6 @@ function createLineChart(
                                 false
 
                         },
-
 
                         ticks: {
 
@@ -1385,7 +1360,6 @@ function createLineChart(
                         }
 
                     },
-
 
                     x: {
 
@@ -1403,15 +1377,6 @@ function createLineChart(
                             maxTicksLimit:
                                 8,
 
-
-                            /*
-                               1月・半年：
-                               2026/09/06 → 9/6
-
-                               5年：
-                               2026/09/06 → 26/9
-                            */
-
                             callback:
                                 function(
                                     value,
@@ -1423,73 +1388,9 @@ function createLineChart(
                                             value
                                         );
 
-
-                                    if (
-                                        !label
-                                    ) {
-
-                                        return "";
-
-                                    }
-
-
-                                    const date =
-                                        new Date(
-                                            label +
-                                            "T00:00:00"
-                                        );
-
-
-                                    if (
-                                        Number.isNaN(
-                                            date.getTime()
-                                        )
-                                    ) {
-
-                                        return label;
-
-                                    }
-
-
-                                    const month =
-                                        date.getMonth()
-                                        + 1;
-
-
-                                    const day =
-                                        date.getDate();
-
-
-                                    if (
-                                        period ===
-                                        "5y"
-                                    ) {
-
-                                        const year =
-                                            String(
-                                                date.getFullYear()
-                                            ).slice(
-                                                -2
-                                            );
-
-
-                                        return (
-                                            year
-                                            +
-                                            "/"
-                                            +
-                                            month
-                                        );
-
-                                    }
-
-
-                                    return (
-                                        month
-                                        +
-                                        "/"
-                                        +
-                                        day
+                                    return formatChartDate(
+                                        label,
+                                        period
                                     );
 
                                 }
@@ -1539,10 +1440,20 @@ function makeDatasets(
 
 
                 history.forEach(
-                    point =>
-                        allDates.add(
+                    point => {
+
+                        if (
+                            point &&
                             point.date
-                        )
+                        ) {
+
+                            allDates.add(
+                                point.date
+                            );
+
+                        }
+
+                    }
                 );
 
 
@@ -1568,10 +1479,33 @@ function makeDatasets(
             allDates
         )
         .sort(
-            (a, b) =>
-                new Date(a)
-                -
-                new Date(b)
+            (
+                a,
+                b
+            ) => {
+
+                const da =
+                    parseDate(a);
+
+                const db =
+                    parseDate(b);
+
+                if (
+                    !da ||
+                    !db
+                ) {
+
+                    return 0;
+
+                }
+
+                return (
+                    da.getTime()
+                    -
+                    db.getTime()
+                );
+
+            }
         );
 
 
@@ -1582,7 +1516,6 @@ function makeDatasets(
                 history,
                 index
             }) => {
-
 
                 const map = {};
 
@@ -1670,12 +1603,39 @@ function getMarkerDate(
     }
 
 
+    const validDates =
+        history
+
+        .map(
+            point =>
+                parseDate(
+                    point.date
+                )
+        )
+
+        .filter(
+            date =>
+                date !== null
+        );
+
+
+    if (
+        !validDates.length
+    ) {
+
+        return null;
+
+    }
+
+
     const latest =
         new Date(
-            history[
-                history.length - 1
-            ].date +
-            "T00:00:00"
+            Math.max(
+                ...validDates.map(
+                    d =>
+                        d.getTime()
+                )
+            )
         );
 
 
@@ -1788,7 +1748,10 @@ function topItems(
         )
 
         .sort(
-            (a, b) =>
+            (
+                a,
+                b
+            ) =>
                 (
                     b.change_percent ??
                     -Infinity
@@ -2128,12 +2091,25 @@ function renderGroupRanking(
     }
 
 
-    groups.forEach(
+    /* --------------------------------
+       最初は10件
+       展開時は全部
+    -------------------------------- */
+
+    const visibleGroups =
+        rankingExpanded[type]
+            ? groups
+            : groups.slice(
+                0,
+                10
+            );
+
+
+    visibleGroups.forEach(
         (
             group,
             index
         ) => {
-
 
             const name =
                 group[nameKey];
@@ -2214,7 +2190,7 @@ function renderGroupRanking(
 
 
             /* --------------------------------
-               詳細部分
+               詳細
             -------------------------------- */
 
             const detail =
@@ -2307,14 +2283,18 @@ function renderGroupRanking(
                 `${type}:${name}`;
 
 
-            detailPeriods[
-                stateKey
-            ] = "1m";
+            if (
+                detailPeriods[
+                    stateKey
+                ] === undefined
+            ) {
 
+                detailPeriods[
+                    stateKey
+                ] = "1m";
 
-            /* --------------------------------
-               詳細描画
-            -------------------------------- */
+            }
+
 
             const draw =
                 () => {
@@ -2481,6 +2461,59 @@ function renderGroupRanking(
         }
     );
 
+
+    /* ==================================================
+       10位の下に▽
+    ================================================== */
+
+    if (
+        groups.length > 10
+    ) {
+
+        const expandButton =
+            document.createElement(
+                "button"
+            );
+
+
+        expandButton.className =
+            "ranking-expand-button";
+
+
+        expandButton.textContent =
+            rankingExpanded[type]
+                ? "△"
+                : "▽";
+
+
+        expandButton.title =
+            rankingExpanded[type]
+                ? "TOP10に戻す"
+                : "すべて表示";
+
+
+        expandButton.addEventListener(
+            "click",
+            () => {
+
+                rankingExpanded[type] =
+                    !rankingExpanded[type];
+
+
+                renderGroupRanking(
+                    type
+                );
+
+            }
+        );
+
+
+        container.appendChild(
+            expandButton
+        );
+
+    }
+
 }
 
 
@@ -2538,10 +2571,6 @@ function renderGroupDetailChart(
         );
 
 
-    /* --------------------------------
-       境界位置
-    -------------------------------- */
-
     let markerMonths =
         null;
 
@@ -2581,10 +2610,6 @@ function renderGroupDetailChart(
             : null;
 
 
-    /* --------------------------------
-       既存グラフ削除
-    -------------------------------- */
-
     if (
         detailCharts[
             stateKey
@@ -2598,10 +2623,6 @@ function renderGroupDetailChart(
     }
 
 
-    /* --------------------------------
-       データなし
-    -------------------------------- */
-
     if (
         !prepared.labels.length
     ) {
@@ -2613,10 +2634,6 @@ function renderGroupDetailChart(
 
     }
 
-
-    /* --------------------------------
-       グラフ作成
-    -------------------------------- */
 
     detailCharts[
         stateKey
@@ -2657,7 +2674,10 @@ function renderStockList(
         [...stocks]
 
         .sort(
-            (a, b) => {
+            (
+                a,
+                b
+            ) => {
 
                 const av =
                     changeFromHistory(
@@ -2708,7 +2728,6 @@ function renderStockList(
             stock,
             index
         ) => {
-
 
             const value =
                 changeFromHistory(
@@ -2782,10 +2801,6 @@ function renderStockList(
                 row
             );
 
-
-            /* --------------------------------
-               銘柄詳細
-            -------------------------------- */
 
             if (
                 expandable
@@ -2914,7 +2929,8 @@ function renderStockList(
                                 s =>
                                     historyOf(
                                         s,
-                                        currentPeriod
+                                        currentPeriod,
+                                        true
                                     )
 
                             );
@@ -2934,7 +2950,8 @@ function renderStockList(
 
                                     historyOf(
                                         stock,
-                                        currentPeriod
+                                        currentPeriod,
+                                        true
                                     ),
 
                                     1
@@ -2954,7 +2971,8 @@ function renderStockList(
 
                                     historyOf(
                                         stock,
-                                        currentPeriod
+                                        currentPeriod,
+                                        true
                                     ),
 
                                     6
@@ -3205,10 +3223,6 @@ function renderAll() {
         );
 
 
-    /* --------------------------------
-       業界
-    -------------------------------- */
-
     renderTopChart(
         "industry"
     );
@@ -3218,10 +3232,6 @@ function renderAll() {
     );
 
 
-    /* --------------------------------
-       テーマ
-    -------------------------------- */
-
     renderTopChart(
         "theme"
     );
@@ -3230,10 +3240,6 @@ function renderAll() {
         "theme"
     );
 
-
-    /* --------------------------------
-       銘柄
-    -------------------------------- */
 
     renderGainers();
 
@@ -3271,10 +3277,6 @@ function setupGlobalPeriodButtons() {
                         }
 
 
-                        /*
-                           現在位置を保存
-                        */
-
                         const scrollY =
                             window.scrollY
                             ||
@@ -3288,16 +3290,20 @@ function setupGlobalPeriodButtons() {
 
 
                         /*
-                           全体を再描画
+                           期間を変えたら
+                           ランキングの展開状態は
+                           TOP10に戻す
                         */
+
+                        rankingExpanded.industry =
+                            false;
+
+                        rankingExpanded.theme =
+                            false;
+
 
                         renderAll();
 
-
-                        /*
-                           再描画後に
-                           元のスクロール位置へ戻す
-                        */
 
                         requestAnimationFrame(
                             () => {
