@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 
 <html lang="ja">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="theme-color" content="#ffffff">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
+
+<meta
+name="apple-mobile-web-app-capable"
+content="yes"
+
+>
+
+<meta
+name="apple-mobile-web-app-status-bar-style"
+content="default"
+
+>
+
+<meta
+name="theme-color"
+content="#ffffff"
+
+>
 
   <title>日本株ダッシュボード</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Chart.js -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+  ></script>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
 
+
     body {
+
       margin: 0;
+
       background: #f5f5f5;
+
       color: #222;
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -29,202 +61,397 @@
         sans-serif;
     }
 
+
+    /* =========================
+       ヘッダー
+    ========================= */
+
     header {
+
       position: sticky;
+
       top: 0;
+
       z-index: 100;
-      background: rgba(255,255,255,0.96);
+
+      background:
+        rgba(255,255,255,0.96);
+
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid #ddd;
-      padding: 12px 14px;
+
+      border-bottom:
+        1px solid #ddd;
+
+      padding:
+        11px 14px;
     }
 
+
     header h1 {
+
       margin: 0;
+
       font-size: 21px;
+
       font-weight: 700;
     }
 
+
     #updated {
+
       margin-top: 4px;
+
       font-size: 11px;
+
       color: #777;
     }
 
+
+    /* =========================
+       メイン
+    ========================= */
+
     main {
+
       max-width: 1000px;
+
       margin: 0 auto;
+
       padding: 10px;
     }
 
+
     section {
+
       background: white;
+
       border-radius: 12px;
+
       margin-bottom: 14px;
+
       padding: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+
+      box-shadow:
+        0 1px 4px
+        rgba(0,0,0,0.08);
     }
+
 
     section h2 {
-      margin: 0 0 8px;
+
+      margin:
+        0 0 4px;
+
       font-size: 17px;
+
+      font-weight: 700;
     }
+
+
+    .section-subtitle {
+
+      font-size: 11px;
+
+      color: #888;
+
+      margin-bottom: 7px;
+    }
+
+
+    /* =========================
+       グラフ
+    ========================= */
+
+    .chart-area {
+
+      width: 100%;
+    }
+
 
     .chart-box {
+
       position: relative;
+
       width: 100%;
-      height: 300px;
+
+      height: 320px;
     }
+
 
     .detail-chart-box {
+
       position: relative;
+
       width: 100%;
-      height: 270px;
+
+      height: 280px;
     }
+
 
     @media (max-width: 600px) {
+
       .chart-box {
-        height: 300px;
+
+        height: 320px;
       }
+
 
       .detail-chart-box {
-        height: 250px;
+
+        height: 260px;
       }
     }
 
+
+    /* =========================
+       期間ボタン
+    ========================= */
+
     .period-buttons {
+
       display: flex;
+
       gap: 5px;
-      margin: 4px 0 7px;
+
+      margin:
+        2px 0 6px;
     }
+
 
     .period-button {
-      border: 1px solid #ccc;
+
+      border:
+        1px solid #ccc;
+
       background: #fff;
+
       color: #555;
+
       border-radius: 6px;
-      padding: 4px 9px;
+
+      padding:
+        4px 10px;
+
       font-size: 11px;
+
       line-height: 1.2;
+
       cursor: pointer;
+
+      -webkit-tap-highlight-color:
+        transparent;
     }
 
+
     .period-button.active {
+
       background: #222;
+
       color: #fff;
+
       border-color: #222;
     }
 
+
+    /* =========================
+       ランキング
+    ========================= */
+
     .ranking {
-      margin-top: 8px;
+
+      margin-top: 5px;
     }
 
+
     .ranking-row {
+
       display: flex;
+
       align-items: center;
-      min-height: 38px;
-      border-bottom: 1px solid #eee;
+
+      min-height: 39px;
+
+      border-bottom:
+        1px solid #eee;
+
       cursor: pointer;
+
       user-select: none;
     }
 
+
     .ranking-row:last-child {
+
       border-bottom: none;
     }
 
+
     .rank {
+
       width: 34px;
-      text-align: center;
-      font-size: 13px;
-      color: #777;
+
       flex-shrink: 0;
+
+      text-align: center;
+
+      font-size: 13px;
+
+      color: #777;
     }
 
+
     .name {
+
       flex: 1;
+
       min-width: 0;
+
       font-size: 14px;
+
       overflow: hidden;
+
       text-overflow: ellipsis;
+
       white-space: nowrap;
     }
 
+
     .change {
+
       width: 72px;
-      text-align: right;
-      font-size: 13px;
-      font-weight: 600;
+
       flex-shrink: 0;
+
+      text-align: right;
+
+      font-size: 13px;
+
+      font-weight: 600;
     }
 
+
     .up {
+
       color: #d60000;
     }
 
+
     .down {
+
       color: #0066cc;
     }
 
+
+    /* =========================
+       詳細
+    ========================= */
+
     .detail {
+
       background: #fafafa;
+
       padding: 8px;
+
       border-radius: 8px;
-      margin: 4px 0 8px;
+
+      margin:
+        4px 0 8px;
     }
+
 
     .detail-title {
+
       font-size: 15px;
+
       font-weight: 700;
-      margin: 2px 0 5px;
+
+      margin:
+        2px 0 4px;
     }
+
+
+    /* =========================
+       銘柄ランキング
+    ========================= */
 
     .stock-row {
+
       display: flex;
+
       align-items: center;
+
       min-height: 34px;
-      border-bottom: 1px solid #e8e8e8;
+
+      border-bottom:
+        1px solid #e8e8e8;
     }
 
+
     .stock-row:last-child {
+
       border-bottom: none;
     }
 
+
     .stock-code {
-      width: 50px;
-      color: #888;
-      font-size: 11px;
+
+      width: 52px;
+
       flex-shrink: 0;
+
+      color: #888;
+
+      font-size: 11px;
     }
 
+
     .stock-name {
+
       flex: 1;
+
       min-width: 0;
+
       font-size: 13px;
+
       overflow: hidden;
+
       text-overflow: ellipsis;
+
       white-space: nowrap;
     }
 
+
     .stock-change {
+
       width: 68px;
-      text-align: right;
-      font-size: 12px;
-      font-weight: 600;
+
       flex-shrink: 0;
+
+      text-align: right;
+
+      font-size: 12px;
+
+      font-weight: 600;
     }
 
+
+    /* =========================
+       メッセージ
+    ========================= */
+
     .message {
-      padding: 20px 10px;
+
+      padding:
+        20px 10px;
+
       text-align: center;
+
       color: #888;
+
       font-size: 13px;
     }
 
-    .section-subtitle {
-      font-size: 11px;
-      color: #888;
-      margin: -3px 0 7px;
-    }
+
   </style>
 
 </head>
@@ -232,470 +459,1092 @@
 <body>
 
 <header>
-  <h1>日本株ダッシュボード</h1>
-  <div id="updated">データ読み込み中...</div>
+
+  <h1>
+    日本株ダッシュボード
+  </h1>
+
+  <div id="updated">
+    データ読み込み中...
+  </div>
+
 </header>
 
 <main id="app">
-  <div class="message">データ読み込み中...</div>
+
+  <div class="message">
+    データ読み込み中...
+  </div>
+
 </main>
 
 <script>
 
+
+/* ============================================================
+   基本設定
+============================================================ */
+
+
 let DATA = null;
 
-/* 現在の期間
-   グラフごとに個別に持つ */
+
+/*
+  グラフごとに現在選択している期間を保存
+*/
+
 const chartPeriods = {};
 
+
 const PERIOD_LABEL = {
+
   "1m": "1月",
+
   "6m": "半年",
+
   "5y": "5年"
+
 };
 
-const PERIOD_ORDER = ["1m", "6m", "5y"];
+
+const PERIOD_ORDER = [
+
+  "1m",
+  "6m",
+  "5y"
+
+];
 
 
-/* -----------------------------
-   共通
------------------------------ */
+/* ============================================================
+   表示用関数
+============================================================ */
+
 
 function periodLabel(period) {
+
   return PERIOD_LABEL[period] || period;
+
 }
+
 
 function formatPercent(value) {
-  if (value === null || value === undefined || Number.isNaN(value)) {
+
+  if (
+    value === null ||
+    value === undefined ||
+    Number.isNaN(Number(value))
+  ) {
+
     return "-";
+
   }
 
-  const n = Number(value) * 100;
-  const sign = n > 0 ? "+" : "";
 
-  return sign + n.toFixed(1) + "%";
+  const n =
+    Number(value) * 100;
+
+
+  const sign =
+    n > 0 ? "+" : "";
+
+
+  return (
+    sign +
+    n.toFixed(1) +
+    "%"
+  );
+
 }
+
 
 function changeClass(value) {
-  return Number(value) >= 0 ? "up" : "down";
+
+  return Number(value) >= 0
+    ? "up"
+    : "down";
+
 }
 
 
-/* -----------------------------
+/* ============================================================
    期間ボタン
------------------------------ */
+============================================================ */
 
-function createPeriodButtons(id, currentPeriod, onChange) {
 
-  const div = document.createElement("div");
-  div.className = "period-buttons";
+function createPeriodButtons(
+  graphId,
+  currentPeriod,
+  onChange
+) {
 
-  PERIOD_ORDER.forEach(period => {
 
-    const button = document.createElement("button");
+  const div =
+    document.createElement("div");
 
-    button.className =
-      "period-button" +
-      (period === currentPeriod ? " active" : "");
 
-    button.textContent = PERIOD_LABEL[period];
+  div.className =
+    "period-buttons";
 
-    button.addEventListener("click", () => {
-      onChange(period);
-    });
 
-    div.appendChild(button);
-  });
+  PERIOD_ORDER.forEach(
+    period => {
+
+
+      const button =
+        document.createElement("button");
+
+
+      button.className =
+        "period-button" +
+        (
+          period === currentPeriod
+            ? " active"
+            : ""
+        );
+
+
+      button.textContent =
+        PERIOD_LABEL[period];
+
+
+      button.addEventListener(
+        "click",
+        event => {
+
+          event.stopPropagation();
+
+          onChange(period);
+
+        }
+      );
+
+
+      div.appendChild(button);
+
+    }
+  );
+
 
   return div;
+
 }
 
 
-/* -----------------------------
+/* ============================================================
    日付表示
------------------------------ */
+============================================================ */
 
-function formatAxisDate(dateString, period) {
 
-  const d = new Date(dateString);
+function formatAxisDate(
+  dateString,
+  period
+) {
 
-  if (Number.isNaN(d.getTime())) {
+
+  const d =
+    new Date(dateString);
+
+
+  if (
+    Number.isNaN(
+      d.getTime()
+    )
+  ) {
+
     return dateString;
+
   }
 
-  const year = String(d.getFullYear()).slice(-2);
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
+
+  const year =
+    String(
+      d.getFullYear()
+    ).slice(-2);
+
+
+  const month =
+    String(
+      d.getMonth() + 1
+    ).padStart(2, "0");
+
+
+  const day =
+    String(
+      d.getDate()
+    ).padStart(2, "0");
+
+
+  /*
+    5年だけ 年/月
+    例：26/05
+  */
 
   if (period === "5y") {
-    return `${year}/${month}`;
+
+    return (
+      year +
+      "/" +
+      month
+    );
+
   }
 
-  return `${month}/${day}`;
+
+  /*
+    1月・半年
+    月/日
+    例：09/02
+  */
+
+  return (
+    month +
+    "/" +
+    day
+  );
+
 }
 
 
-/* -----------------------------
-   赤い ▼ マーカー
------------------------------ */
+/* ============================================================
+   境界線・赤い▽
+============================================================ */
+
 
 const boundaryMarkerPlugin = {
 
   id: "boundaryMarker",
 
-  afterDatasetsDraw(chart, args, pluginOptions) {
 
-    const boundaryDate = pluginOptions?.boundaryDate;
+  afterDatasetsDraw(
+    chart,
+    args,
+    pluginOptions
+  ) {
+
+
+    const boundaryDate =
+      pluginOptions?.boundaryDate;
+
 
     if (!boundaryDate) {
+
       return;
+
     }
 
-    const labels = chart.data.labels || [];
+
+    const labels =
+      chart.data.labels || [];
+
 
     if (!labels.length) {
+
       return;
+
     }
 
-    const targetTime = new Date(boundaryDate).getTime();
+
+    const targetTime =
+      new Date(
+        boundaryDate
+      ).getTime();
+
 
     let bestIndex = -1;
-    let bestDiff = Infinity;
 
-    labels.forEach((label, index) => {
+    let bestDiff =
+      Infinity;
 
-      const t = new Date(label).getTime();
 
-      if (Number.isNaN(t)) {
-        return;
+    labels.forEach(
+      (label, index) => {
+
+
+        const time =
+          new Date(label)
+            .getTime();
+
+
+        if (
+          Number.isNaN(time)
+        ) {
+
+          return;
+
+        }
+
+
+        const diff =
+          Math.abs(
+            time -
+            targetTime
+          );
+
+
+        if (
+          diff < bestDiff
+        ) {
+
+          bestDiff = diff;
+
+          bestIndex =
+            index;
+
+        }
+
       }
+    );
 
-      const diff = Math.abs(t - targetTime);
-
-      if (diff < bestDiff) {
-        bestDiff = diff;
-        bestIndex = index;
-      }
-    });
 
     if (bestIndex < 0) {
+
       return;
+
     }
 
-    const meta = chart.getDatasetMeta(0);
 
-    if (!meta || !meta.data || !meta.data[bestIndex]) {
+    const meta =
+      chart.getDatasetMeta(0);
+
+
+    if (
+      !meta ||
+      !meta.data ||
+      !meta.data[bestIndex]
+    ) {
+
       return;
+
     }
 
-    const point = meta.data[bestIndex];
 
-    const ctx = chart.ctx;
+    const point =
+      meta.data[bestIndex];
+
+
+    const ctx =
+      chart.ctx;
+
 
     ctx.save();
 
-    ctx.fillStyle = "#d60000";
 
-    const x = point.x;
-    const y = chart.chartArea.top + 2;
+    /*
+      赤い▽
+    */
+
+    ctx.fillStyle =
+      "#d60000";
+
+
+    const x =
+      point.x;
+
+
+    /*
+      グラフ上部から少し下
+    */
+
+    const y =
+      chart.chartArea.top + 3;
+
 
     ctx.beginPath();
 
-    ctx.moveTo(x, y);
-    ctx.lineTo(x - 6, y);
-    ctx.lineTo(x, y + 9);
-    ctx.lineTo(x + 6, y);
+
+    ctx.moveTo(
+      x,
+      y + 9
+    );
+
+
+    ctx.lineTo(
+      x - 6,
+      y
+    );
+
+
+    ctx.lineTo(
+      x + 6,
+      y
+    );
+
 
     ctx.closePath();
+
+
     ctx.fill();
 
+
     ctx.restore();
+
   }
+
 };
 
-Chart.register(boundaryMarkerPlugin);
+
+Chart.register(
+  boundaryMarkerPlugin
+);
 
 
-/* -----------------------------
-   マーカーの基準日
------------------------------ */
+/* ============================================================
+   境界日の計算
+============================================================ */
 
-function getBoundaryDate(history, period) {
 
-  if (!history || history.length === 0) {
+function getBoundaryDate(
+  history,
+  period
+) {
+
+
+  if (
+    !history ||
+    history.length === 0
+  ) {
+
     return null;
+
   }
+
+
+  /*
+    半年表示：
+    1か月前の位置に▽
+  */
 
   if (period === "6m") {
 
-    // 1か月前
-    const newest = new Date(history[history.length - 1].date);
 
-    const d = new Date(newest);
-    d.setMonth(d.getMonth() - 1);
+    const newest =
+      new Date(
+        history[
+          history.length - 1
+        ].date
+      );
+
+
+    const d =
+      new Date(newest);
+
+
+    d.setMonth(
+      d.getMonth() - 1
+    );
+
 
     return d.toISOString();
+
   }
+
+
+  /*
+    5年表示：
+    半年前の位置に▽
+  */
 
   if (period === "5y") {
 
-    // 半年前
-    const newest = new Date(history[history.length - 1].date);
 
-    const d = new Date(newest);
-    d.setMonth(d.getMonth() - 6);
+    const newest =
+      new Date(
+        history[
+          history.length - 1
+        ].date
+      );
+
+
+    const d =
+      new Date(newest);
+
+
+    d.setMonth(
+      d.getMonth() - 6
+    );
+
 
     return d.toISOString();
+
   }
+
 
   return null;
+
 }
 
 
-/* -----------------------------
+/* ============================================================
    グラフ用データ
------------------------------ */
+============================================================ */
 
-function makeDatasets(items, historyKey) {
 
-  const dateMap = new Map();
+function makeDatasets(
+  items,
+  period
+) {
 
-  items.forEach(item => {
 
-    const history =
-      item?.periods?.[historyKey]?.history ||
-      item?.history ||
-      [];
+  const dateMap =
+    new Map();
 
-    history.forEach(point => {
 
-      if (!dateMap.has(point.date)) {
-        dateMap.set(point.date, {});
+  items.forEach(
+    item => {
+
+
+      /*
+        Python側のデータには
+        periods が入っている
+      */
+
+      const history =
+        item
+          ?.periods
+          ?.[
+            period
+          ]
+          ?.history ||
+        item?.history ||
+        [];
+
+
+      history.forEach(
+        point => {
+
+
+          if (
+            !dateMap.has(
+              point.date
+            )
+          ) {
+
+            dateMap.set(
+              point.date,
+              {}
+            );
+
+          }
+
+
+          /*
+            業界：
+              item.industry
+
+            テーマ：
+              item.theme
+
+            銘柄：
+              item.name
+          */
+
+          let label;
+
+
+          if (
+            item.industry
+          ) {
+
+            label =
+              item.industry;
+
+          }
+          else if (
+            item.theme
+          ) {
+
+            label =
+              item.theme;
+
+          }
+          else {
+
+            label =
+              item.name;
+
+          }
+
+
+          dateMap
+            .get(point.date)
+            [label] =
+              point.value;
+
+        }
+      );
+
+    }
+  );
+
+
+  const dates =
+    Array.from(
+      dateMap.keys()
+    ).sort();
+
+
+  /*
+    重複しないラベル名を取得
+  */
+
+  const labels =
+    [];
+
+
+  items.forEach(
+    item => {
+
+
+      let label;
+
+
+      if (
+        item.industry
+      ) {
+
+        label =
+          item.industry;
+
+      }
+      else if (
+        item.theme
+      ) {
+
+        label =
+          item.theme;
+
+      }
+      else {
+
+        label =
+          item.name;
+
       }
 
-      dateMap.get(point.date)[item.name] = point.value;
-    });
-  });
 
-  const dates = Array.from(dateMap.keys()).sort();
+      if (
+        !labels.includes(label)
+      ) {
 
-  const datasets = items.map(item => {
+        labels.push(label);
 
-    return {
-      label: item.name,
-      data: dates.map(date => {
-        return dateMap.get(date)?.[item.name] ?? null;
-      }),
-      borderWidth: 1.5,
-      pointRadius: 0,
-      tension: 0.15,
-      spanGaps: true
-    };
-  });
+      }
+
+    }
+  );
+
+
+  const datasets =
+    labels.map(
+      label => {
+
+
+        return {
+
+          label: label,
+
+          data:
+            dates.map(
+              date => {
+
+                return (
+                  dateMap
+                    .get(date)
+                    ?.[label] ??
+                  null
+                );
+
+              }
+            ),
+
+          borderWidth: 1.5,
+
+          pointRadius: 0,
+
+          pointHoverRadius: 3,
+
+          tension: 0.15,
+
+          spanGaps: true
+
+        };
+
+      }
+    );
+
 
   return {
+
     dates,
+
     datasets
+
   };
+
 }
 
 
-/* -----------------------------
-   グラフ生成
------------------------------ */
+/* ============================================================
+   グラフ作成
+============================================================ */
 
-function createLineChart(canvas, items, period, isDetail = false) {
 
-  if (!items || items.length === 0) {
+function createLineChart(
+  canvas,
+  items,
+  period
+) {
+
+
+  if (
+    !items ||
+    !items.length
+  ) {
+
     return null;
+
   }
 
-  const result = makeDatasets(items, period);
 
-  if (!result.dates.length) {
-    return null;
-  }
-
-  const labels = result.dates;
-
-  const datasets = result.datasets;
-
-  const boundaryDate =
-    getBoundaryDate(
-      items[0]?.periods?.[period]?.history || [],
+  const result =
+    makeDatasets(
+      items,
       period
     );
 
-  const ctx = canvas.getContext("2d");
 
-  return new Chart(ctx, {
+  if (
+    !result.dates.length
+  ) {
 
-    type: "line",
+    return null;
 
-    data: {
-      labels,
+  }
 
-      datasets
-    },
 
-    options: {
+  const labels =
+    result.dates;
 
-      responsive: true,
 
-      maintainAspectRatio: false,
+  const datasets =
+    result.datasets;
 
-      interaction: {
-        mode: "index",
-        intersect: false
+
+  /*
+    最初のデータから境界日を計算
+  */
+
+  const firstHistory =
+    items[0]
+      ?.periods
+      ?.[period]
+      ?.history ||
+    items[0]
+      ?.history ||
+    [];
+
+
+  const boundaryDate =
+    getBoundaryDate(
+      firstHistory,
+      period
+    );
+
+
+  const ctx =
+    canvas.getContext(
+      "2d"
+    );
+
+
+  return new Chart(
+    ctx,
+    {
+
+      type: "line",
+
+
+      data: {
+
+        labels,
+
+        datasets
+
       },
 
-      plugins: {
 
-        legend: {
+      options: {
 
-          display: true,
+        responsive: true,
 
-          position: "bottom",
+        maintainAspectRatio: false,
 
-          labels: {
 
-            // 凡例をコンパクト化
-            font: {
-              size: 9
-            },
+        interaction: {
 
-            // 色の四角を小さく
-            boxWidth: 7,
-            boxHeight: 7,
+          mode: "index",
 
-            padding: 5,
+          intersect: false
 
-            usePointStyle: false
-          }
         },
 
-        tooltip: {
 
-          callbacks: {
+        plugins: {
 
-            title: function(items) {
+          /*
+            凡例をかなりコンパクトに
+          */
 
-              if (!items.length) {
-                return "";
-              }
+          legend: {
 
-              return formatAxisDate(
-                items[0].label,
-                period
-              );
-            },
+            display: true,
 
-            label: function(context) {
+            position: "bottom",
 
-              const value = context.parsed.y;
+            labels: {
 
-              if (value === null || value === undefined) {
-                return "";
-              }
+              font: {
 
-              return `${context.dataset.label}: ${value.toFixed(1)}`;
+                size: 9
+
+              },
+
+              boxWidth: 7,
+
+              boxHeight: 7,
+
+              padding: 4,
+
+              usePointStyle: false
+
             }
-          }
-        },
 
-        boundaryMarker: {
-          boundaryDate
-        }
-      },
-
-      scales: {
-
-        x: {
-
-          ticks: {
-
-            autoSkip: true,
-
-            maxTicksLimit:
-              period === "1m"
-                ? 8
-                : period === "6m"
-                  ? 8
-                  : 10,
-
-            maxRotation: 0,
-
-            minRotation: 0,
-
-            font: {
-              size: 9
-            },
-
-            callback: function(value) {
-
-              const label =
-                this.getLabelForValue(value);
-
-              return formatAxisDate(
-                label,
-                period
-              );
-            }
           },
 
-          grid: {
-            display: false
+
+          tooltip: {
+
+            callbacks: {
+
+              title:
+                function(
+                  tooltipItems
+                ) {
+
+
+                  if (
+                    !tooltipItems.length
+                  ) {
+
+                    return "";
+
+                  }
+
+
+                  return formatAxisDate(
+                    tooltipItems[0]
+                      .label,
+                    period
+                  );
+
+                },
+
+
+              label:
+                function(
+                  context
+                ) {
+
+
+                  const value =
+                    context.parsed.y;
+
+
+                  if (
+                    value === null ||
+                    value === undefined
+                  ) {
+
+                    return "";
+
+                  }
+
+
+                  return (
+                    context.dataset.label +
+                    ": " +
+                    value.toFixed(1)
+                  );
+
+                }
+
+            }
+
+          },
+
+
+          boundaryMarker: {
+
+            boundaryDate
+
           }
+
         },
 
-        y: {
 
-          ticks: {
+        scales: {
 
-            font: {
-              size: 9
+          x: {
+
+            ticks: {
+
+              /*
+                Chart.js側でも
+                表示数を制限
+              */
+
+              autoSkip: true,
+
+              maxTicksLimit:
+                period === "1m"
+                  ? 7
+                  : period === "6m"
+                    ? 7
+                    : 9,
+
+              maxRotation: 0,
+
+              minRotation: 0,
+
+              font: {
+
+                size: 9
+
+              },
+
+
+              callback:
+                function(
+                  value
+                ) {
+
+
+                  const label =
+                    this
+                      .getLabelForValue(
+                        value
+                      );
+
+
+                  return formatAxisDate(
+                    label,
+                    period
+                  );
+
+                }
+
             },
 
-            callback: function(value) {
-              return Number(value).toFixed(0);
+
+            grid: {
+
+              display: false
+
             }
+
+          },
+
+
+          y: {
+
+            ticks: {
+
+              font: {
+
+                size: 9
+
+              },
+
+
+              callback:
+                function(value) {
+
+                  return Number(
+                    value
+                  ).toFixed(0);
+
+                }
+
+            }
+
           }
+
         }
+
       }
+
     }
-  });
+  );
+
 }
 
 
-/* -----------------------------
-   グラフ＋期間ボタン
------------------------------ */
+/* ============================================================
+   グラフ表示エリア
+============================================================ */
+
 
 function createGraphArea(
   container,
   items,
   graphId,
   defaultPeriod,
-  isDetail = false
+  isDetail
 ) {
 
-  if (!items || !items.length) {
+
+  if (
+    !items ||
+    !items.length
+  ) {
+
     container.innerHTML =
       '<div class="message">データがありません</div>';
+
     return;
+
   }
 
-  if (!chartPeriods[graphId]) {
-    chartPeriods[graphId] = defaultPeriod;
+
+  /*
+    初回だけ1月
+  */
+
+  if (
+    !chartPeriods[graphId]
+  ) {
+
+    chartPeriods[graphId] =
+      defaultPeriod;
+
   }
 
-  let chart = null;
 
   function render() {
 
-    container.innerHTML = "";
 
-    const period = chartPeriods[graphId];
+    container.innerHTML =
+      "";
+
+
+    const period =
+      chartPeriods[graphId];
+
+
+    /*
+      期間ボタン
+    */
 
     const buttons =
       createPeriodButtons(
@@ -703,379 +1552,780 @@ function createGraphArea(
         period,
         newPeriod => {
 
-          chartPeriods[graphId] = newPeriod;
+          chartPeriods[graphId] =
+            newPeriod;
 
           render();
+
         }
       );
 
-    container.appendChild(buttons);
 
-    const box = document.createElement("div");
+    container.appendChild(
+      buttons
+    );
+
+
+    /*
+      グラフ
+    */
+
+    const box =
+      document.createElement(
+        "div"
+      );
+
 
     box.className =
       isDetail
         ? "detail-chart-box"
         : "chart-box";
 
-    const canvas = document.createElement("canvas");
 
-    box.appendChild(canvas);
-
-    container.appendChild(box);
-
-    chart =
-      createLineChart(
-        canvas,
-        items,
-        period,
-        isDetail
+    const canvas =
+      document.createElement(
+        "canvas"
       );
+
+
+    box.appendChild(
+      canvas
+    );
+
+
+    container.appendChild(
+      box
+    );
+
+
+    createLineChart(
+      canvas,
+      items,
+      period
+    );
+
   }
 
+
   render();
+
 }
 
 
-/* -----------------------------
+/* ============================================================
    業界ランキング
------------------------------ */
+============================================================ */
 
-function renderIndustryRanking(container, dataset) {
+
+function renderIndustryRanking(
+  container,
+  dataset
+) {
+
 
   const ranking =
-    dataset?.top_industries || [];
+    dataset
+      ?.top_industries ||
+    [];
 
-  if (!ranking.length) {
+
+  if (
+    !ranking.length
+  ) {
 
     container.innerHTML =
       '<div class="message">業界データがありません</div>';
 
     return;
+
   }
 
+
   const wrapper =
-    document.createElement("div");
-
-  wrapper.className = "ranking";
-
-  ranking.forEach((item, index) => {
-
-    const row =
-      document.createElement("div");
-
-    row.className = "ranking-row";
-
-    row.innerHTML = `
-      <div class="rank">${index + 1}</div>
-      <div class="name">${item.name}</div>
-      <div class="change ${changeClass(item.change)}">
-        ${formatPercent(item.change)}
-      </div>
-    `;
-
-    wrapper.appendChild(row);
-
-    const detail =
-      document.createElement("div");
-
-    detail.className = "detail";
-
-    detail.style.display = "none";
-
-    const detailTitle =
-      document.createElement("div");
-
-    detailTitle.className = "detail-title";
-
-    detailTitle.textContent =
-      `${item.name}`;
-
-    detail.appendChild(detailTitle);
-
-    const graphContainer =
-      document.createElement("div");
-
-    detail.appendChild(graphContainer);
-
-    const stocks =
-      dataset.industry_stocks?.[item.name] || [];
-
-    const graphId =
-      `industry-${item.name}`;
-
-    createGraphArea(
-      graphContainer,
-      stocks,
-      graphId,
-      "1m",
-      true
+    document.createElement(
+      "div"
     );
 
-    const stockRanking =
-      document.createElement("div");
 
-    stockRanking.className =
-      "ranking";
+  wrapper.className =
+    "ranking";
 
-    const sortedStocks =
-      [...stocks].sort(
-        (a, b) =>
-          Number(b.change || 0) -
-          Number(a.change || 0)
-      );
 
-    sortedStocks.forEach((stock, stockIndex) => {
+  ranking.forEach(
+    (item, index) => {
 
-      const stockRow =
-        document.createElement("div");
 
-      stockRow.className =
-        "stock-row";
+      /*
+        Python側：
+          industry
+          change_percent
+      */
 
-      stockRow.innerHTML = `
-        <div class="stock-code">
-          ${stock.code || ""}
+      const industryName =
+        item.industry;
+
+
+      const change =
+        item.change_percent;
+
+
+      const row =
+        document.createElement(
+          "div"
+        );
+
+
+      row.className =
+        "ranking-row";
+
+
+      row.innerHTML = `
+
+        <div class="rank">
+          ${index + 1}
         </div>
 
-        <div class="stock-name">
-          ${stock.name || ""}
+        <div class="name">
+          ${industryName}
         </div>
 
-        <div class="stock-change ${changeClass(stock.change)}">
-          ${formatPercent(stock.change)}
+        <div class="change ${changeClass(change)}">
+          ${formatPercent(change)}
         </div>
+
       `;
 
-      stockRanking.appendChild(stockRow);
-    });
 
-    detail.appendChild(stockRanking);
+      wrapper.appendChild(
+        row
+      );
 
-    wrapper.appendChild(detail);
 
-    row.addEventListener("click", () => {
+      /*
+        詳細部分
+      */
+
+      const detail =
+        document.createElement(
+          "div"
+        );
+
+
+      detail.className =
+        "detail";
+
 
       detail.style.display =
-        detail.style.display === "none"
-          ? "block"
-          : "none";
-    });
-  });
+        "none";
 
-  container.appendChild(wrapper);
+
+      const detailTitle =
+        document.createElement(
+          "div"
+        );
+
+
+      detailTitle.className =
+        "detail-title";
+
+
+      detailTitle.textContent =
+        industryName;
+
+
+      detail.appendChild(
+        detailTitle
+      );
+
+
+      /*
+        グラフ
+      */
+
+      const graphContainer =
+        document.createElement(
+          "div"
+        );
+
+
+      graphContainer.className =
+        "chart-area";
+
+
+      detail.appendChild(
+        graphContainer
+      );
+
+
+      const stocks =
+        dataset
+          ?.industry_stocks
+          ?.[industryName] ||
+        [];
+
+
+      createGraphArea(
+        graphContainer,
+        stocks,
+        "industry-" +
+          industryName,
+        "1m",
+        true
+      );
+
+
+      /*
+        銘柄ランキング
+      */
+
+      const stockRanking =
+        document.createElement(
+          "div"
+        );
+
+
+      stockRanking.className =
+        "ranking";
+
+
+      const sortedStocks =
+        [...stocks].sort(
+          (a, b) =>
+            Number(
+              b.change_percent ||
+              0
+            ) -
+            Number(
+              a.change_percent ||
+              0
+            )
+        );
+
+
+      sortedStocks.forEach(
+        stock => {
+
+
+          const stockRow =
+            document.createElement(
+              "div"
+            );
+
+
+          stockRow.className =
+            "stock-row";
+
+
+          stockRow.innerHTML = `
+
+            <div class="stock-code">
+              ${stock.code || ""}
+            </div>
+
+            <div class="stock-name">
+              ${stock.name || ""}
+            </div>
+
+            <div class="stock-change ${changeClass(stock.change_percent)}">
+              ${formatPercent(stock.change_percent)}
+            </div>
+
+          `;
+
+
+          stockRanking.appendChild(
+            stockRow
+          );
+
+        }
+      );
+
+
+      detail.appendChild(
+        stockRanking
+      );
+
+
+      wrapper.appendChild(
+        detail
+      );
+
+
+      /*
+        タップで開閉
+      */
+
+      row.addEventListener(
+        "click",
+        () => {
+
+          detail.style.display =
+            detail.style.display ===
+            "none"
+              ? "block"
+              : "none";
+
+        }
+      );
+
+    }
+  );
+
+
+  container.appendChild(
+    wrapper
+  );
+
 }
 
 
-/* -----------------------------
+/* ============================================================
    テーマランキング
------------------------------ */
+============================================================ */
 
-function renderThemeRanking(container, dataset) {
+
+function renderThemeRanking(
+  container,
+  dataset
+) {
+
 
   const ranking =
-    dataset?.top_themes || [];
+    dataset
+      ?.top_themes ||
+    [];
 
-  if (!ranking.length) {
+
+  if (
+    !ranking.length
+  ) {
 
     container.innerHTML =
       '<div class="message">テーマデータがありません</div>';
 
     return;
+
   }
 
+
   const wrapper =
-    document.createElement("div");
-
-  wrapper.className = "ranking";
-
-  ranking.forEach((item, index) => {
-
-    const row =
-      document.createElement("div");
-
-    row.className = "ranking-row";
-
-    row.innerHTML = `
-      <div class="rank">${index + 1}</div>
-      <div class="name">${item.name}</div>
-      <div class="change ${changeClass(item.change)}">
-        ${formatPercent(item.change)}
-      </div>
-    `;
-
-    wrapper.appendChild(row);
-
-    const detail =
-      document.createElement("div");
-
-    detail.className = "detail";
-
-    detail.style.display = "none";
-
-    const title =
-      document.createElement("div");
-
-    title.className = "detail-title";
-
-    title.textContent =
-      `${item.name}`;
-
-    detail.appendChild(title);
-
-    const graphContainer =
-      document.createElement("div");
-
-    detail.appendChild(graphContainer);
-
-    const stocks =
-      dataset.theme_stocks?.[item.name] || [];
-
-    createGraphArea(
-      graphContainer,
-      stocks,
-      `theme-${item.name}`,
-      "1m",
-      true
+    document.createElement(
+      "div"
     );
 
-    const stockRanking =
-      document.createElement("div");
 
-    stockRanking.className =
-      "ranking";
+  wrapper.className =
+    "ranking";
 
-    const sortedStocks =
-      [...stocks].sort(
-        (a, b) =>
-          Number(b.change || 0) -
-          Number(a.change || 0)
-      );
 
-    sortedStocks.forEach(stock => {
+  ranking.forEach(
+    (item, index) => {
 
-      const stockRow =
-        document.createElement("div");
 
-      stockRow.className =
-        "stock-row";
+      /*
+        Python側：
+          theme
+          change_percent
+      */
 
-      stockRow.innerHTML = `
-        <div class="stock-code">
-          ${stock.code || ""}
+      const themeName =
+        item.theme;
+
+
+      const change =
+        item.change_percent;
+
+
+      const row =
+        document.createElement(
+          "div"
+        );
+
+
+      row.className =
+        "ranking-row";
+
+
+      row.innerHTML = `
+
+        <div class="rank">
+          ${index + 1}
         </div>
 
-        <div class="stock-name">
-          ${stock.name || ""}
+        <div class="name">
+          ${themeName}
         </div>
 
-        <div class="stock-change ${changeClass(stock.change)}">
-          ${formatPercent(stock.change)}
+        <div class="change ${changeClass(change)}">
+          ${formatPercent(change)}
         </div>
+
       `;
 
-      stockRanking.appendChild(stockRow);
-    });
 
-    detail.appendChild(stockRanking);
+      wrapper.appendChild(
+        row
+      );
 
-    wrapper.appendChild(detail);
 
-    row.addEventListener("click", () => {
+      /*
+        詳細
+      */
+
+      const detail =
+        document.createElement(
+          "div"
+        );
+
+
+      detail.className =
+        "detail";
+
 
       detail.style.display =
-        detail.style.display === "none"
-          ? "block"
-          : "none";
-    });
-  });
+        "none";
 
-  container.appendChild(wrapper);
+
+      const detailTitle =
+        document.createElement(
+          "div"
+        );
+
+
+      detailTitle.className =
+        "detail-title";
+
+
+      detailTitle.textContent =
+        themeName;
+
+
+      detail.appendChild(
+        detailTitle
+      );
+
+
+      /*
+        グラフ
+      */
+
+      const graphContainer =
+        document.createElement(
+          "div"
+        );
+
+
+      graphContainer.className =
+        "chart-area";
+
+
+      detail.appendChild(
+        graphContainer
+      );
+
+
+      const stocks =
+        dataset
+          ?.theme_stocks
+          ?.[themeName] ||
+        [];
+
+
+      createGraphArea(
+        graphContainer,
+        stocks,
+        "theme-" +
+          themeName,
+        "1m",
+        true
+      );
+
+
+      /*
+        銘柄ランキング
+      */
+
+      const stockRanking =
+        document.createElement(
+          "div"
+        );
+
+
+      stockRanking.className =
+        "ranking";
+
+
+      const sortedStocks =
+        [...stocks].sort(
+          (a, b) =>
+            Number(
+              b.change_percent ||
+              0
+            ) -
+            Number(
+              a.change_percent ||
+              0
+            )
+        );
+
+
+      sortedStocks.forEach(
+        stock => {
+
+
+          const stockRow =
+            document.createElement(
+              "div"
+            );
+
+
+          stockRow.className =
+            "stock-row";
+
+
+          stockRow.innerHTML = `
+
+            <div class="stock-code">
+              ${stock.code || ""}
+            </div>
+
+            <div class="stock-name">
+              ${stock.name || ""}
+            </div>
+
+            <div class="stock-change ${changeClass(stock.change_percent)}">
+              ${formatPercent(stock.change_percent)}
+            </div>
+
+          `;
+
+
+          stockRanking.appendChild(
+            stockRow
+          );
+
+        }
+      );
+
+
+      detail.appendChild(
+        stockRanking
+      );
+
+
+      wrapper.appendChild(
+        detail
+      );
+
+
+      /*
+        タップで開閉
+      */
+
+      row.addEventListener(
+        "click",
+        () => {
+
+          detail.style.display =
+            detail.style.display ===
+            "none"
+              ? "block"
+              : "none";
+
+        }
+      );
+
+    }
+  );
+
+
+  container.appendChild(
+    wrapper
+  );
+
 }
 
 
-/* -----------------------------
-   値上がり銘柄
------------------------------ */
+/* ============================================================
+   値上がり銘柄TOP10
+============================================================ */
 
-function renderTopGainers(container, dataset) {
+
+function renderTopGainers(
+  container,
+  dataset
+) {
+
 
   const ranking =
-    dataset?.top_gainers || [];
+    dataset
+      ?.top_gainers ||
+    [];
 
-  if (!ranking.length) {
+
+  if (
+    !ranking.length
+  ) {
 
     container.innerHTML =
       '<div class="message">値上がり銘柄データがありません</div>';
 
     return;
+
   }
 
+
   const wrapper =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
-  wrapper.className = "ranking";
 
-  ranking.slice(0, 10).forEach((item, index) => {
+  wrapper.className =
+    "ranking";
 
-    const row =
-      document.createElement("div");
 
-    row.className = "ranking-row";
+  ranking
+    .slice(0, 10)
+    .forEach(
+      (item, index) => {
 
-    row.innerHTML = `
-      <div class="rank">${index + 1}</div>
 
-      <div class="name">
-        ${item.name || ""}
-        ${item.code ? ` <span style="color:#999;font-size:10px">${item.code}</span>` : ""}
-      </div>
+        const row =
+          document.createElement(
+            "div"
+          );
 
-      <div class="change ${changeClass(item.change)}">
-        ${formatPercent(item.change)}
-      </div>
-    `;
 
-    wrapper.appendChild(row);
-  });
+        row.className =
+          "ranking-row";
 
-  container.appendChild(wrapper);
+
+        row.innerHTML = `
+
+          <div class="rank">
+            ${index + 1}
+          </div>
+
+          <div class="name">
+
+            ${item.name || ""}
+
+            ${
+              item.code
+                ? `
+                  <span
+                    style="
+                      color:#999;
+                      font-size:10px;
+                    "
+                  >
+                    ${item.code}
+                  </span>
+                `
+                : ""
+            }
+
+          </div>
+
+          <div class="change ${changeClass(item.change_percent)}">
+            ${formatPercent(item.change_percent)}
+          </div>
+
+        `;
+
+
+        wrapper.appendChild(
+          row
+        );
+
+      }
+    );
+
+
+  container.appendChild(
+    wrapper
+  );
+
 }
 
 
-/* -----------------------------
-   メイン表示
------------------------------ */
+/* ============================================================
+   メイン画面
+============================================================ */
 
-function renderApp(data) {
+
+function renderApp(
+  data
+) {
+
 
   DATA = data;
 
+
   const app =
-    document.getElementById("app");
+    document.getElementById(
+      "app"
+    );
 
-  app.innerHTML = "";
 
-  const period = "1m";
+  app.innerHTML =
+    "";
 
-  /* 業界TOP10 */
+
+  /*
+    最初は1月
+  */
+
+  const period =
+    "1m";
+
+
+  /* ========================================================
+     業界TOP10
+  ======================================================== */
+
 
   const industryTop =
-    document.createElement("section");
+    document.createElement(
+      "section"
+    );
 
-  industryTop.innerHTML =
-    "<h2>業界 TOP10</h2>" +
-    '<div class="section-subtitle">業界の推移</div>';
+
+  industryTop.innerHTML = `
+
+    <h2>
+      業界 TOP10
+    </h2>
+
+    <div class="section-subtitle">
+      業界の推移
+    </div>
+
+  `;
+
 
   const industryTopGraph =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
+
+  industryTopGraph.className =
+    "chart-area";
+
 
   industryTop.appendChild(
     industryTopGraph
   );
 
+
   const industryItems =
-    data?.[period]?.top_industries || [];
+    data
+      ?.["1m"]
+      ?.top_industries ||
+    [];
+
 
   createGraphArea(
     industryTopGraph,
@@ -1085,51 +2335,103 @@ function renderApp(data) {
     false
   );
 
-  app.appendChild(industryTop);
+
+  app.appendChild(
+    industryTop
+  );
 
 
-  /* 業界ランキング */
+  /* ========================================================
+     業界ランキング
+  ======================================================== */
+
 
   const industryRanking =
-    document.createElement("section");
+    document.createElement(
+      "section"
+    );
 
-  industryRanking.innerHTML =
-    "<h2>業界ランキング</h2>" +
-    '<div class="section-subtitle">タップすると業界内の銘柄を表示</div>';
+
+  industryRanking.innerHTML = `
+
+    <h2>
+      業界ランキング
+    </h2>
+
+    <div class="section-subtitle">
+      タップすると業界内の銘柄を表示
+    </div>
+
+  `;
+
 
   const industryRankingContainer =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   industryRanking.appendChild(
     industryRankingContainer
   );
 
+
   renderIndustryRanking(
     industryRankingContainer,
-    data[period]
+    data["1m"]
   );
 
-  app.appendChild(industryRanking);
+
+  app.appendChild(
+    industryRanking
+  );
 
 
-  /* テーマTOP10 */
+  /* ========================================================
+     テーマTOP10
+  ======================================================== */
+
 
   const themeTop =
-    document.createElement("section");
+    document.createElement(
+      "section"
+    );
 
-  themeTop.innerHTML =
-    "<h2>🔥 テーマ TOP10</h2>" +
-    '<div class="section-subtitle">テーマの推移</div>';
+
+  themeTop.innerHTML = `
+
+    <h2>
+      🔥 テーマ TOP10
+    </h2>
+
+    <div class="section-subtitle">
+      テーマの推移
+    </div>
+
+  `;
+
 
   const themeTopGraph =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
+
+  themeTopGraph.className =
+    "chart-area";
+
 
   themeTop.appendChild(
     themeTopGraph
   );
 
+
   const themeItems =
-    data?.[period]?.top_themes || [];
+    data
+      ?.["1m"]
+      ?.top_themes ||
+    [];
+
 
   createGraphArea(
     themeTopGraph,
@@ -1139,122 +2441,230 @@ function renderApp(data) {
     false
   );
 
-  app.appendChild(themeTop);
+
+  app.appendChild(
+    themeTop
+  );
 
 
-  /* テーマランキング */
+  /* ========================================================
+     テーマランキング
+  ======================================================== */
+
 
   const themeRanking =
-    document.createElement("section");
+    document.createElement(
+      "section"
+    );
 
-  themeRanking.innerHTML =
-    "<h2>テーマランキング</h2>" +
-    '<div class="section-subtitle">タップするとテーマ内の銘柄を表示</div>';
+
+  themeRanking.innerHTML = `
+
+    <h2>
+      テーマランキング
+    </h2>
+
+    <div class="section-subtitle">
+      タップするとテーマ内の銘柄を表示
+    </div>
+
+  `;
+
 
   const themeRankingContainer =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   themeRanking.appendChild(
     themeRankingContainer
   );
 
+
   renderThemeRanking(
     themeRankingContainer,
-    data[period]
+    data["1m"]
   );
 
-  app.appendChild(themeRanking);
+
+  app.appendChild(
+    themeRanking
+  );
 
 
-  /* 値上がり */
+  /* ========================================================
+     値上がり銘柄
+  ======================================================== */
+
 
   const gainers =
-    document.createElement("section");
+    document.createElement(
+      "section"
+    );
 
-  gainers.innerHTML =
-    "<h2>1か月値上がり銘柄 TOP10</h2>";
+
+  gainers.innerHTML = `
+
+    <h2>
+      1か月値上がり銘柄 TOP10
+    </h2>
+
+  `;
+
 
   const gainersContainer =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   gainers.appendChild(
     gainersContainer
   );
 
+
   renderTopGainers(
     gainersContainer,
-    data[period]
+    data["1m"]
   );
 
-  app.appendChild(gainers);
+
+  app.appendChild(
+    gainers
+  );
+
 }
 
 
-/* -----------------------------
-   データ読み込み
------------------------------ */
+/* ============================================================
+   data.json読み込み
+============================================================ */
+
 
 async function loadData() {
 
+
   const updated =
-    document.getElementById("updated");
+    document.getElementById(
+      "updated"
+    );
+
 
   try {
 
+
     const response =
       await fetch(
-        "./data.json?ts=" + Date.now(),
+        "./data.json?ts=" +
+        Date.now(),
         {
           cache: "no-store"
         }
       );
 
-    if (!response.ok) {
+
+    if (
+      !response.ok
+    ) {
+
       throw new Error(
-        "HTTP " + response.status
+        "HTTP " +
+        response.status
       );
+
     }
+
 
     const data =
       await response.json();
 
-    if (!data["1m"]) {
+
+    /*
+      1月データが存在するか確認
+    */
+
+    if (
+      !data["1m"]
+    ) {
+
       throw new Error(
         "1mデータがありません"
       );
+
     }
 
-    if (data.updated_at) {
+
+    /*
+      更新時刻
+    */
+
+    if (
+      data.updated_at
+    ) {
 
       updated.textContent =
         "最終更新: " +
         data.updated_at;
+
     }
 
-    renderApp(data);
 
-  } catch (error) {
+    renderApp(
+      data
+    );
 
-    console.error(error);
+
+  }
+  catch (
+    error
+  ) {
+
+
+    console.error(
+      error
+    );
+
 
     updated.textContent =
       "データ読み込みエラー";
 
-    document.getElementById("app").innerHTML = `
+
+    document.getElementById(
+      "app"
+    ).innerHTML = `
+
       <section>
+
         <div class="message">
-          データを読み込めませんでした。<br>
-          data.json の配置を確認してください。<br><br>
-          <small>${error.message}</small>
+
+          データを読み込めませんでした。<br><br>
+
+          <small>
+            ${error.message}
+          </small>
+
         </div>
+
       </section>
+
     `;
+
   }
+
 }
 
+
+/* ============================================================
+   起動
+============================================================ */
+
+
 loadData();
+
 
 </script>
 
 </body>
+
 </html>
