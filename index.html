@@ -1,1998 +1,1256 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ffffff">
 
-<meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               maximum-scale=1.0,
-               user-scalable=no">
+  <title>日本株ダッシュボード</title>
 
-<title>日本株ダッシュボード</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family:
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      color: #222;
+      font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Helvetica Neue",
-        "Hiragino Kaku Gothic ProN",
-        "Yu Gothic",
-        Meiryo,
+        Arial,
         sans-serif;
-
-    background: #f5f5f5;
-    color: #222;
-}
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-
-    background: white;
-    border-bottom: 1px solid #ddd;
-
-    padding: 14px 12px 12px;
-}
-
-h1 {
-    margin: 0 0 10px;
-    font-size: 21px;
-    font-weight: 700;
-}
-
-.updated {
-    font-size: 12px;
-    color: #777;
-    margin-bottom: 12px;
-}
-
-.period-selector {
-    display: flex;
-    gap: 8px;
-}
-
-.period-button {
-    flex: 1;
-
-    border: 1px solid #ccc;
-    background: #fff;
-
-    border-radius: 10px;
-
-    padding: 9px 0;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    cursor: pointer;
-}
-
-.period-button.active {
-    background: #222;
-    color: white;
-    border-color: #222;
-}
-
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 12px;
-}
-
-.section {
-    background: white;
-    border-radius: 14px;
-
-    padding: 14px;
-    margin-bottom: 14px;
-
-    box-shadow:
-        0 1px 4px rgba(0,0,0,0.06);
-}
-
-.section-title {
-    margin: 0 0 12px;
-
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.section-subtitle {
-    font-size: 12px;
-    color: #777;
-    margin-top: -6px;
-    margin-bottom: 10px;
-}
-
-.chart-container {
-    position: relative;
-    width: 100%;
-    height: 280px;
-}
-
-.detail-chart-container {
-    position: relative;
-    width: 100%;
-    height: 260px;
-}
-
-.detail-period-selector {
-    display: flex;
-    gap: 6px;
-
-    margin-bottom: 10px;
-}
-
-.detail-period-button {
-    border: 1px solid #ccc;
-    background: white;
-
-    border-radius: 8px;
-
-    padding: 6px 12px;
-
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.detail-period-button.active {
-    background: #222;
-    color: white;
-    border-color: #222;
-}
-
-.ranking {
-    display: flex;
-    flex-direction: column;
-}
-
-.ranking-row {
-    border-bottom: 1px solid #eee;
-}
-
-.ranking-row:last-child {
-    border-bottom: none;
-}
-
-.ranking-button {
-    width: 100%;
-
-    border: none;
-    background: white;
-
-    padding: 13px 4px;
-
-    display: flex;
-    align-items: center;
-
-    cursor: pointer;
-
-    text-align: left;
-}
-
-.rank {
-    width: 34px;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    color: #777;
-}
-
-.rank.top {
-    color: #222;
-}
-
-.rank-name {
-    flex: 1;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    min-width: 0;
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.rank-change {
-    width: 78px;
-
-    text-align: right;
-
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.positive {
-    color: #d60000;
-}
-
-.negative {
-    color: #0066cc;
-}
-
-.neutral {
-    color: #666;
-}
-
-.arrow {
-    width: 24px;
-
-    text-align: right;
-
-    color: #aaa;
-    font-size: 14px;
-}
-
-.detail {
-    display: none;
-
-    background: #fafafa;
-
-    padding: 12px;
-
-    border-top: 1px solid #eee;
-}
-
-.detail.open {
-    display: block;
-}
-
-.detail-title {
-    margin: 0 0 10px;
-
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.stock-ranking {
-    margin-top: 12px;
-}
-
-.stock-row {
-    display: flex;
-    align-items: center;
-
-    padding: 9px 2px;
-
-    border-bottom: 1px solid #eee;
-}
-
-.stock-row:last-child {
-    border-bottom: none;
-}
-
-.stock-rank {
-    width: 30px;
-
-    font-size: 12px;
-    color: #888;
-}
-
-.stock-name {
-    flex: 1;
-
-    font-size: 14px;
-
-    min-width: 0;
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.stock-code {
-    font-size: 11px;
-    color: #999;
-
-    margin-left: 5px;
-}
-
-.stock-price {
-    width: 70px;
-
-    text-align: right;
-
-    font-size: 12px;
-    color: #555;
-}
-
-.stock-change {
-    width: 70px;
-
-    text-align: right;
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.top-stock {
-    display: flex;
-    align-items: center;
-
-    padding: 10px 2px;
-
-    border-bottom: 1px solid #eee;
-}
-
-.top-stock:last-child {
-    border-bottom: none;
-}
-
-.top-stock-rank {
-    width: 34px;
-
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.top-stock-name {
-    flex: 1;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    min-width: 0;
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.top-stock-change {
-    width: 80px;
-
-    text-align: right;
-
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.loading {
-    text-align: center;
-
-    padding: 50px 10px;
-
-    color: #777;
-}
-
-.error {
-    text-align: center;
-
-    padding: 40px 10px;
-
-    color: #c00;
-}
-
-.no-data {
-    padding: 20px 5px;
-
-    text-align: center;
-
-    color: #888;
-
-    font-size: 13px;
-}
-
-.small-note {
-    margin-top: 10px;
-
-    font-size: 11px;
-
-    color: #999;
-
-    line-height: 1.5;
-}
-
-@media (min-width: 700px) {
-
-    .chart-container {
-        height: 330px;
     }
 
-    .detail-chart-container {
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #ddd;
+      padding: 12px 14px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    #updated {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #777;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      padding: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    section h2 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .chart-box {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    .detail-chart-box {
+      position: relative;
+      width: 100%;
+      height: 270px;
+    }
+
+    @media (max-width: 600px) {
+      .chart-box {
         height: 300px;
+      }
+
+      .detail-chart-box {
+        height: 250px;
+      }
     }
 
-}
+    .period-buttons {
+      display: flex;
+      gap: 5px;
+      margin: 4px 0 7px;
+    }
 
-</style>
+    .period-button {
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #555;
+      border-radius: 6px;
+      padding: 4px 9px;
+      font-size: 11px;
+      line-height: 1.2;
+      cursor: pointer;
+    }
+
+    .period-button.active {
+      background: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    .ranking {
+      margin-top: 8px;
+    }
+
+    .ranking-row {
+      display: flex;
+      align-items: center;
+      min-height: 38px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .ranking-row:last-child {
+      border-bottom: none;
+    }
+
+    .rank {
+      width: 34px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      flex-shrink: 0;
+    }
+
+    .name {
+      flex: 1;
+      min-width: 0;
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .change {
+      width: 72px;
+      text-align: right;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .up {
+      color: #d60000;
+    }
+
+    .down {
+      color: #0066cc;
+    }
+
+    .detail {
+      background: #fafafa;
+      padding: 8px;
+      border-radius: 8px;
+      margin: 4px 0 8px;
+    }
+
+    .detail-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 2px 0 5px;
+    }
+
+    .stock-row {
+      display: flex;
+      align-items: center;
+      min-height: 34px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .stock-row:last-child {
+      border-bottom: none;
+    }
+
+    .stock-code {
+      width: 50px;
+      color: #888;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .stock-name {
+      flex: 1;
+      min-width: 0;
+      font-size: 13px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .stock-change {
+      width: 68px;
+      text-align: right;
+      font-size: 12px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .message {
+      padding: 20px 10px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+
+    .section-subtitle {
+      font-size: 11px;
+      color: #888;
+      margin: -3px 0 7px;
+    }
+  </style>
+
 </head>
-
 
 <body>
 
 <header>
-
-    <h1>日本株ダッシュボード</h1>
-
-    <div id="updated"
-         class="updated">
-        データ読み込み中...
-    </div>
-
-    <div class="period-selector">
-
-        <button
-            class="period-button active"
-            data-period="1m">
-            1月
-        </button>
-
-        <button
-            class="period-button"
-            data-period="6m">
-            半年
-        </button>
-
-        <button
-            class="period-button"
-            data-period="5y">
-            5年
-        </button>
-
-    </div>
-
+  <h1>日本株ダッシュボード</h1>
+  <div id="updated">データ読み込み中...</div>
 </header>
 
-
 <main id="app">
-
-    <div class="loading">
-        株価データを読み込んでいます...
-    </div>
-
+  <div class="message">データ読み込み中...</div>
 </main>
-
 
 <script>
 
-/* ============================================================
-   基本設定
-============================================================ */
-
 let DATA = null;
 
-let selectedPeriod = "1m";
+/* 現在の期間
+   グラフごとに個別に持つ */
+const chartPeriods = {};
 
-let chartInstances = [];
+const PERIOD_LABEL = {
+  "1m": "1月",
+  "6m": "半年",
+  "5y": "5年"
+};
 
-let detailChartCounter = 0;
+const PERIOD_ORDER = ["1m", "6m", "5y"];
 
 
-/* ============================================================
-   期間名
-============================================================ */
+/* -----------------------------
+   共通
+----------------------------- */
 
 function periodLabel(period) {
-
-    if (period === "1m") {
-        return "1か月";
-    }
-
-    if (period === "6m") {
-        return "半年";
-    }
-
-    if (period === "5y") {
-        return "5年";
-    }
-
-    return "";
+  return PERIOD_LABEL[period] || period;
 }
 
+function formatPercent(value) {
+  if (value === null || value === undefined || Number.isNaN(value)) {
+    return "-";
+  }
 
-/* ============================================================
-   期間の説明
-============================================================ */
+  const n = Number(value) * 100;
+  const sign = n > 0 ? "+" : "";
 
-function periodDescription(period) {
-
-    if (period === "1m") {
-        return "日足・1か月前を100";
-    }
-
-    if (period === "6m") {
-        return "週足・半年間の変化";
-    }
-
-    if (period === "5y") {
-        return "月足・5年間の変化";
-    }
-
-    return "";
+  return sign + n.toFixed(1) + "%";
 }
-
-
-/* ============================================================
-   増減率表示
-============================================================ */
-
-function formatChange(value) {
-
-    const num = Number(value || 0);
-
-    if (num > 0) {
-        return "+" + num.toFixed(2) + "%";
-    }
-
-    return num.toFixed(2) + "%";
-}
-
 
 function changeClass(value) {
-
-    const num = Number(value || 0);
-
-    if (num > 0) {
-        return "positive";
-    }
-
-    if (num < 0) {
-        return "negative";
-    }
-
-    return "neutral";
+  return Number(value) >= 0 ? "up" : "down";
 }
 
 
-/* ============================================================
-   Chart.js の既存グラフを破棄
-============================================================ */
+/* -----------------------------
+   期間ボタン
+----------------------------- */
 
-function destroyCharts() {
+function createPeriodButtons(id, currentPeriod, onChange) {
 
-    chartInstances.forEach(chart => {
+  const div = document.createElement("div");
+  div.className = "period-buttons";
 
-        try {
-            chart.destroy();
-        } catch (e) {}
+  PERIOD_ORDER.forEach(period => {
 
+    const button = document.createElement("button");
+
+    button.className =
+      "period-button" +
+      (period === currentPeriod ? " active" : "");
+
+    button.textContent = PERIOD_LABEL[period];
+
+    button.addEventListener("click", () => {
+      onChange(period);
     });
 
-    chartInstances = [];
+    div.appendChild(button);
+  });
+
+  return div;
 }
 
 
-/* ============================================================
-   historyからChart.js用データを作る
-============================================================ */
+/* -----------------------------
+   日付表示
+----------------------------- */
 
-function historyToMap(history) {
+function formatAxisDate(dateString, period) {
 
-    const map = {};
+  const d = new Date(dateString);
 
-    if (!history) {
-        return map;
+  if (Number.isNaN(d.getTime())) {
+    return dateString;
+  }
+
+  const year = String(d.getFullYear()).slice(-2);
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+
+  if (period === "5y") {
+    return `${year}/${month}`;
+  }
+
+  return `${month}/${day}`;
+}
+
+
+/* -----------------------------
+   赤い ▼ マーカー
+----------------------------- */
+
+const boundaryMarkerPlugin = {
+
+  id: "boundaryMarker",
+
+  afterDatasetsDraw(chart, args, pluginOptions) {
+
+    const boundaryDate = pluginOptions?.boundaryDate;
+
+    if (!boundaryDate) {
+      return;
     }
+
+    const labels = chart.data.labels || [];
+
+    if (!labels.length) {
+      return;
+    }
+
+    const targetTime = new Date(boundaryDate).getTime();
+
+    let bestIndex = -1;
+    let bestDiff = Infinity;
+
+    labels.forEach((label, index) => {
+
+      const t = new Date(label).getTime();
+
+      if (Number.isNaN(t)) {
+        return;
+      }
+
+      const diff = Math.abs(t - targetTime);
+
+      if (diff < bestDiff) {
+        bestDiff = diff;
+        bestIndex = index;
+      }
+    });
+
+    if (bestIndex < 0) {
+      return;
+    }
+
+    const meta = chart.getDatasetMeta(0);
+
+    if (!meta || !meta.data || !meta.data[bestIndex]) {
+      return;
+    }
+
+    const point = meta.data[bestIndex];
+
+    const ctx = chart.ctx;
+
+    ctx.save();
+
+    ctx.fillStyle = "#d60000";
+
+    const x = point.x;
+    const y = chart.chartArea.top + 2;
+
+    ctx.beginPath();
+
+    ctx.moveTo(x, y);
+    ctx.lineTo(x - 6, y);
+    ctx.lineTo(x, y + 9);
+    ctx.lineTo(x + 6, y);
+
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.restore();
+  }
+};
+
+Chart.register(boundaryMarkerPlugin);
+
+
+/* -----------------------------
+   マーカーの基準日
+----------------------------- */
+
+function getBoundaryDate(history, period) {
+
+  if (!history || history.length === 0) {
+    return null;
+  }
+
+  if (period === "6m") {
+
+    // 1か月前
+    const newest = new Date(history[history.length - 1].date);
+
+    const d = new Date(newest);
+    d.setMonth(d.getMonth() - 1);
+
+    return d.toISOString();
+  }
+
+  if (period === "5y") {
+
+    // 半年前
+    const newest = new Date(history[history.length - 1].date);
+
+    const d = new Date(newest);
+    d.setMonth(d.getMonth() - 6);
+
+    return d.toISOString();
+  }
+
+  return null;
+}
+
+
+/* -----------------------------
+   グラフ用データ
+----------------------------- */
+
+function makeDatasets(items, historyKey) {
+
+  const dateMap = new Map();
+
+  items.forEach(item => {
+
+    const history =
+      item?.periods?.[historyKey]?.history ||
+      item?.history ||
+      [];
 
     history.forEach(point => {
-        map[point.date] = point.value;
+
+      if (!dateMap.has(point.date)) {
+        dateMap.set(point.date, {});
+      }
+
+      dateMap.get(point.date)[item.name] = point.value;
     });
+  });
 
-    return map;
-}
+  const dates = Array.from(dateMap.keys()).sort();
 
-
-function makeDatasets(items) {
-
-    const dateSet = new Set();
-
-    items.forEach(item => {
-
-        const history = item.history || [];
-
-        history.forEach(point => {
-            dateSet.add(point.date);
-        });
-
-    });
-
-    const labels = Array.from(dateSet).sort(
-        (a, b) => {
-
-            const da = new Date(
-                a.replace(/\//g, "-")
-            );
-
-            const db = new Date(
-                b.replace(/\//g, "-")
-            );
-
-            return da - db;
-        }
-    );
-
-
-    const datasets = items.map(
-        (item, index) => {
-
-            const map = historyToMap(
-                item.history
-            );
-
-            return {
-
-                label:
-                    item.name ||
-                    item.industry ||
-                    item.theme ||
-                    "",
-
-                data: labels.map(
-                    date => map[date] ?? null
-                ),
-
-                borderWidth: 2,
-
-                pointRadius: 0,
-
-                tension: 0.15,
-
-                spanGaps: true
-
-            };
-
-        }
-    );
-
+  const datasets = items.map(item => {
 
     return {
-        labels,
-        datasets
+      label: item.name,
+      data: dates.map(date => {
+        return dateMap.get(date)?.[item.name] ?? null;
+      }),
+      borderWidth: 1.5,
+      pointRadius: 0,
+      tension: 0.15,
+      spanGaps: true
     };
+  });
+
+  return {
+    dates,
+    datasets
+  };
 }
 
 
-/* ============================================================
-   グラフ作成
-============================================================ */
+/* -----------------------------
+   グラフ生成
+----------------------------- */
 
-function createLineChart(
-    canvasId,
-    items,
-    title
-) {
+function createLineChart(canvas, items, period, isDetail = false) {
 
-    const canvas =
-        document.getElementById(canvasId);
+  if (!items || items.length === 0) {
+    return null;
+  }
 
-    if (!canvas) {
-        return;
-    }
+  const result = makeDatasets(items, period);
 
-    const chartData =
-        makeDatasets(items);
+  if (!result.dates.length) {
+    return null;
+  }
 
-    const chart =
-        new Chart(
-            canvas.getContext("2d"),
-            {
+  const labels = result.dates;
 
-                type: "line",
+  const datasets = result.datasets;
 
-                data: chartData,
+  const boundaryDate =
+    getBoundaryDate(
+      items[0]?.periods?.[period]?.history || [],
+      period
+    );
 
-                options: {
+  const ctx = canvas.getContext("2d");
 
-                    responsive: true,
+  return new Chart(ctx, {
 
-                    maintainAspectRatio: false,
+    type: "line",
 
-                    interaction: {
-                        mode: "nearest",
-                        intersect: false
-                    },
+    data: {
+      labels,
 
-                    plugins: {
+      datasets
+    },
 
-                        legend: {
-                            display: true,
-                            position: "bottom"
-                        },
+    options: {
 
-                        tooltip: {
+      responsive: true,
 
-                            callbacks: {
+      maintainAspectRatio: false,
 
-                                label:
-                                    function(context) {
+      interaction: {
+        mode: "index",
+        intersect: false
+      },
 
-                                        const value =
-                                            context.parsed.y;
+      plugins: {
 
-                                        if (
-                                            value === null ||
-                                            value === undefined
-                                        ) {
-                                            return "";
-                                        }
+        legend: {
 
-                                        return (
-                                            context.dataset.label
-                                            + ": "
-                                            + value.toFixed(1)
-                                        );
+          display: true,
 
-                                    }
+          position: "bottom",
 
-                            }
+          labels: {
 
-                        }
+            // 凡例をコンパクト化
+            font: {
+              size: 9
+            },
 
-                    },
+            // 色の四角を小さく
+            boxWidth: 7,
+            boxHeight: 7,
 
-                    scales: {
+            padding: 5,
 
-                        x: {
+            usePointStyle: false
+          }
+        },
 
-                            ticks: {
-                                maxTicksLimit: 7
-                            }
+        tooltip: {
 
-                        },
+          callbacks: {
 
-                        y: {
+            title: function(items) {
 
-                            title: {
-                                display: true,
-                                text: "基準値 = 100"
-                            }
+              if (!items.length) {
+                return "";
+              }
 
-                        }
+              return formatAxisDate(
+                items[0].label,
+                period
+              );
+            },
 
-                    }
+            label: function(context) {
 
-                }
+              const value = context.parsed.y;
 
+              if (value === null || value === undefined) {
+                return "";
+              }
+
+              return `${context.dataset.label}: ${value.toFixed(1)}`;
             }
-        );
+          }
+        },
 
-    chartInstances.push(chart);
-}
-
-
-/* ============================================================
-   共通ランキングHTML
-============================================================ */
-
-function rankingRows(
-    items,
-    type
-) {
-
-    if (!items || items.length === 0) {
-
-        return `
-            <div class="no-data">
-                データがありません
-            </div>
-        `;
-
-    }
-
-    return items.map(
-        (item, index) => {
-
-            const name =
-                type === "industry"
-                    ? item.industry
-                    : item.theme;
-
-            return `
-
-                <div class="ranking-row">
-
-                    <button
-                        class="ranking-button"
-                        data-type="${type}"
-                        data-index="${index}">
-
-                        <div class="
-                            rank
-                            ${index < 3 ? "top" : ""}
-                        ">
-                            ${index + 1}
-                        </div>
-
-                        <div class="rank-name">
-                            ${escapeHtml(name)}
-                        </div>
-
-                        <div class="
-                            rank-change
-                            ${changeClass(item.change_percent)}
-                        ">
-                            ${formatChange(
-                                item.change_percent
-                            )}
-                        </div>
-
-                        <div class="arrow">
-                            ›
-                        </div>
-
-                    </button>
-
-                    <div
-                        class="detail"
-                        id="${type}-detail-${index}">
-                    </div>
-
-                </div>
-
-            `;
-
+        boundaryMarker: {
+          boundaryDate
         }
-    ).join("");
-}
+      },
 
+      scales: {
 
-/* ============================================================
-   HTMLエスケープ
-============================================================ */
+        x: {
 
-function escapeHtml(value) {
+          ticks: {
 
-    if (value === null ||
-        value === undefined) {
-        return "";
-    }
+            autoSkip: true,
 
-    return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+            maxTicksLimit:
+              period === "1m"
+                ? 8
+                : period === "6m"
+                  ? 8
+                  : 10,
 
-}
+            maxRotation: 0,
 
+            minRotation: 0,
 
-/* ============================================================
-   業界TOP10
-============================================================ */
+            font: {
+              size: 9
+            },
 
-function renderIndustryTop10(dataset) {
+            callback: function(value) {
 
-    const items =
-        dataset.top_industries || [];
+              const label =
+                this.getLabelForValue(value);
 
-    return `
-
-        <section class="section">
-
-            <h2 class="section-title">
-                業界 TOP10
-            </h2>
-
-            <div class="section-subtitle">
-                ${periodDescription(selectedPeriod)}
-            </div>
-
-            <div class="chart-container">
-
-                <canvas id="industryTopChart"></canvas>
-
-            </div>
-
-        </section>
-
-    `;
-
-}
-
-
-/* ============================================================
-   業界ランキング
-============================================================ */
-
-function renderIndustryRanking(dataset) {
-
-    return `
-
-        <section class="section">
-
-            <h2 class="section-title">
-                業界ランキング
-            </h2>
-
-            <div class="section-subtitle">
-                ${periodDescription(selectedPeriod)}
-                ・タップすると業界の銘柄を表示
-            </div>
-
-            <div class="ranking">
-
-                ${rankingRows(
-                    dataset.industries || [],
-                    "industry"
-                )}
-
-            </div>
-
-        </section>
-
-    `;
-
-}
-
-
-/* ============================================================
-   テーマTOP10
-============================================================ */
-
-function renderThemeTop10(dataset) {
-
-    const items =
-        dataset.top_themes || [];
-
-    return `
-
-        <section class="section">
-
-            <h2 class="section-title">
-                🔥 テーマ TOP10
-            </h2>
-
-            <div class="section-subtitle">
-                ${periodDescription(selectedPeriod)}
-            </div>
-
-            <div class="chart-container">
-
-                <canvas id="themeTopChart"></canvas>
-
-            </div>
-
-        </section>
-
-    `;
-
-}
-
-
-/* ============================================================
-   テーマランキング
-============================================================ */
-
-function renderThemeRanking(dataset) {
-
-    return `
-
-        <section class="section">
-
-            <h2 class="section-title">
-                テーマランキング
-            </h2>
-
-            <div class="section-subtitle">
-                ${periodDescription(selectedPeriod)}
-                ・タップするとテーマの銘柄を表示
-            </div>
-
-            <div class="ranking">
-
-                ${rankingRows(
-                    dataset.themes || [],
-                    "theme"
-                )}
-
-            </div>
-
-        </section>
-
-    `;
-
-}
-
-
-/* ============================================================
-   値上がり銘柄TOP10
-============================================================ */
-
-function renderTopGainers(dataset) {
-
-    const items =
-        dataset.top_gainers || [];
-
-    let rows = "";
-
-    if (items.length === 0) {
-
-        rows = `
-            <div class="no-data">
-                データがありません
-            </div>
-        `;
-
-    } else {
-
-        rows = items.map(
-            (item, index) => {
-
-                return `
-
-                    <div class="top-stock">
-
-                        <div class="top-stock-rank">
-                            ${index + 1}
-                        </div>
-
-                        <div class="top-stock-name">
-
-                            ${escapeHtml(
-                                item.name
-                            )}
-
-                            <span class="stock-code">
-                                ${escapeHtml(
-                                    item.code
-                                )}
-                            </span>
-
-                        </div>
-
-                        <div class="
-                            top-stock-change
-                            ${changeClass(
-                                item.change_percent
-                            )}
-                        ">
-                            ${formatChange(
-                                item.change_percent
-                            )}
-                        </div>
-
-                    </div>
-
-                `;
-
+              return formatAxisDate(
+                label,
+                period
+              );
             }
-        ).join("");
+          },
 
-    }
+          grid: {
+            display: false
+          }
+        },
 
+        y: {
 
-    return `
+          ticks: {
 
-        <section class="section">
+            font: {
+              size: 9
+            },
 
-            <h2 class="section-title">
-                1か月値上がり銘柄 TOP10
-            </h2>
-
-            <div class="section-subtitle">
-                現在選択中：
-                ${periodLabel(selectedPeriod)}
-            </div>
-
-            ${rows}
-
-        </section>
-
-    `;
-
-}
-
-
-/* ============================================================
-   詳細グラフの期間ボタン
-============================================================ */
-
-function getDetailPeriods() {
-
-    if (selectedPeriod === "1m") {
-
-        return [
-            "1m",
-            "from_1m_6m",
-            "from_1m_5y"
-        ];
-
-    }
-
-    if (selectedPeriod === "6m") {
-
-        return [
-            "6m",
-            "from_6m_5y"
-        ];
-
-    }
-
-    return [
-        "5y"
-    ];
-
-}
-
-
-/* ============================================================
-   詳細グラフのボタン表示名
-============================================================ */
-
-function detailPeriodLabel(period) {
-
-    if (period === "1m") {
-        return "1月";
-    }
-
-    if (period === "6m") {
-        return "半年";
-    }
-
-    if (period === "5y") {
-        return "5年";
-    }
-
-    if (period === "from_1m_6m") {
-        return "半年";
-    }
-
-    if (period === "from_1m_5y") {
-        return "5年";
-    }
-
-    if (period === "from_6m_5y") {
-        return "5年";
-    }
-
-    return "";
-}
-
-
-/* ============================================================
-   詳細グラフに使うhistory
-============================================================ */
-
-function getStockHistory(
-    stock,
-    detailPeriod
-) {
-
-    if (!stock) {
-        return [];
-    }
-
-    const periods =
-        stock.periods || {};
-
-    if (
-        detailPeriod === "1m" ||
-        detailPeriod === "6m" ||
-        detailPeriod === "5y"
-    ) {
-
-        return (
-            periods[detailPeriod]?.history
-            || stock.history
-            || []
-        );
-
-    }
-
-    return (
-        periods[detailPeriod]?.history
-        || []
-    );
-
-}
-
-
-/* ============================================================
-   詳細グラフ期間ボタン
-============================================================ */
-
-function renderDetailPeriodButtons(
-    detailId,
-    currentPeriod
-) {
-
-    const periods =
-        getDetailPeriods();
-
-    // 全体が5年の場合はボタンなし
-    if (periods.length <= 1) {
-        return "";
-    }
-
-    return `
-
-        <div
-            class="detail-period-selector"
-            data-detail-id="${detailId}">
-
-            ${periods.map(
-                period => `
-
-                    <button
-                        class="
-                            detail-period-button
-                            ${
-                                period === currentPeriod
-                                    ? "active"
-                                    : ""
-                            }
-                        "
-                        data-detail-period="${period}"
-                        data-detail-id="${detailId}">
-
-                        ${detailPeriodLabel(period)}
-
-                    </button>
-
-                `
-            ).join("")}
-
-        </div>
-
-    `;
-
-}
-
-
-/* ============================================================
-   詳細銘柄グラフ
-============================================================ */
-
-function renderStockDetailChart(
-    container,
-    stocks,
-    title,
-    defaultPeriod
-) {
-
-    if (!stocks || stocks.length === 0) {
-
-        container.innerHTML = `
-            <div class="no-data">
-                銘柄データがありません
-            </div>
-        `;
-
-        return;
-    }
-
-
-    const detailId =
-        "detail-chart-" +
-        (++detailChartCounter);
-
-
-    container.innerHTML = `
-
-        <h3 class="detail-title">
-            ${escapeHtml(title)}
-        </h3>
-
-        ${renderDetailPeriodButtons(
-            detailId,
-            defaultPeriod
-        )}
-
-        <div class="detail-chart-container">
-
-            <canvas id="${detailId}"></canvas>
-
-        </div>
-
-        <div
-            id="${detailId}-ranking"
-            class="stock-ranking">
-        </div>
-
-    `;
-
-
-    drawStockDetail(
-        detailId,
-        stocks,
-        defaultPeriod
-    );
-
-}
-
-
-/* ============================================================
-   詳細銘柄グラフ描画
-============================================================ */
-
-function drawStockDetail(
-    detailId,
-    stocks,
-    detailPeriod
-) {
-
-    const items =
-        stocks.map(
-            stock => {
-
-                return {
-
-                    name: stock.name,
-
-                    history:
-                        getStockHistory(
-                            stock,
-                            detailPeriod
-                        )
-
-                };
-
+            callback: function(value) {
+              return Number(value).toFixed(0);
             }
-        );
-
-
-    createLineChart(
-        detailId,
-        items,
-        ""
-    );
-
-
-    const ranking =
-        document.getElementById(
-            detailId + "-ranking"
-        );
-
-    if (!ranking) {
-        return;
+          }
+        }
+      }
     }
+  });
+}
 
 
-    ranking.innerHTML =
-        stocks.map(
-            (stock, index) => {
+/* -----------------------------
+   グラフ＋期間ボタン
+----------------------------- */
 
-                let change =
-                    stock.change_percent;
+function createGraphArea(
+  container,
+  items,
+  graphId,
+  defaultPeriod,
+  isDetail = false
+) {
 
+  if (!items || !items.length) {
+    container.innerHTML =
+      '<div class="message">データがありません</div>';
+    return;
+  }
 
-                // 拡張グラフの場合でも
-                // 基本のランキング値は
-                // 全体期間の値を表示
+  if (!chartPeriods[graphId]) {
+    chartPeriods[graphId] = defaultPeriod;
+  }
 
-                return `
+  let chart = null;
 
-                    <div class="stock-row">
+  function render() {
 
-                        <div class="stock-rank">
-                            ${index + 1}
-                        </div>
+    container.innerHTML = "";
 
-                        <div class="stock-name">
+    const period = chartPeriods[graphId];
 
-                            ${escapeHtml(
-                                stock.name
-                            )}
-
-                            <span class="stock-code">
-                                ${escapeHtml(
-                                    stock.code
-                                )}
-                            </span>
-
-                        </div>
-
-                        <div class="stock-price">
-                            ${Number(
-                                stock.price || 0
-                            ).toLocaleString()}
-                        </div>
-
-                        <div class="
-                            stock-change
-                            ${changeClass(change)}
-                        ">
-                            ${formatChange(change)}
-                        </div>
-
-                    </div>
-
-                `;
-
-            }
-        ).join("");
-
-
-    // 期間ボタンのイベント
     const buttons =
-        document.querySelectorAll(
-            `[data-detail-id="${detailId}"]`
-            + ` [data-detail-period]`
-        );
+      createPeriodButtons(
+        graphId,
+        period,
+        newPeriod => {
 
+          chartPeriods[graphId] = newPeriod;
 
-    buttons.forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                function(event) {
-
-                    event.stopPropagation();
-
-                    const newPeriod =
-                        this.dataset.detailPeriod;
-
-                    // 現在のグラフを破棄
-                    const canvas =
-                        document.getElementById(
-                            detailId
-                        );
-
-                    if (canvas) {
-
-                        const chart =
-                            Chart.getChart(
-                                canvas
-                            );
-
-                        if (chart) {
-                            chart.destroy();
-                        }
-
-                    }
-
-                    // active切り替え
-                    const parent =
-                        this.parentElement;
-
-                    parent
-                        .querySelectorAll(
-                            ".detail-period-button"
-                        )
-                        .forEach(
-                            btn =>
-                                btn.classList.remove(
-                                    "active"
-                                )
-                        );
-
-                    this.classList.add(
-                        "active"
-                    );
-
-                    drawStockDetail(
-                        detailId,
-                        stocks,
-                        newPeriod
-                    );
-
-                }
-            );
-
+          render();
         }
-    );
+      );
 
+    container.appendChild(buttons);
+
+    const box = document.createElement("div");
+
+    box.className =
+      isDetail
+        ? "detail-chart-box"
+        : "chart-box";
+
+    const canvas = document.createElement("canvas");
+
+    box.appendChild(canvas);
+
+    container.appendChild(box);
+
+    chart =
+      createLineChart(
+        canvas,
+        items,
+        period,
+        isDetail
+      );
+  }
+
+  render();
 }
 
 
-/* ============================================================
-   業界詳細
-============================================================ */
+/* -----------------------------
+   業界ランキング
+----------------------------- */
 
-function openIndustryDetail(
-    index,
-    dataset
-) {
+function renderIndustryRanking(container, dataset) {
 
-    const detail =
-        document.getElementById(
-            "industry-detail-" + index
-        );
+  const ranking =
+    dataset?.top_industries || [];
 
-    if (!detail) {
-        return;
-    }
+  if (!ranking.length) {
 
+    container.innerHTML =
+      '<div class="message">業界データがありません</div>';
 
-    // すでに開いている場合は閉じる
-    if (detail.classList.contains("open")) {
+    return;
+  }
 
-        detail.classList.remove("open");
-        detail.innerHTML = "";
+  const wrapper =
+    document.createElement("div");
 
-        return;
-    }
+  wrapper.className = "ranking";
 
+  ranking.forEach((item, index) => {
 
-    // いったん他の業界詳細を閉じる
-    document
-        .querySelectorAll(
-            ".detail.open"
-        )
-        .forEach(
-            el => {
+    const row =
+      document.createElement("div");
 
-                el.classList.remove(
-                    "open"
-                );
+    row.className = "ranking-row";
 
-                el.innerHTML = "";
-
-            }
-        );
-
-
-    const industries =
-        dataset.industries || [];
-
-    if (!industries[index]) {
-        return;
-    }
-
-
-    const industry =
-        industries[index].industry;
-
-
-    const stocks =
-        dataset.industry_stocks?.[
-            industry
-        ] || [];
-
-
-    detail.classList.add("open");
-
-
-    renderStockDetailChart(
-        detail,
-        stocks,
-        industry + " 関連銘柄",
-        selectedPeriod
-    );
-
-}
-
-
-/* ============================================================
-   テーマ詳細
-============================================================ */
-
-function openThemeDetail(
-    index,
-    dataset
-) {
-
-    const detail =
-        document.getElementById(
-            "theme-detail-" + index
-        );
-
-    if (!detail) {
-        return;
-    }
-
-
-    // すでに開いている場合は閉じる
-    if (detail.classList.contains("open")) {
-
-        detail.classList.remove("open");
-        detail.innerHTML = "";
-
-        return;
-    }
-
-
-    // 他の詳細を閉じる
-    document
-        .querySelectorAll(
-            ".detail.open"
-        )
-        .forEach(
-            el => {
-
-                el.classList.remove(
-                    "open"
-                );
-
-                el.innerHTML = "";
-
-            }
-        );
-
-
-    const themes =
-        dataset.themes || [];
-
-    if (!themes[index]) {
-        return;
-    }
-
-
-    const theme =
-        themes[index].theme;
-
-
-    const stocks =
-        dataset.theme_stocks?.[
-            theme
-        ] || [];
-
-
-    detail.classList.add("open");
-
-
-    renderStockDetailChart(
-        detail,
-        stocks,
-        theme + " 関連銘柄",
-        selectedPeriod
-    );
-
-}
-
-
-/* ============================================================
-   ランキングのクリックイベント
-============================================================ */
-
-function setupRankingEvents(dataset) {
-
-    document
-        .querySelectorAll(
-            ".ranking-button"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        const type =
-                            this.dataset.type;
-
-                        const index =
-                            Number(
-                                this.dataset.index
-                            );
-
-
-                        if (
-                            type === "industry"
-                        ) {
-
-                            openIndustryDetail(
-                                index,
-                                dataset
-                            );
-
-                        }
-
-
-                        if (
-                            type === "theme"
-                        ) {
-
-                            openThemeDetail(
-                                index,
-                                dataset
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-}
-
-
-/* ============================================================
-   全体を描画
-============================================================ */
-
-function render() {
-
-    if (!DATA) {
-        return;
-    }
-
-
-    destroyCharts();
-
-    detailChartCounter = 0;
-
-
-    const dataset =
-        DATA[selectedPeriod];
-
-
-    if (!dataset) {
-
-        document.getElementById(
-            "app"
-        ).innerHTML = `
-
-            <div class="error">
-                ${periodLabel(
-                    selectedPeriod
-                )} のデータがありません。
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    const app =
-        document.getElementById(
-            "app"
-        );
-
-
-    app.innerHTML = `
-
-        ${renderIndustryTop10(
-            dataset
-        )}
-
-        ${renderIndustryRanking(
-            dataset
-        )}
-
-        ${renderThemeTop10(
-            dataset
-        )}
-
-        ${renderThemeRanking(
-            dataset
-        )}
-
-        ${renderTopGainers(
-            dataset
-        )}
-
+    row.innerHTML = `
+      <div class="rank">${index + 1}</div>
+      <div class="name">${item.name}</div>
+      <div class="change ${changeClass(item.change)}">
+        ${formatPercent(item.change)}
+      </div>
     `;
 
+    wrapper.appendChild(row);
 
-    // --------------------------------------------------------
-    // 業界TOP10グラフ
-    // --------------------------------------------------------
+    const detail =
+      document.createElement("div");
 
-    const industryItems =
-        dataset.top_industries || [];
+    detail.className = "detail";
 
+    detail.style.display = "none";
 
-    if (industryItems.length > 0) {
+    const detailTitle =
+      document.createElement("div");
 
-        createLineChart(
-            "industryTopChart",
-            industryItems.map(
-                item => {
+    detailTitle.className = "detail-title";
 
-                    return {
+    detailTitle.textContent =
+      `${item.name}`;
 
-                        industry:
-                            item.industry,
+    detail.appendChild(detailTitle);
 
-                        name:
-                            item.industry,
+    const graphContainer =
+      document.createElement("div");
 
-                        history:
-                            item.history || []
+    detail.appendChild(graphContainer);
 
-                    };
+    const stocks =
+      dataset.industry_stocks?.[item.name] || [];
 
-                }
-            ),
-            ""
-        );
+    const graphId =
+      `industry-${item.name}`;
 
-    }
-
-
-    // --------------------------------------------------------
-    // テーマTOP10グラフ
-    // --------------------------------------------------------
-
-    const themeItems =
-        dataset.top_themes || [];
-
-
-    if (themeItems.length > 0) {
-
-        createLineChart(
-            "themeTopChart",
-            themeItems.map(
-                item => {
-
-                    return {
-
-                        theme:
-                            item.theme,
-
-                        name:
-                            item.theme,
-
-                        history:
-                            item.history || []
-
-                    };
-
-                }
-            ),
-            ""
-        );
-
-    }
-
-
-    setupRankingEvents(
-        dataset
+    createGraphArea(
+      graphContainer,
+      stocks,
+      graphId,
+      "1m",
+      true
     );
 
+    const stockRanking =
+      document.createElement("div");
+
+    stockRanking.className =
+      "ranking";
+
+    const sortedStocks =
+      [...stocks].sort(
+        (a, b) =>
+          Number(b.change || 0) -
+          Number(a.change || 0)
+      );
+
+    sortedStocks.forEach((stock, stockIndex) => {
+
+      const stockRow =
+        document.createElement("div");
+
+      stockRow.className =
+        "stock-row";
+
+      stockRow.innerHTML = `
+        <div class="stock-code">
+          ${stock.code || ""}
+        </div>
+
+        <div class="stock-name">
+          ${stock.name || ""}
+        </div>
+
+        <div class="stock-change ${changeClass(stock.change)}">
+          ${formatPercent(stock.change)}
+        </div>
+      `;
+
+      stockRanking.appendChild(stockRow);
+    });
+
+    detail.appendChild(stockRanking);
+
+    wrapper.appendChild(detail);
+
+    row.addEventListener("click", () => {
+
+      detail.style.display =
+        detail.style.display === "none"
+          ? "block"
+          : "none";
+    });
+  });
+
+  container.appendChild(wrapper);
 }
 
 
-/* ============================================================
-   期間ボタン
-============================================================ */
+/* -----------------------------
+   テーマランキング
+----------------------------- */
 
-function setupPeriodButtons() {
+function renderThemeRanking(container, dataset) {
 
-    document
-        .querySelectorAll(
-            ".period-button"
-        )
-        .forEach(
-            button => {
+  const ranking =
+    dataset?.top_themes || [];
 
-                button.addEventListener(
-                    "click",
-                    function() {
+  if (!ranking.length) {
 
-                        const period =
-                            this.dataset.period;
+    container.innerHTML =
+      '<div class="message">テーマデータがありません</div>';
 
+    return;
+  }
 
-                        if (
-                            !DATA ||
-                            !DATA[period]
-                        ) {
+  const wrapper =
+    document.createElement("div");
 
-                            alert(
-                                periodLabel(
-                                    period
-                                )
-                                + "のデータがありません。"
-                            );
+  wrapper.className = "ranking";
 
-                            return;
-                        }
+  ranking.forEach((item, index) => {
 
+    const row =
+      document.createElement("div");
 
-                        selectedPeriod =
-                            period;
+    row.className = "ranking-row";
 
+    row.innerHTML = `
+      <div class="rank">${index + 1}</div>
+      <div class="name">${item.name}</div>
+      <div class="change ${changeClass(item.change)}">
+        ${formatPercent(item.change)}
+      </div>
+    `;
 
-                        document
-                            .querySelectorAll(
-                                ".period-button"
-                            )
-                            .forEach(
-                                btn =>
-                                    btn.classList.remove(
-                                        "active"
-                                    )
-                            );
+    wrapper.appendChild(row);
 
+    const detail =
+      document.createElement("div");
 
-                        this.classList.add(
-                            "active"
-                        );
+    detail.className = "detail";
 
+    detail.style.display = "none";
 
-                        render();
+    const title =
+      document.createElement("div");
 
-                        window.scrollTo({
-                            top: 0,
-                            behavior: "smooth"
-                        });
+    title.className = "detail-title";
 
-                    }
-                );
+    title.textContent =
+      `${item.name}`;
 
-            }
-        );
+    detail.appendChild(title);
 
+    const graphContainer =
+      document.createElement("div");
+
+    detail.appendChild(graphContainer);
+
+    const stocks =
+      dataset.theme_stocks?.[item.name] || [];
+
+    createGraphArea(
+      graphContainer,
+      stocks,
+      `theme-${item.name}`,
+      "1m",
+      true
+    );
+
+    const stockRanking =
+      document.createElement("div");
+
+    stockRanking.className =
+      "ranking";
+
+    const sortedStocks =
+      [...stocks].sort(
+        (a, b) =>
+          Number(b.change || 0) -
+          Number(a.change || 0)
+      );
+
+    sortedStocks.forEach(stock => {
+
+      const stockRow =
+        document.createElement("div");
+
+      stockRow.className =
+        "stock-row";
+
+      stockRow.innerHTML = `
+        <div class="stock-code">
+          ${stock.code || ""}
+        </div>
+
+        <div class="stock-name">
+          ${stock.name || ""}
+        </div>
+
+        <div class="stock-change ${changeClass(stock.change)}">
+          ${formatPercent(stock.change)}
+        </div>
+      `;
+
+      stockRanking.appendChild(stockRow);
+    });
+
+    detail.appendChild(stockRanking);
+
+    wrapper.appendChild(detail);
+
+    row.addEventListener("click", () => {
+
+      detail.style.display =
+        detail.style.display === "none"
+          ? "block"
+          : "none";
+    });
+  });
+
+  container.appendChild(wrapper);
 }
 
 
-/* ============================================================
+/* -----------------------------
+   値上がり銘柄
+----------------------------- */
+
+function renderTopGainers(container, dataset) {
+
+  const ranking =
+    dataset?.top_gainers || [];
+
+  if (!ranking.length) {
+
+    container.innerHTML =
+      '<div class="message">値上がり銘柄データがありません</div>';
+
+    return;
+  }
+
+  const wrapper =
+    document.createElement("div");
+
+  wrapper.className = "ranking";
+
+  ranking.slice(0, 10).forEach((item, index) => {
+
+    const row =
+      document.createElement("div");
+
+    row.className = "ranking-row";
+
+    row.innerHTML = `
+      <div class="rank">${index + 1}</div>
+
+      <div class="name">
+        ${item.name || ""}
+        ${item.code ? ` <span style="color:#999;font-size:10px">${item.code}</span>` : ""}
+      </div>
+
+      <div class="change ${changeClass(item.change)}">
+        ${formatPercent(item.change)}
+      </div>
+    `;
+
+    wrapper.appendChild(row);
+  });
+
+  container.appendChild(wrapper);
+}
+
+
+/* -----------------------------
+   メイン表示
+----------------------------- */
+
+function renderApp(data) {
+
+  DATA = data;
+
+  const app =
+    document.getElementById("app");
+
+  app.innerHTML = "";
+
+  const period = "1m";
+
+  /* 業界TOP10 */
+
+  const industryTop =
+    document.createElement("section");
+
+  industryTop.innerHTML =
+    "<h2>業界 TOP10</h2>" +
+    '<div class="section-subtitle">業界の推移</div>';
+
+  const industryTopGraph =
+    document.createElement("div");
+
+  industryTop.appendChild(
+    industryTopGraph
+  );
+
+  const industryItems =
+    data?.[period]?.top_industries || [];
+
+  createGraphArea(
+    industryTopGraph,
+    industryItems,
+    "industry-top",
+    "1m",
+    false
+  );
+
+  app.appendChild(industryTop);
+
+
+  /* 業界ランキング */
+
+  const industryRanking =
+    document.createElement("section");
+
+  industryRanking.innerHTML =
+    "<h2>業界ランキング</h2>" +
+    '<div class="section-subtitle">タップすると業界内の銘柄を表示</div>';
+
+  const industryRankingContainer =
+    document.createElement("div");
+
+  industryRanking.appendChild(
+    industryRankingContainer
+  );
+
+  renderIndustryRanking(
+    industryRankingContainer,
+    data[period]
+  );
+
+  app.appendChild(industryRanking);
+
+
+  /* テーマTOP10 */
+
+  const themeTop =
+    document.createElement("section");
+
+  themeTop.innerHTML =
+    "<h2>🔥 テーマ TOP10</h2>" +
+    '<div class="section-subtitle">テーマの推移</div>';
+
+  const themeTopGraph =
+    document.createElement("div");
+
+  themeTop.appendChild(
+    themeTopGraph
+  );
+
+  const themeItems =
+    data?.[period]?.top_themes || [];
+
+  createGraphArea(
+    themeTopGraph,
+    themeItems,
+    "theme-top",
+    "1m",
+    false
+  );
+
+  app.appendChild(themeTop);
+
+
+  /* テーマランキング */
+
+  const themeRanking =
+    document.createElement("section");
+
+  themeRanking.innerHTML =
+    "<h2>テーマランキング</h2>" +
+    '<div class="section-subtitle">タップするとテーマ内の銘柄を表示</div>';
+
+  const themeRankingContainer =
+    document.createElement("div");
+
+  themeRanking.appendChild(
+    themeRankingContainer
+  );
+
+  renderThemeRanking(
+    themeRankingContainer,
+    data[period]
+  );
+
+  app.appendChild(themeRanking);
+
+
+  /* 値上がり */
+
+  const gainers =
+    document.createElement("section");
+
+  gainers.innerHTML =
+    "<h2>1か月値上がり銘柄 TOP10</h2>";
+
+  const gainersContainer =
+    document.createElement("div");
+
+  gainers.appendChild(
+    gainersContainer
+  );
+
+  renderTopGainers(
+    gainersContainer,
+    data[period]
+  );
+
+  app.appendChild(gainers);
+}
+
+
+/* -----------------------------
    データ読み込み
-============================================================ */
+----------------------------- */
 
 async function loadData() {
 
-    try {
+  const updated =
+    document.getElementById("updated");
 
-        const response =
-            await fetch(
-                "./data.json?ts="
-                + Date.now()
-            );
+  try {
 
-
-        if (!response.ok) {
-
-            throw new Error(
-                "data.jsonを読み込めませんでした"
-            );
-
+    const response =
+      await fetch(
+        "./data.json?ts=" + Date.now(),
+        {
+          cache: "no-store"
         }
+      );
 
-
-        DATA =
-            await response.json();
-
-
-        document.getElementById(
-            "updated"
-        ).textContent =
-            "最終更新："
-            + (
-                DATA.updated_at
-                || "不明"
-            );
-
-
-        setupPeriodButtons();
-
-        render();
-
-
-    } catch (error) {
-
-        console.error(
-            error
-        );
-
-
-        document.getElementById(
-            "app"
-        ).innerHTML = `
-
-            <div class="error">
-
-                データの読み込みに失敗しました。<br><br>
-
-                ${escapeHtml(
-                    error.message
-                )}
-
-            </div>
-
-        `;
-
+    if (!response.ok) {
+      throw new Error(
+        "HTTP " + response.status
+      );
     }
 
+    const data =
+      await response.json();
+
+    if (!data["1m"]) {
+      throw new Error(
+        "1mデータがありません"
+      );
+    }
+
+    if (data.updated_at) {
+
+      updated.textContent =
+        "最終更新: " +
+        data.updated_at;
+    }
+
+    renderApp(data);
+
+  } catch (error) {
+
+    console.error(error);
+
+    updated.textContent =
+      "データ読み込みエラー";
+
+    document.getElementById("app").innerHTML = `
+      <section>
+        <div class="message">
+          データを読み込めませんでした。<br>
+          data.json の配置を確認してください。<br><br>
+          <small>${error.message}</small>
+        </div>
+      </section>
+    `;
+  }
 }
-
-
-/* ============================================================
-   起動
-============================================================ */
 
 loadData();
 
