@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -442,7 +441,6 @@ canvas {
 
 <div class="header">
 
-```
 <h1>
     日本株ダッシュボード
 </h1>
@@ -476,9 +474,9 @@ canvas {
     </button>
 
 </div>
-```
 
 </div>
+
 
 <!-- ==================================================
      業界 TOP10
@@ -486,7 +484,6 @@ canvas {
 
 <div class="card">
 
-```
 <h2>
     業界 TOP10
 </h2>
@@ -503,9 +500,9 @@ canvas {
     id="industryLegend"
     class="legend">
 </div>
-```
 
 </div>
+
 
 <!-- ==================================================
      業界ランキング
@@ -513,7 +510,6 @@ canvas {
 
 <div class="card">
 
-```
 <h2>
     業界ランキング
 </h2>
@@ -521,9 +517,9 @@ canvas {
 <div
     id="industryRanking">
 </div>
-```
 
 </div>
+
 
 <!-- ==================================================
      テーマ TOP10
@@ -531,7 +527,6 @@ canvas {
 
 <div class="card">
 
-```
 <h2 class="theme-heading">
 
     <span class="fire">
@@ -546,7 +541,7 @@ canvas {
 
     <canvas
         id="themeChart">
-</canvas>
+    </canvas>
 
 </div>
 
@@ -554,9 +549,9 @@ canvas {
     id="themeLegend"
     class="legend">
 </div>
-```
 
 </div>
+
 
 <!-- ==================================================
      テーマランキング
@@ -564,7 +559,6 @@ canvas {
 
 <div class="card">
 
-```
 <h2 class="theme-heading">
 
     <span class="fire">
@@ -578,9 +572,9 @@ canvas {
 <div
     id="themeRanking">
 </div>
-```
 
 </div>
+
 
 <!-- ==================================================
      値上がり銘柄 TOP10
@@ -588,7 +582,6 @@ canvas {
 
 <div class="card">
 
-```
 <h2 id="gainerTitle">
     値上がり銘柄 TOP10
 </h2>
@@ -596,11 +589,11 @@ canvas {
 <div
     id="stockRanking">
 </div>
-```
 
 </div>
 
 </div>
+
 
 <script>
 
@@ -726,6 +719,7 @@ function formatChartDate(
     const day =
         date.getDate();
 
+
     /* --------------------------------
        5年 → 26/9
     -------------------------------- */
@@ -748,6 +742,7 @@ function formatChartDate(
         );
 
     }
+
 
     /* --------------------------------
        1月・半年 → 9/6
@@ -1064,10 +1059,11 @@ function changeFromHistory(
 
 
 /* ==================================================
-   ランキング％表示
+   %表示
+   ※ここでは値を100で割らない
 ================================================== */
 
-function rankingPercent(
+function formatPercent(
     value
 ) {
 
@@ -1078,40 +1074,8 @@ function rankingPercent(
         !Number.isFinite(n)
     ) {
 
-        return null;
-
-    }
-
-
-    if (
-        Math.abs(n) >= 1000
-    ) {
-
-        return n / 100;
-
-    }
-
-
-    return n;
-
-}
-
-
-/* ==================================================
-   %表示
-================================================== */
-
-function formatPercent(
-    value
-) {
-
-    const n =
-        rankingPercent(
-            value
-        );
-
-    if (n === null) {
         return "--";
+
     }
 
 
