@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-11 00:21",
+  "updated_at": "2026-09-11 00:33",
   "price_mode": "intraday",
   "price_mode_label": "11時現在値",
   "1m": {
@@ -999,6 +999,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": -4.95,
+          "previous_change_percent": -4.14,
           "history": [
             {
               "date": "2026/08/12",
@@ -2181,6 +2182,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": -5.27,
+          "previous_change_percent": -1.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -3363,6 +3365,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": -7.78,
+          "previous_change_percent": -5.37,
           "history": [
             {
               "date": "2026/08/12",
@@ -4545,6 +4548,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": -9.49,
+          "previous_change_percent": -10.89,
           "history": [
             {
               "date": "2026/08/12",
@@ -5727,6 +5731,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": -14.88,
+          "previous_change_percent": -14.91,
           "history": [
             {
               "date": "2026/08/12",
@@ -6911,6 +6916,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": -3.64,
+          "previous_change_percent": -3.69,
           "history": [
             {
               "date": "2026/08/12",
@@ -8093,6 +8099,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": -8.64,
+          "previous_change_percent": -5.79,
           "history": [
             {
               "date": "2026/08/12",
@@ -9275,6 +9282,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": -8.75,
+          "previous_change_percent": -7.95,
           "history": [
             {
               "date": "2026/08/12",
@@ -10457,6 +10465,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": -11.87,
+          "previous_change_percent": -12.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -11639,6 +11648,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": -12.29,
+          "previous_change_percent": -11.57,
           "history": [
             {
               "date": "2026/08/12",
@@ -12823,6 +12833,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": -0.82,
+          "previous_change_percent": -1.9,
           "history": [
             {
               "date": "2026/08/12",
@@ -14005,6 +14016,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": -0.95,
+          "previous_change_percent": -0.34,
           "history": [
             {
               "date": "2026/08/12",
@@ -15187,6 +15199,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": -1.05,
+          "previous_change_percent": -2.28,
           "history": [
             {
               "date": "2026/08/12",
@@ -16369,6 +16382,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": -2.67,
+          "previous_change_percent": -4.26,
           "history": [
             {
               "date": "2026/08/12",
@@ -17551,6 +17565,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -8.57,
+          "previous_change_percent": -12.2,
           "history": [
             {
               "date": "2026/08/12",
@@ -18735,6 +18750,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": -2.13,
+          "previous_change_percent": -2.43,
           "history": [
             {
               "date": "2026/08/12",
@@ -19917,6 +19933,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -2.68,
+          "previous_change_percent": -2.55,
           "history": [
             {
               "date": "2026/08/12",
@@ -21099,6 +21116,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -3.78,
+          "previous_change_percent": -3.96,
           "history": [
             {
               "date": "2026/08/12",
@@ -22283,6 +22301,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 9.69,
+          "previous_change_percent": 9.97,
           "history": [
             {
               "date": "2026/08/12",
@@ -23465,6 +23484,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": 5.22,
+          "previous_change_percent": 5.66,
           "history": [
             {
               "date": "2026/08/12",
@@ -24647,6 +24667,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": 4.83,
+          "previous_change_percent": 3.24,
           "history": [
             {
               "date": "2026/08/12",
@@ -25829,6 +25850,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": 3.75,
+          "previous_change_percent": 3.9,
           "history": [
             {
               "date": "2026/08/12",
@@ -27011,6 +27033,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 3.28,
+          "previous_change_percent": 3.05,
           "history": [
             {
               "date": "2026/08/12",
@@ -28195,6 +28218,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": -0.14,
+          "previous_change_percent": 2.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -29377,6 +29401,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": -0.31,
+          "previous_change_percent": 2.81,
           "history": [
             {
               "date": "2026/08/12",
@@ -30559,6 +30584,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": -0.82,
+          "previous_change_percent": 2.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -31743,6 +31769,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 8.71,
+          "previous_change_percent": 7.69,
           "history": [
             {
               "date": "2026/08/12",
@@ -32925,6 +32952,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 5.07,
+          "previous_change_percent": 5.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -34107,6 +34135,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 4.32,
+          "previous_change_percent": 4.73,
           "history": [
             {
               "date": "2026/08/12",
@@ -35291,6 +35320,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 23.37,
+          "previous_change_percent": 24.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -36475,6 +36505,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 3.28,
+          "previous_change_percent": 1.42,
           "history": [
             {
               "date": "2026/08/12",
@@ -37657,6 +37688,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 0.37,
+          "previous_change_percent": -0.87,
           "history": [
             {
               "date": "2026/08/12",
@@ -38839,6 +38871,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": -1.02,
+          "previous_change_percent": 1.65,
           "history": [
             {
               "date": "2026/08/12",
@@ -40021,6 +40054,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": -4.48,
+          "previous_change_percent": -4.48,
           "history": [
             {
               "date": "2026/08/12",
@@ -41205,6 +41239,7 @@
           "industry": "医薬品",
           "price": 5615.0,
           "change_percent": 0.95,
+          "previous_change_percent": 0.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -42387,6 +42422,7 @@
           "industry": "医薬品",
           "price": 2710.5,
           "change_percent": -3.37,
+          "previous_change_percent": -3.37,
           "history": [
             {
               "date": "2026/08/12",
@@ -43569,6 +43605,7 @@
           "industry": "医薬品",
           "price": 2237.0,
           "change_percent": -5.05,
+          "previous_change_percent": -5.33,
           "history": [
             {
               "date": "2026/08/12",
@@ -44751,6 +44788,7 @@
           "industry": "医薬品",
           "price": 4620.0,
           "change_percent": -7.38,
+          "previous_change_percent": -6.65,
           "history": [
             {
               "date": "2026/08/12",
@@ -45933,6 +45971,7 @@
           "industry": "医薬品",
           "price": 6476.0,
           "change_percent": -9.86,
+          "previous_change_percent": -8.94,
           "history": [
             {
               "date": "2026/08/12",
@@ -47117,6 +47156,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 17.51,
+          "previous_change_percent": 16.96,
           "history": [
             {
               "date": "2026/08/12",
@@ -48299,6 +48339,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 16.61,
+          "previous_change_percent": 16.29,
           "history": [
             {
               "date": "2026/08/12",
@@ -49481,6 +49522,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 14.16,
+          "previous_change_percent": 12.1,
           "history": [
             {
               "date": "2026/08/12",
@@ -51727,6 +51769,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 23.37,
+          "previous_change_percent": 24.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -52909,6 +52952,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -2.68,
+          "previous_change_percent": -2.55,
           "history": [
             {
               "date": "2026/08/12",
@@ -54091,6 +54135,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": -4.95,
+          "previous_change_percent": -4.14,
           "history": [
             {
               "date": "2026/08/12",
@@ -55273,6 +55318,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": -5.27,
+          "previous_change_percent": -1.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -56455,6 +56501,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": -7.78,
+          "previous_change_percent": -5.37,
           "history": [
             {
               "date": "2026/08/12",
@@ -57637,6 +57684,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": -9.49,
+          "previous_change_percent": -10.89,
           "history": [
             {
               "date": "2026/08/12",
@@ -58819,6 +58867,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": -14.88,
+          "previous_change_percent": -14.91,
           "history": [
             {
               "date": "2026/08/12",
@@ -60003,6 +60052,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 23.37,
+          "previous_change_percent": 24.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -61185,6 +61235,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 8.71,
+          "previous_change_percent": 7.69,
           "history": [
             {
               "date": "2026/08/12",
@@ -62367,6 +62418,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 5.07,
+          "previous_change_percent": 5.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -63549,6 +63601,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 4.32,
+          "previous_change_percent": 4.73,
           "history": [
             {
               "date": "2026/08/12",
@@ -64731,6 +64784,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": -0.14,
+          "previous_change_percent": 2.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -65913,6 +65967,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": -0.31,
+          "previous_change_percent": 2.81,
           "history": [
             {
               "date": "2026/08/12",
@@ -67095,6 +67150,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": -3.64,
+          "previous_change_percent": -3.69,
           "history": [
             {
               "date": "2026/08/12",
@@ -68277,6 +68333,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": -4.95,
+          "previous_change_percent": -4.14,
           "history": [
             {
               "date": "2026/08/12",
@@ -69459,6 +69516,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": -5.27,
+          "previous_change_percent": -1.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -70641,6 +70699,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": -7.78,
+          "previous_change_percent": -5.37,
           "history": [
             {
               "date": "2026/08/12",
@@ -71823,6 +71882,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": -8.75,
+          "previous_change_percent": -7.95,
           "history": [
             {
               "date": "2026/08/12",
@@ -73005,6 +73065,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": -9.49,
+          "previous_change_percent": -10.89,
           "history": [
             {
               "date": "2026/08/12",
@@ -74187,6 +74248,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": -12.29,
+          "previous_change_percent": -11.57,
           "history": [
             {
               "date": "2026/08/12",
@@ -75369,6 +75431,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": -14.88,
+          "previous_change_percent": -14.91,
           "history": [
             {
               "date": "2026/08/12",
@@ -76553,6 +76616,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 23.37,
+          "previous_change_percent": 24.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -77735,6 +77799,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 8.71,
+          "previous_change_percent": 7.69,
           "history": [
             {
               "date": "2026/08/12",
@@ -78917,6 +78982,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 5.07,
+          "previous_change_percent": 5.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -80099,6 +80165,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 4.32,
+          "previous_change_percent": 4.73,
           "history": [
             {
               "date": "2026/08/12",
@@ -81281,6 +81348,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": -4.95,
+          "previous_change_percent": -4.14,
           "history": [
             {
               "date": "2026/08/12",
@@ -82463,6 +82531,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": -5.27,
+          "previous_change_percent": -1.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -83645,6 +83714,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": -7.78,
+          "previous_change_percent": -5.37,
           "history": [
             {
               "date": "2026/08/12",
@@ -84827,6 +84897,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": -8.75,
+          "previous_change_percent": -7.95,
           "history": [
             {
               "date": "2026/08/12",
@@ -86011,6 +86082,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": -9.49,
+          "previous_change_percent": -10.89,
           "history": [
             {
               "date": "2026/08/12",
@@ -87193,6 +87265,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": -14.88,
+          "previous_change_percent": -14.91,
           "history": [
             {
               "date": "2026/08/12",
@@ -88377,6 +88450,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 3.28,
+          "previous_change_percent": 1.42,
           "history": [
             {
               "date": "2026/08/12",
@@ -89559,6 +89633,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 0.37,
+          "previous_change_percent": -0.87,
           "history": [
             {
               "date": "2026/08/12",
@@ -90741,6 +90816,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": -1.02,
+          "previous_change_percent": 1.65,
           "history": [
             {
               "date": "2026/08/12",
@@ -91923,6 +91999,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": -3.64,
+          "previous_change_percent": -3.69,
           "history": [
             {
               "date": "2026/08/12",
@@ -93105,6 +93182,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": -4.48,
+          "previous_change_percent": -4.48,
           "history": [
             {
               "date": "2026/08/12",
@@ -94289,6 +94367,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 3.28,
+          "previous_change_percent": 1.42,
           "history": [
             {
               "date": "2026/08/12",
@@ -95471,6 +95550,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 0.37,
+          "previous_change_percent": -0.87,
           "history": [
             {
               "date": "2026/08/12",
@@ -96653,6 +96733,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": -1.02,
+          "previous_change_percent": 1.65,
           "history": [
             {
               "date": "2026/08/12",
@@ -97835,6 +97916,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": -3.64,
+          "previous_change_percent": -3.69,
           "history": [
             {
               "date": "2026/08/12",
@@ -99017,6 +99099,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": -4.48,
+          "previous_change_percent": -4.48,
           "history": [
             {
               "date": "2026/08/12",
@@ -100201,6 +100284,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 8.71,
+          "previous_change_percent": 7.69,
           "history": [
             {
               "date": "2026/08/12",
@@ -101383,6 +101467,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": 5.22,
+          "previous_change_percent": 5.66,
           "history": [
             {
               "date": "2026/08/12",
@@ -102565,6 +102650,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 5.07,
+          "previous_change_percent": 5.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -103747,6 +103833,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": 4.83,
+          "previous_change_percent": 3.24,
           "history": [
             {
               "date": "2026/08/12",
@@ -104929,6 +105016,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": 3.75,
+          "previous_change_percent": 3.9,
           "history": [
             {
               "date": "2026/08/12",
@@ -106111,6 +106199,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 3.28,
+          "previous_change_percent": 3.05,
           "history": [
             {
               "date": "2026/08/12",
@@ -107293,6 +107382,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": -8.75,
+          "previous_change_percent": -7.95,
           "history": [
             {
               "date": "2026/08/12",
@@ -108477,6 +108567,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": -11.87,
+          "previous_change_percent": -12.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -109659,6 +109750,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": -12.29,
+          "previous_change_percent": -11.57,
           "history": [
             {
               "date": "2026/08/12",
@@ -110843,6 +110935,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": -1.05,
+          "previous_change_percent": -2.28,
           "history": [
             {
               "date": "2026/08/12",
@@ -112025,6 +112118,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": -12.29,
+          "previous_change_percent": -11.57,
           "history": [
             {
               "date": "2026/08/12",
@@ -113209,6 +113303,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": -2.13,
+          "previous_change_percent": -2.43,
           "history": [
             {
               "date": "2026/08/12",
@@ -114391,6 +114486,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -8.57,
+          "previous_change_percent": -12.2,
           "history": [
             {
               "date": "2026/08/12",
@@ -115573,6 +115669,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": -8.64,
+          "previous_change_percent": -5.79,
           "history": [
             {
               "date": "2026/08/12",
@@ -116757,6 +116854,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": -0.82,
+          "previous_change_percent": -1.9,
           "history": [
             {
               "date": "2026/08/12",
@@ -117939,6 +118037,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": -0.95,
+          "previous_change_percent": -0.34,
           "history": [
             {
               "date": "2026/08/12",
@@ -119121,6 +119220,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": -1.05,
+          "previous_change_percent": -2.28,
           "history": [
             {
               "date": "2026/08/12",
@@ -120303,6 +120403,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": -2.13,
+          "previous_change_percent": -2.43,
           "history": [
             {
               "date": "2026/08/12",
@@ -121485,6 +121586,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": -2.67,
+          "previous_change_percent": -4.26,
           "history": [
             {
               "date": "2026/08/12",
@@ -122667,6 +122769,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -2.68,
+          "previous_change_percent": -2.55,
           "history": [
             {
               "date": "2026/08/12",
@@ -123849,6 +123952,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -3.78,
+          "previous_change_percent": -3.96,
           "history": [
             {
               "date": "2026/08/12",
@@ -125031,6 +125135,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -8.57,
+          "previous_change_percent": -12.2,
           "history": [
             {
               "date": "2026/08/12",
@@ -126213,6 +126318,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": -8.64,
+          "previous_change_percent": -5.79,
           "history": [
             {
               "date": "2026/08/12",
@@ -127397,6 +127503,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": 5.22,
+          "previous_change_percent": 5.66,
           "history": [
             {
               "date": "2026/08/12",
@@ -128579,6 +128686,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": 3.75,
+          "previous_change_percent": 3.9,
           "history": [
             {
               "date": "2026/08/12",
@@ -129761,6 +129869,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 3.28,
+          "previous_change_percent": 3.05,
           "history": [
             {
               "date": "2026/08/12",
@@ -130943,6 +131052,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": -8.64,
+          "previous_change_percent": -5.79,
           "history": [
             {
               "date": "2026/08/12",
@@ -132127,6 +132237,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": -11.87,
+          "previous_change_percent": -12.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -133311,6 +133422,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": -11.87,
+          "previous_change_percent": -12.18,
           "history": [
             {
               "date": "2026/08/12",
@@ -134495,6 +134607,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": -0.95,
+          "previous_change_percent": -0.34,
           "history": [
             {
               "date": "2026/08/12",
@@ -135677,6 +135790,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": -1.05,
+          "previous_change_percent": -2.28,
           "history": [
             {
               "date": "2026/08/12",
@@ -136859,6 +136973,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": -2.13,
+          "previous_change_percent": -2.43,
           "history": [
             {
               "date": "2026/08/12",
@@ -138041,6 +138156,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": -2.67,
+          "previous_change_percent": -4.26,
           "history": [
             {
               "date": "2026/08/12",
@@ -139223,6 +139339,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -2.68,
+          "previous_change_percent": -2.55,
           "history": [
             {
               "date": "2026/08/12",
@@ -140405,6 +140522,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -3.78,
+          "previous_change_percent": -3.96,
           "history": [
             {
               "date": "2026/08/12",
@@ -141587,6 +141705,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -8.57,
+          "previous_change_percent": -12.2,
           "history": [
             {
               "date": "2026/08/12",
@@ -142771,6 +142890,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": -0.95,
+          "previous_change_percent": -0.34,
           "history": [
             {
               "date": "2026/08/12",
@@ -143953,6 +144073,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": -2.67,
+          "previous_change_percent": -4.26,
           "history": [
             {
               "date": "2026/08/12",
@@ -145137,6 +145258,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": -0.82,
+          "previous_change_percent": -1.9,
           "history": [
             {
               "date": "2026/08/12",
@@ -146321,6 +146443,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -3.78,
+          "previous_change_percent": -3.96,
           "history": [
             {
               "date": "2026/08/12",
@@ -147505,6 +147628,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 17.51,
+          "previous_change_percent": 16.96,
           "history": [
             {
               "date": "2026/08/12",
@@ -148687,6 +148811,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 14.16,
+          "previous_change_percent": 12.1,
           "history": [
             {
               "date": "2026/08/12",
@@ -149869,6 +149994,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": 5.22,
+          "previous_change_percent": 5.66,
           "history": [
             {
               "date": "2026/08/12",
@@ -151051,6 +151177,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": 4.83,
+          "previous_change_percent": 3.24,
           "history": [
             {
               "date": "2026/08/12",
@@ -152233,6 +152360,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": 3.75,
+          "previous_change_percent": 3.9,
           "history": [
             {
               "date": "2026/08/12",
@@ -153417,6 +153545,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 9.69,
+          "previous_change_percent": 9.97,
           "history": [
             {
               "date": "2026/08/12",
@@ -154601,6 +154730,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 9.69,
+          "previous_change_percent": 9.97,
           "history": [
             {
               "date": "2026/08/12",
@@ -155785,6 +155915,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 9.69,
+          "previous_change_percent": 9.97,
           "history": [
             {
               "date": "2026/08/12",
@@ -156967,6 +157098,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 3.28,
+          "previous_change_percent": 1.42,
           "history": [
             {
               "date": "2026/08/12",
@@ -158149,6 +158281,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 0.37,
+          "previous_change_percent": -0.87,
           "history": [
             {
               "date": "2026/08/12",
@@ -159331,6 +159464,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": -1.02,
+          "previous_change_percent": 1.65,
           "history": [
             {
               "date": "2026/08/12",
@@ -160513,6 +160647,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": -4.48,
+          "previous_change_percent": -4.48,
           "history": [
             {
               "date": "2026/08/12",
@@ -161697,6 +161832,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 4.32,
+          "previous_change_percent": 4.73,
           "history": [
             {
               "date": "2026/08/12",
@@ -162879,6 +163015,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 3.28,
+          "previous_change_percent": 3.05,
           "history": [
             {
               "date": "2026/08/12",
@@ -164063,6 +164200,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": 4.83,
+          "previous_change_percent": 3.24,
           "history": [
             {
               "date": "2026/08/12",
@@ -165247,6 +165385,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": -0.14,
+          "previous_change_percent": 2.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -166429,6 +166568,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": -0.31,
+          "previous_change_percent": 2.81,
           "history": [
             {
               "date": "2026/08/12",
@@ -167611,6 +167751,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": -0.82,
+          "previous_change_percent": 2.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -168795,6 +168936,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": -0.14,
+          "previous_change_percent": 2.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -169977,6 +170119,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": -0.31,
+          "previous_change_percent": 2.81,
           "history": [
             {
               "date": "2026/08/12",
@@ -171159,6 +171302,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": -0.82,
+          "previous_change_percent": 2.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -172343,6 +172487,7 @@
           "industry": "医薬品",
           "price": 5615.0,
           "change_percent": 0.95,
+          "previous_change_percent": 0.59,
           "history": [
             {
               "date": "2026/08/12",
@@ -173525,6 +173670,7 @@
           "industry": "医薬品",
           "price": 2710.5,
           "change_percent": -3.37,
+          "previous_change_percent": -3.37,
           "history": [
             {
               "date": "2026/08/12",
@@ -174707,6 +174853,7 @@
           "industry": "医薬品",
           "price": 2237.0,
           "change_percent": -5.05,
+          "previous_change_percent": -5.33,
           "history": [
             {
               "date": "2026/08/12",
@@ -175889,6 +176036,7 @@
           "industry": "医薬品",
           "price": 4620.0,
           "change_percent": -7.38,
+          "previous_change_percent": -6.65,
           "history": [
             {
               "date": "2026/08/12",
@@ -177071,6 +177219,7 @@
           "industry": "医薬品",
           "price": 6476.0,
           "change_percent": -9.86,
+          "previous_change_percent": -8.94,
           "history": [
             {
               "date": "2026/08/12",
@@ -178255,6 +178404,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 17.51,
+          "previous_change_percent": 16.96,
           "history": [
             {
               "date": "2026/08/12",
@@ -179437,6 +179587,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 16.61,
+          "previous_change_percent": 16.29,
           "history": [
             {
               "date": "2026/08/12",
@@ -180619,6 +180770,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 14.16,
+          "previous_change_percent": 12.1,
           "history": [
             {
               "date": "2026/08/12",
@@ -181803,6 +181955,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 17.51,
+          "previous_change_percent": 16.96,
           "history": [
             {
               "date": "2026/08/12",
@@ -182985,6 +183138,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 16.61,
+          "previous_change_percent": 16.29,
           "history": [
             {
               "date": "2026/08/12",
@@ -184167,6 +184321,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 14.16,
+          "previous_change_percent": 12.1,
           "history": [
             {
               "date": "2026/08/12",
@@ -185352,6 +185507,7 @@
         "industry": "通信・IT投資",
         "price": 6810.0,
         "change_percent": 23.37,
+        "previous_change_percent": 24.18,
         "history": [
           {
             "date": "2026/08/12",
@@ -186534,6 +186690,7 @@
         "industry": "海運",
         "price": 7201.0,
         "change_percent": 17.51,
+        "previous_change_percent": 16.96,
         "history": [
           {
             "date": "2026/08/12",
@@ -187716,6 +187873,7 @@
         "industry": "海運",
         "price": 3348.0,
         "change_percent": 16.61,
+        "previous_change_percent": 16.29,
         "history": [
           {
             "date": "2026/08/12",
@@ -188898,6 +189056,7 @@
         "industry": "海運",
         "price": 7039.0,
         "change_percent": 14.16,
+        "previous_change_percent": 12.1,
         "history": [
           {
             "date": "2026/08/12",
@@ -190080,6 +190239,7 @@
         "industry": "総合商社",
         "price": 2299.0,
         "change_percent": 9.69,
+        "previous_change_percent": 9.97,
         "history": [
           {
             "date": "2026/08/12",
@@ -191262,6 +191422,7 @@
         "industry": "通信",
         "price": 172.2,
         "change_percent": 8.71,
+        "previous_change_percent": 7.69,
         "history": [
           {
             "date": "2026/08/12",
@@ -192444,6 +192605,7 @@
         "industry": "総合商社",
         "price": 5156.0,
         "change_percent": 5.22,
+        "previous_change_percent": 5.66,
         "history": [
           {
             "date": "2026/08/12",
@@ -193626,6 +193788,7 @@
         "industry": "通信",
         "price": 2976.5,
         "change_percent": 5.07,
+        "previous_change_percent": 5.18,
         "history": [
           {
             "date": "2026/08/12",
@@ -194808,6 +194971,7 @@
         "industry": "総合商社",
         "price": 5864.0,
         "change_percent": 4.83,
+        "previous_change_percent": 3.24,
         "history": [
           {
             "date": "2026/08/12",
@@ -195990,6 +196154,7 @@
         "industry": "通信",
         "price": 239.2,
         "change_percent": 4.32,
+        "previous_change_percent": 4.73,
         "history": [
           {
             "date": "2026/08/12",
@@ -197174,6 +197339,7 @@
         "industry": "半導体・製造装置",
         "price": 53590.0,
         "change_percent": -14.88,
+        "previous_change_percent": -14.91,
         "history": [
           {
             "date": "2026/08/12",
@@ -198356,6 +198522,7 @@
         "industry": "電機・精密",
         "price": 5168.0,
         "change_percent": -12.29,
+        "previous_change_percent": -11.57,
         "history": [
           {
             "date": "2026/08/12",
@@ -199538,6 +199705,7 @@
         "industry": "電機・精密",
         "price": 6037.0,
         "change_percent": -11.87,
+        "previous_change_percent": -12.18,
         "history": [
           {
             "date": "2026/08/12",
@@ -200720,6 +200888,7 @@
         "industry": "医薬品",
         "price": 6476.0,
         "change_percent": -9.86,
+        "previous_change_percent": -8.94,
         "history": [
           {
             "date": "2026/08/12",
@@ -201902,6 +202071,7 @@
         "industry": "半導体・製造装置",
         "price": 35280.0,
         "change_percent": -9.49,
+        "previous_change_percent": -10.89,
         "history": [
           {
             "date": "2026/08/12",
@@ -203084,6 +203254,7 @@
         "industry": "電機・精密",
         "price": 5173.0,
         "change_percent": -8.75,
+        "previous_change_percent": -7.95,
         "history": [
           {
             "date": "2026/08/12",
@@ -204266,6 +204437,7 @@
         "industry": "電機・精密",
         "price": 4179.0,
         "change_percent": -8.64,
+        "previous_change_percent": -5.79,
         "history": [
           {
             "date": "2026/08/12",
@@ -205448,6 +205620,7 @@
         "industry": "自動車",
         "price": 307.3,
         "change_percent": -8.57,
+        "previous_change_percent": -12.2,
         "history": [
           {
             "date": "2026/08/12",
@@ -206630,6 +206803,7 @@
         "industry": "半導体・製造装置",
         "price": 53700.0,
         "change_percent": -7.78,
+        "previous_change_percent": -5.37,
         "history": [
           {
             "date": "2026/08/12",
@@ -207812,6 +207986,7 @@
         "industry": "医薬品",
         "price": 4620.0,
         "change_percent": -7.38,
+        "previous_change_percent": -6.65,
         "history": [
           {
             "date": "2026/08/12",
@@ -210227,6 +210402,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": 32.52,
+          "previous_change_percent": 36.84,
           "history": [
             {
               "date": "2026/03/11",
@@ -211433,6 +211609,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": 32.49,
+          "previous_change_percent": 37.98,
           "history": [
             {
               "date": "2026/03/11",
@@ -212639,6 +212816,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": 31.97,
+          "previous_change_percent": 43.56,
           "history": [
             {
               "date": "2026/03/11",
@@ -213845,6 +214023,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": -2.54,
+          "previous_change_percent": 16.21,
           "history": [
             {
               "date": "2026/03/11",
@@ -215051,6 +215230,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": -25.95,
+          "previous_change_percent": -19.41,
           "history": [
             {
               "date": "2026/03/11",
@@ -216259,6 +216439,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": 58.15,
+          "previous_change_percent": 72.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -217465,6 +217646,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": 27.26,
+          "previous_change_percent": 31.93,
           "history": [
             {
               "date": "2026/03/11",
@@ -218671,6 +218853,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": 6.31,
+          "previous_change_percent": 9.64,
           "history": [
             {
               "date": "2026/03/11",
@@ -219877,6 +220060,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": 5.19,
+          "previous_change_percent": 8.34,
           "history": [
             {
               "date": "2026/03/11",
@@ -221083,6 +221267,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": -6.02,
+          "previous_change_percent": -1.28,
           "history": [
             {
               "date": "2026/03/11",
@@ -222291,6 +222476,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": 10.47,
+          "previous_change_percent": 11.42,
           "history": [
             {
               "date": "2026/03/11",
@@ -223497,6 +223683,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": -5.01,
+          "previous_change_percent": -2.64,
           "history": [
             {
               "date": "2026/03/11",
@@ -224703,6 +224890,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": -5.77,
+          "previous_change_percent": -4.45,
           "history": [
             {
               "date": "2026/03/11",
@@ -225909,6 +226097,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": -15.36,
+          "previous_change_percent": -12.44,
           "history": [
             {
               "date": "2026/03/11",
@@ -227115,6 +227304,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -18.42,
+          "previous_change_percent": -17.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -228323,6 +228513,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -1.39,
+          "previous_change_percent": 2.23,
           "history": [
             {
               "date": "2026/03/11",
@@ -229529,6 +229720,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -6.74,
+          "previous_change_percent": -5.29,
           "history": [
             {
               "date": "2026/03/11",
@@ -230735,6 +230927,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": -10.04,
+          "previous_change_percent": -8.84,
           "history": [
             {
               "date": "2026/03/11",
@@ -231943,6 +232136,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 27.58,
+          "previous_change_percent": 31.12,
           "history": [
             {
               "date": "2026/03/11",
@@ -233149,6 +233343,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 10.53,
+          "previous_change_percent": 13.28,
           "history": [
             {
               "date": "2026/03/11",
@@ -234355,6 +234550,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": -3.49,
+          "previous_change_percent": 2.44,
           "history": [
             {
               "date": "2026/03/11",
@@ -235561,6 +235757,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": -7.99,
+          "previous_change_percent": -2.01,
           "history": [
             {
               "date": "2026/03/11",
@@ -236767,6 +236964,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": -13.61,
+          "previous_change_percent": -9.89,
           "history": [
             {
               "date": "2026/03/11",
@@ -237975,6 +238173,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": 34.14,
+          "previous_change_percent": 35.12,
           "history": [
             {
               "date": "2026/03/11",
@@ -239181,6 +239380,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": 33.4,
+          "previous_change_percent": 37.24,
           "history": [
             {
               "date": "2026/03/11",
@@ -240387,6 +240587,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": 28.27,
+          "previous_change_percent": 30.54,
           "history": [
             {
               "date": "2026/03/11",
@@ -241595,6 +241796,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 11.81,
+          "previous_change_percent": 11.06,
           "history": [
             {
               "date": "2026/03/11",
@@ -242801,6 +243003,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 10.74,
+          "previous_change_percent": 11.82,
           "history": [
             {
               "date": "2026/03/11",
@@ -244007,6 +244210,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 10.28,
+          "previous_change_percent": 11.88,
           "history": [
             {
               "date": "2026/03/11",
@@ -245215,6 +245419,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 75.15,
+          "previous_change_percent": 92.32,
           "history": [
             {
               "date": "2026/03/11",
@@ -246423,6 +246628,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 26.46,
+          "previous_change_percent": 30.31,
           "history": [
             {
               "date": "2026/03/11",
@@ -247629,6 +247835,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 25.75,
+          "previous_change_percent": 26.79,
           "history": [
             {
               "date": "2026/03/11",
@@ -248835,6 +249042,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": 1.7,
+          "previous_change_percent": 6.73,
           "history": [
             {
               "date": "2026/03/11",
@@ -250041,6 +250249,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": -15.41,
+          "previous_change_percent": -2.38,
           "history": [
             {
               "date": "2026/03/11",
@@ -251249,6 +251458,7 @@
           "industry": "医薬品",
           "price": 5615.0,
           "change_percent": -2.42,
+          "previous_change_percent": -0.04,
           "history": [
             {
               "date": "2026/03/11",
@@ -252455,6 +252665,7 @@
           "industry": "医薬品",
           "price": 2710.5,
           "change_percent": -5.04,
+          "previous_change_percent": -4.86,
           "history": [
             {
               "date": "2026/03/11",
@@ -253661,6 +253872,7 @@
           "industry": "医薬品",
           "price": 4620.0,
           "change_percent": -5.98,
+          "previous_change_percent": -4.17,
           "history": [
             {
               "date": "2026/03/11",
@@ -254867,6 +255079,7 @@
           "industry": "医薬品",
           "price": 2237.0,
           "change_percent": -9.41,
+          "previous_change_percent": -5.61,
           "history": [
             {
               "date": "2026/03/11",
@@ -256073,6 +256286,7 @@
           "industry": "医薬品",
           "price": 6476.0,
           "change_percent": -31.58,
+          "previous_change_percent": -31.69,
           "history": [
             {
               "date": "2026/03/11",
@@ -257281,6 +257495,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 25.89,
+          "previous_change_percent": 29.49,
           "history": [
             {
               "date": "2026/03/11",
@@ -258487,6 +258702,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 24.07,
+          "previous_change_percent": 29.87,
           "history": [
             {
               "date": "2026/03/11",
@@ -259693,6 +259909,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 12.64,
+          "previous_change_percent": 18.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -262203,6 +262420,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 75.15,
+          "previous_change_percent": 92.32,
           "history": [
             {
               "date": "2026/03/11",
@@ -263409,6 +263627,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": 32.52,
+          "previous_change_percent": 36.84,
           "history": [
             {
               "date": "2026/03/11",
@@ -264615,6 +264834,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": 32.49,
+          "previous_change_percent": 37.98,
           "history": [
             {
               "date": "2026/03/11",
@@ -265821,6 +266041,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": 31.97,
+          "previous_change_percent": 43.56,
           "history": [
             {
               "date": "2026/03/11",
@@ -267027,6 +267248,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": -2.54,
+          "previous_change_percent": 16.21,
           "history": [
             {
               "date": "2026/03/11",
@@ -268233,6 +268455,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -6.74,
+          "previous_change_percent": -5.29,
           "history": [
             {
               "date": "2026/03/11",
@@ -269439,6 +269662,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": -25.95,
+          "previous_change_percent": -19.41,
           "history": [
             {
               "date": "2026/03/11",
@@ -270647,6 +270871,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 75.15,
+          "previous_change_percent": 92.32,
           "history": [
             {
               "date": "2026/03/11",
@@ -271853,6 +272078,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": 34.14,
+          "previous_change_percent": 35.12,
           "history": [
             {
               "date": "2026/03/11",
@@ -273059,6 +273285,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": 33.4,
+          "previous_change_percent": 37.24,
           "history": [
             {
               "date": "2026/03/11",
@@ -274265,6 +274492,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": 32.52,
+          "previous_change_percent": 36.84,
           "history": [
             {
               "date": "2026/03/11",
@@ -275471,6 +275699,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": 32.49,
+          "previous_change_percent": 37.98,
           "history": [
             {
               "date": "2026/03/11",
@@ -276677,6 +276906,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": 31.97,
+          "previous_change_percent": 43.56,
           "history": [
             {
               "date": "2026/03/11",
@@ -277883,6 +278113,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 11.81,
+          "previous_change_percent": 11.06,
           "history": [
             {
               "date": "2026/03/11",
@@ -279089,6 +279320,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 10.74,
+          "previous_change_percent": 11.82,
           "history": [
             {
               "date": "2026/03/11",
@@ -280295,6 +280527,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 10.28,
+          "previous_change_percent": 11.88,
           "history": [
             {
               "date": "2026/03/11",
@@ -281501,6 +281734,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": 6.31,
+          "previous_change_percent": 9.64,
           "history": [
             {
               "date": "2026/03/11",
@@ -282707,6 +282941,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": 5.19,
+          "previous_change_percent": 8.34,
           "history": [
             {
               "date": "2026/03/11",
@@ -283913,6 +284148,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": -2.54,
+          "previous_change_percent": 16.21,
           "history": [
             {
               "date": "2026/03/11",
@@ -285119,6 +285355,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": -6.02,
+          "previous_change_percent": -1.28,
           "history": [
             {
               "date": "2026/03/11",
@@ -286325,6 +286562,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": -25.95,
+          "previous_change_percent": -19.41,
           "history": [
             {
               "date": "2026/03/11",
@@ -287533,6 +287771,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 75.15,
+          "previous_change_percent": 92.32,
           "history": [
             {
               "date": "2026/03/11",
@@ -288739,6 +288978,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": 32.52,
+          "previous_change_percent": 36.84,
           "history": [
             {
               "date": "2026/03/11",
@@ -289945,6 +290185,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": 32.49,
+          "previous_change_percent": 37.98,
           "history": [
             {
               "date": "2026/03/11",
@@ -291151,6 +291392,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": 31.97,
+          "previous_change_percent": 43.56,
           "history": [
             {
               "date": "2026/03/11",
@@ -292357,6 +292599,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 11.81,
+          "previous_change_percent": 11.06,
           "history": [
             {
               "date": "2026/03/11",
@@ -293563,6 +293806,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 10.74,
+          "previous_change_percent": 11.82,
           "history": [
             {
               "date": "2026/03/11",
@@ -294769,6 +295013,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 10.28,
+          "previous_change_percent": 11.88,
           "history": [
             {
               "date": "2026/03/11",
@@ -295975,6 +296220,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": 6.31,
+          "previous_change_percent": 9.64,
           "history": [
             {
               "date": "2026/03/11",
@@ -297183,6 +297429,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": -2.54,
+          "previous_change_percent": 16.21,
           "history": [
             {
               "date": "2026/03/11",
@@ -298389,6 +298636,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": -25.95,
+          "previous_change_percent": -19.41,
           "history": [
             {
               "date": "2026/03/11",
@@ -299597,6 +299845,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 26.46,
+          "previous_change_percent": 30.31,
           "history": [
             {
               "date": "2026/03/11",
@@ -300803,6 +301052,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 25.75,
+          "previous_change_percent": 26.79,
           "history": [
             {
               "date": "2026/03/11",
@@ -302009,6 +302259,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": 5.19,
+          "previous_change_percent": 8.34,
           "history": [
             {
               "date": "2026/03/11",
@@ -303215,6 +303466,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": 1.7,
+          "previous_change_percent": 6.73,
           "history": [
             {
               "date": "2026/03/11",
@@ -304421,6 +304673,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": -15.41,
+          "previous_change_percent": -2.38,
           "history": [
             {
               "date": "2026/03/11",
@@ -305629,6 +305882,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 26.46,
+          "previous_change_percent": 30.31,
           "history": [
             {
               "date": "2026/03/11",
@@ -306835,6 +307089,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 25.75,
+          "previous_change_percent": 26.79,
           "history": [
             {
               "date": "2026/03/11",
@@ -308041,6 +308296,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": 5.19,
+          "previous_change_percent": 8.34,
           "history": [
             {
               "date": "2026/03/11",
@@ -309247,6 +309503,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": 1.7,
+          "previous_change_percent": 6.73,
           "history": [
             {
               "date": "2026/03/11",
@@ -310453,6 +310710,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": -15.41,
+          "previous_change_percent": -2.38,
           "history": [
             {
               "date": "2026/03/11",
@@ -311661,6 +311919,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 27.58,
+          "previous_change_percent": 31.12,
           "history": [
             {
               "date": "2026/03/11",
@@ -312867,6 +313126,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 11.81,
+          "previous_change_percent": 11.06,
           "history": [
             {
               "date": "2026/03/11",
@@ -314073,6 +314333,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 10.74,
+          "previous_change_percent": 11.82,
           "history": [
             {
               "date": "2026/03/11",
@@ -315279,6 +315540,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": 6.31,
+          "previous_change_percent": 9.64,
           "history": [
             {
               "date": "2026/03/11",
@@ -316485,6 +316747,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": -3.49,
+          "previous_change_percent": 2.44,
           "history": [
             {
               "date": "2026/03/11",
@@ -317691,6 +317954,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": -7.99,
+          "previous_change_percent": -2.01,
           "history": [
             {
               "date": "2026/03/11",
@@ -318897,6 +319161,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": -13.61,
+          "previous_change_percent": -9.89,
           "history": [
             {
               "date": "2026/03/11",
@@ -320105,6 +320370,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": 27.26,
+          "previous_change_percent": 31.93,
           "history": [
             {
               "date": "2026/03/11",
@@ -321311,6 +321577,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": -6.02,
+          "previous_change_percent": -1.28,
           "history": [
             {
               "date": "2026/03/11",
@@ -322519,6 +322786,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": -5.77,
+          "previous_change_percent": -4.45,
           "history": [
             {
               "date": "2026/03/11",
@@ -323725,6 +323993,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": -6.02,
+          "previous_change_percent": -1.28,
           "history": [
             {
               "date": "2026/03/11",
@@ -324933,6 +325202,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": 58.15,
+          "previous_change_percent": 72.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -326139,6 +326409,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": -10.04,
+          "previous_change_percent": -8.84,
           "history": [
             {
               "date": "2026/03/11",
@@ -327345,6 +327616,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -18.42,
+          "previous_change_percent": -17.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -328553,6 +328825,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": 58.15,
+          "previous_change_percent": 72.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -329759,6 +330032,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": 10.47,
+          "previous_change_percent": 11.42,
           "history": [
             {
               "date": "2026/03/11",
@@ -330965,6 +331239,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -1.39,
+          "previous_change_percent": 2.23,
           "history": [
             {
               "date": "2026/03/11",
@@ -332171,6 +332446,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": -5.01,
+          "previous_change_percent": -2.64,
           "history": [
             {
               "date": "2026/03/11",
@@ -333377,6 +333653,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": -5.77,
+          "previous_change_percent": -4.45,
           "history": [
             {
               "date": "2026/03/11",
@@ -334583,6 +334860,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -6.74,
+          "previous_change_percent": -5.29,
           "history": [
             {
               "date": "2026/03/11",
@@ -335789,6 +336067,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": -10.04,
+          "previous_change_percent": -8.84,
           "history": [
             {
               "date": "2026/03/11",
@@ -336995,6 +337274,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": -15.36,
+          "previous_change_percent": -12.44,
           "history": [
             {
               "date": "2026/03/11",
@@ -338201,6 +338481,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -18.42,
+          "previous_change_percent": -17.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -339409,6 +339690,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": 58.15,
+          "previous_change_percent": 72.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -340615,6 +340897,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 27.58,
+          "previous_change_percent": 31.12,
           "history": [
             {
               "date": "2026/03/11",
@@ -341821,6 +342104,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": -3.49,
+          "previous_change_percent": 2.44,
           "history": [
             {
               "date": "2026/03/11",
@@ -343027,6 +343311,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": -13.61,
+          "previous_change_percent": -9.89,
           "history": [
             {
               "date": "2026/03/11",
@@ -344235,6 +344520,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": 27.26,
+          "previous_change_percent": 31.93,
           "history": [
             {
               "date": "2026/03/11",
@@ -345443,6 +345729,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": 27.26,
+          "previous_change_percent": 31.93,
           "history": [
             {
               "date": "2026/03/11",
@@ -346651,6 +346938,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": 10.47,
+          "previous_change_percent": 11.42,
           "history": [
             {
               "date": "2026/03/11",
@@ -347857,6 +348145,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -1.39,
+          "previous_change_percent": 2.23,
           "history": [
             {
               "date": "2026/03/11",
@@ -349063,6 +349352,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": -5.77,
+          "previous_change_percent": -4.45,
           "history": [
             {
               "date": "2026/03/11",
@@ -350269,6 +350559,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -6.74,
+          "previous_change_percent": -5.29,
           "history": [
             {
               "date": "2026/03/11",
@@ -351475,6 +351766,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": -10.04,
+          "previous_change_percent": -8.84,
           "history": [
             {
               "date": "2026/03/11",
@@ -352681,6 +352973,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": -15.36,
+          "previous_change_percent": -12.44,
           "history": [
             {
               "date": "2026/03/11",
@@ -353887,6 +354180,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -18.42,
+          "previous_change_percent": -17.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -355095,6 +355389,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": 10.47,
+          "previous_change_percent": 11.42,
           "history": [
             {
               "date": "2026/03/11",
@@ -356301,6 +356596,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": -15.36,
+          "previous_change_percent": -12.44,
           "history": [
             {
               "date": "2026/03/11",
@@ -357509,6 +357805,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": -5.01,
+          "previous_change_percent": -2.64,
           "history": [
             {
               "date": "2026/03/11",
@@ -358717,6 +359014,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -1.39,
+          "previous_change_percent": 2.23,
           "history": [
             {
               "date": "2026/03/11",
@@ -359925,6 +360223,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 25.89,
+          "previous_change_percent": 29.49,
           "history": [
             {
               "date": "2026/03/11",
@@ -361131,6 +361430,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 12.64,
+          "previous_change_percent": 18.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -362337,6 +362637,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": -3.49,
+          "previous_change_percent": 2.44,
           "history": [
             {
               "date": "2026/03/11",
@@ -363543,6 +363844,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": -7.99,
+          "previous_change_percent": -2.01,
           "history": [
             {
               "date": "2026/03/11",
@@ -364749,6 +365051,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": -13.61,
+          "previous_change_percent": -9.89,
           "history": [
             {
               "date": "2026/03/11",
@@ -365957,6 +366260,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 10.53,
+          "previous_change_percent": 13.28,
           "history": [
             {
               "date": "2026/03/11",
@@ -367165,6 +367469,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 10.53,
+          "previous_change_percent": 13.28,
           "history": [
             {
               "date": "2026/03/11",
@@ -368373,6 +368678,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 26.46,
+          "previous_change_percent": 30.31,
           "history": [
             {
               "date": "2026/03/11",
@@ -369579,6 +369885,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 25.75,
+          "previous_change_percent": 26.79,
           "history": [
             {
               "date": "2026/03/11",
@@ -370785,6 +371092,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 10.53,
+          "previous_change_percent": 13.28,
           "history": [
             {
               "date": "2026/03/11",
@@ -371991,6 +372299,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": 1.7,
+          "previous_change_percent": 6.73,
           "history": [
             {
               "date": "2026/03/11",
@@ -373197,6 +373506,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": -15.41,
+          "previous_change_percent": -2.38,
           "history": [
             {
               "date": "2026/03/11",
@@ -374405,6 +374715,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 27.58,
+          "previous_change_percent": 31.12,
           "history": [
             {
               "date": "2026/03/11",
@@ -375611,6 +375922,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 10.28,
+          "previous_change_percent": 11.88,
           "history": [
             {
               "date": "2026/03/11",
@@ -376819,6 +377131,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": -7.99,
+          "previous_change_percent": -2.01,
           "history": [
             {
               "date": "2026/03/11",
@@ -378027,6 +378340,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": 34.14,
+          "previous_change_percent": 35.12,
           "history": [
             {
               "date": "2026/03/11",
@@ -379233,6 +379547,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": 33.4,
+          "previous_change_percent": 37.24,
           "history": [
             {
               "date": "2026/03/11",
@@ -380439,6 +380754,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": 28.27,
+          "previous_change_percent": 30.54,
           "history": [
             {
               "date": "2026/03/11",
@@ -381647,6 +381963,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": 34.14,
+          "previous_change_percent": 35.12,
           "history": [
             {
               "date": "2026/03/11",
@@ -382853,6 +383170,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": 33.4,
+          "previous_change_percent": 37.24,
           "history": [
             {
               "date": "2026/03/11",
@@ -384059,6 +384377,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": 28.27,
+          "previous_change_percent": 30.54,
           "history": [
             {
               "date": "2026/03/11",
@@ -385267,6 +385586,7 @@
           "industry": "医薬品",
           "price": 5615.0,
           "change_percent": -2.42,
+          "previous_change_percent": -0.04,
           "history": [
             {
               "date": "2026/03/11",
@@ -386473,6 +386793,7 @@
           "industry": "医薬品",
           "price": 2710.5,
           "change_percent": -5.04,
+          "previous_change_percent": -4.86,
           "history": [
             {
               "date": "2026/03/11",
@@ -387679,6 +388000,7 @@
           "industry": "医薬品",
           "price": 4620.0,
           "change_percent": -5.98,
+          "previous_change_percent": -4.17,
           "history": [
             {
               "date": "2026/03/11",
@@ -388885,6 +389207,7 @@
           "industry": "医薬品",
           "price": 2237.0,
           "change_percent": -9.41,
+          "previous_change_percent": -5.61,
           "history": [
             {
               "date": "2026/03/11",
@@ -390091,6 +390414,7 @@
           "industry": "医薬品",
           "price": 6476.0,
           "change_percent": -31.58,
+          "previous_change_percent": -31.69,
           "history": [
             {
               "date": "2026/03/11",
@@ -391299,6 +391623,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 25.89,
+          "previous_change_percent": 29.49,
           "history": [
             {
               "date": "2026/03/11",
@@ -392505,6 +392830,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 24.07,
+          "previous_change_percent": 29.87,
           "history": [
             {
               "date": "2026/03/11",
@@ -393711,6 +394037,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 12.64,
+          "previous_change_percent": 18.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -394919,6 +395246,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 25.89,
+          "previous_change_percent": 29.49,
           "history": [
             {
               "date": "2026/03/11",
@@ -396125,6 +396453,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 24.07,
+          "previous_change_percent": 29.87,
           "history": [
             {
               "date": "2026/03/11",
@@ -397331,6 +397660,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 12.64,
+          "previous_change_percent": 18.08,
           "history": [
             {
               "date": "2026/03/11",
@@ -398540,6 +398870,7 @@
         "industry": "通信・IT投資",
         "price": 6810.0,
         "change_percent": 75.15,
+        "previous_change_percent": 92.32,
         "history": [
           {
             "date": "2026/03/11",
@@ -399746,6 +400077,7 @@
         "industry": "電機・精密",
         "price": 4179.0,
         "change_percent": 58.15,
+        "previous_change_percent": 72.08,
         "history": [
           {
             "date": "2026/03/11",
@@ -400952,6 +401284,7 @@
         "industry": "銀行",
         "price": 3601.0,
         "change_percent": 34.14,
+        "previous_change_percent": 35.12,
         "history": [
           {
             "date": "2026/03/11",
@@ -402158,6 +402491,7 @@
         "industry": "銀行",
         "price": 8476.0,
         "change_percent": 33.4,
+        "previous_change_percent": 37.24,
         "history": [
           {
             "date": "2026/03/11",
@@ -403364,6 +403698,7 @@
         "industry": "半導体・製造装置",
         "price": 13020.0,
         "change_percent": 32.52,
+        "previous_change_percent": 36.84,
         "history": [
           {
             "date": "2026/03/11",
@@ -404570,6 +404905,7 @@
         "industry": "半導体・製造装置",
         "price": 53700.0,
         "change_percent": 32.49,
+        "previous_change_percent": 37.98,
         "history": [
           {
             "date": "2026/03/11",
@@ -405776,6 +406112,7 @@
         "industry": "半導体・製造装置",
         "price": 32840.0,
         "change_percent": 31.97,
+        "previous_change_percent": 43.56,
         "history": [
           {
             "date": "2026/03/11",
@@ -406982,6 +407319,7 @@
         "industry": "銀行",
         "price": 6801.0,
         "change_percent": 28.27,
+        "previous_change_percent": 30.54,
         "history": [
           {
             "date": "2026/03/11",
@@ -408188,6 +408526,7 @@
         "industry": "総合商社",
         "price": 1840.0,
         "change_percent": 27.58,
+        "previous_change_percent": 31.12,
         "history": [
           {
             "date": "2026/03/11",
@@ -409394,6 +409733,7 @@
         "industry": "電機・精密",
         "price": 6037.0,
         "change_percent": 27.26,
+        "previous_change_percent": 31.93,
         "history": [
           {
             "date": "2026/03/11",
@@ -410602,6 +410942,7 @@
         "industry": "医薬品",
         "price": 6476.0,
         "change_percent": -31.58,
+        "previous_change_percent": -31.69,
         "history": [
           {
             "date": "2026/03/11",
@@ -411808,6 +412149,7 @@
         "industry": "半導体・製造装置",
         "price": 53590.0,
         "change_percent": -25.95,
+        "previous_change_percent": -19.41,
         "history": [
           {
             "date": "2026/03/11",
@@ -413014,6 +413356,7 @@
         "industry": "自動車",
         "price": 307.3,
         "change_percent": -18.42,
+        "previous_change_percent": -17.08,
         "history": [
           {
             "date": "2026/03/11",
@@ -414220,6 +414563,7 @@
         "industry": "ゲーム・エンタメ",
         "price": 8401.0,
         "change_percent": -15.41,
+        "previous_change_percent": -2.38,
         "history": [
           {
             "date": "2026/03/11",
@@ -415426,6 +415770,7 @@
         "industry": "自動車",
         "price": 2971.0,
         "change_percent": -15.36,
+        "previous_change_percent": -12.44,
         "history": [
           {
             "date": "2026/03/11",
@@ -416632,6 +416977,7 @@
         "industry": "総合商社",
         "price": 5156.0,
         "change_percent": -13.61,
+        "previous_change_percent": -9.89,
         "history": [
           {
             "date": "2026/03/11",
@@ -417838,6 +418184,7 @@
         "industry": "自動車部品",
         "price": 2186.5,
         "change_percent": -10.04,
+        "previous_change_percent": -8.84,
         "history": [
           {
             "date": "2026/03/11",
@@ -419044,6 +419391,7 @@
         "industry": "医薬品",
         "price": 2237.0,
         "change_percent": -9.41,
+        "previous_change_percent": -5.61,
         "history": [
           {
             "date": "2026/03/11",
@@ -420250,6 +420598,7 @@
         "industry": "総合商社",
         "price": 5864.0,
         "change_percent": -7.99,
+        "previous_change_percent": -2.01,
         "history": [
           {
             "date": "2026/03/11",
@@ -421456,6 +421805,7 @@
         "industry": "自動車部品",
         "price": 1888.5,
         "change_percent": -6.74,
+        "previous_change_percent": -5.29,
         "history": [
           {
             "date": "2026/03/11",
@@ -425255,6 +425605,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": 1060.42,
+          "previous_change_percent": 1083.42,
           "history": [
             {
               "date": "2021/09/13",
@@ -426597,6 +426948,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": 382.22,
+          "previous_change_percent": 383.57,
           "history": [
             {
               "date": "2021/09/13",
@@ -427939,6 +428291,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": 349.08,
+          "previous_change_percent": 349.71,
           "history": [
             {
               "date": "2021/09/13",
@@ -429281,6 +429634,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": 190.95,
+          "previous_change_percent": 195.33,
           "history": [
             {
               "date": "2021/09/13",
@@ -430623,6 +430977,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": 26.41,
+          "previous_change_percent": 24.88,
           "history": [
             {
               "date": "2021/09/13",
@@ -431967,6 +432322,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": 289.83,
+          "previous_change_percent": 293.86,
           "history": [
             {
               "date": "2021/09/13",
@@ -433309,6 +433665,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": 227.09,
+          "previous_change_percent": 230.33,
           "history": [
             {
               "date": "2021/09/13",
@@ -434651,6 +435008,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": 189.0,
+          "previous_change_percent": 190.92,
           "history": [
             {
               "date": "2021/09/13",
@@ -435993,6 +436351,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": 48.2,
+          "previous_change_percent": 48.14,
           "history": [
             {
               "date": "2021/09/13",
@@ -437335,6 +437694,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": -47.64,
+          "previous_change_percent": -46.81,
           "history": [
             {
               "date": "2021/09/13",
@@ -438679,6 +439039,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": 58.78,
+          "previous_change_percent": 57.18,
           "history": [
             {
               "date": "2021/09/13",
@@ -440021,6 +440382,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": 51.66,
+          "previous_change_percent": 49.16,
           "history": [
             {
               "date": "2021/09/13",
@@ -441363,6 +441725,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": 43.49,
+          "previous_change_percent": 41.65,
           "history": [
             {
               "date": "2021/09/13",
@@ -442705,6 +443068,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": 22.54,
+          "previous_change_percent": 23.31,
           "history": [
             {
               "date": "2021/09/13",
@@ -444047,6 +444411,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -45.62,
+          "previous_change_percent": -46.24,
           "history": [
             {
               "date": "2021/09/13",
@@ -445391,6 +445756,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": 55.62,
+          "previous_change_percent": 51.84,
           "history": [
             {
               "date": "2021/09/13",
@@ -446733,6 +447099,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -3.49,
+          "previous_change_percent": -5.37,
           "history": [
             {
               "date": "2021/09/13",
@@ -448075,6 +448442,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -25.66,
+          "previous_change_percent": -27.53,
           "history": [
             {
               "date": "2021/09/13",
@@ -449419,6 +449787,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 347.69,
+          "previous_change_percent": 351.81,
           "history": [
             {
               "date": "2021/09/13",
@@ -450761,6 +451130,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": 319.95,
+          "previous_change_percent": 321.59,
           "history": [
             {
               "date": "2021/09/13",
@@ -452103,6 +452473,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": 296.31,
+          "previous_change_percent": 303.05,
           "history": [
             {
               "date": "2021/09/13",
@@ -453445,6 +453816,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": 225.78,
+          "previous_change_percent": 232.24,
           "history": [
             {
               "date": "2021/09/13",
@@ -454787,6 +455159,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 223.89,
+          "previous_change_percent": 226.28,
           "history": [
             {
               "date": "2021/09/13",
@@ -456131,6 +456504,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": 466.28,
+          "previous_change_percent": 469.51,
           "history": [
             {
               "date": "2021/09/13",
@@ -457473,6 +457847,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": 422.24,
+          "previous_change_percent": 424.5,
           "history": [
             {
               "date": "2021/09/13",
@@ -458815,6 +459190,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": 408.8,
+          "previous_change_percent": 412.12,
           "history": [
             {
               "date": "2021/09/13",
@@ -460159,6 +460535,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 59.81,
+          "previous_change_percent": 59.68,
           "history": [
             {
               "date": "2021/09/13",
@@ -461501,6 +461878,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 48.11,
+          "previous_change_percent": 49.31,
           "history": [
             {
               "date": "2021/09/13",
@@ -462843,6 +463221,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 32.67,
+          "previous_change_percent": 31.29,
           "history": [
             {
               "date": "2021/09/13",
@@ -464187,6 +464566,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 284.96,
+          "previous_change_percent": 279.44,
           "history": [
             {
               "date": "2021/09/13",
@@ -465531,6 +465911,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": 188.16,
+          "previous_change_percent": 186.96,
           "history": [
             {
               "date": "2021/09/13",
@@ -466873,6 +467254,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 150.1,
+          "previous_change_percent": 149.01,
           "history": [
             {
               "date": "2021/09/13",
@@ -468215,6 +468597,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 89.2,
+          "previous_change_percent": 89.91,
           "history": [
             {
               "date": "2021/09/13",
@@ -469557,6 +469940,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": 52.0,
+          "previous_change_percent": 52.0,
           "history": [
             {
               "date": "2021/09/13",
@@ -470901,6 +471285,7 @@
           "industry": "医薬品",
           "price": 6476.0,
           "change_percent": 52.45,
+          "previous_change_percent": 55.11,
           "history": [
             {
               "date": "2021/09/13",
@@ -472243,6 +472628,7 @@
           "industry": "医薬品",
           "price": 5615.0,
           "change_percent": 50.25,
+          "previous_change_percent": 49.69,
           "history": [
             {
               "date": "2021/09/13",
@@ -473585,6 +473971,7 @@
           "industry": "医薬品",
           "price": 2237.0,
           "change_percent": 17.43,
+          "previous_change_percent": 17.61,
           "history": [
             {
               "date": "2021/09/13",
@@ -474927,6 +475314,7 @@
           "industry": "医薬品",
           "price": 2710.5,
           "change_percent": -3.27,
+          "previous_change_percent": -5.57,
           "history": [
             {
               "date": "2021/09/13",
@@ -476269,6 +476657,7 @@
           "industry": "医薬品",
           "price": 4620.0,
           "change_percent": -44.25,
+          "previous_change_percent": -44.34,
           "history": [
             {
               "date": "2021/09/13",
@@ -477613,6 +478002,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 370.08,
+          "previous_change_percent": 386.79,
           "history": [
             {
               "date": "2021/09/13",
@@ -478955,6 +479345,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 136.74,
+          "previous_change_percent": 133.85,
           "history": [
             {
               "date": "2021/09/13",
@@ -480297,6 +480688,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 119.77,
+          "previous_change_percent": 118.65,
           "history": [
             {
               "date": "2021/09/13",
@@ -484303,6 +484695,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": 1060.42,
+          "previous_change_percent": 1083.42,
           "history": [
             {
               "date": "2021/09/13",
@@ -485645,6 +486038,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": 382.22,
+          "previous_change_percent": 383.57,
           "history": [
             {
               "date": "2021/09/13",
@@ -486987,6 +487381,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": 349.08,
+          "previous_change_percent": 349.71,
           "history": [
             {
               "date": "2021/09/13",
@@ -488329,6 +488724,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 284.96,
+          "previous_change_percent": 279.44,
           "history": [
             {
               "date": "2021/09/13",
@@ -489671,6 +490067,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": 190.95,
+          "previous_change_percent": 195.33,
           "history": [
             {
               "date": "2021/09/13",
@@ -491013,6 +491410,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": 26.41,
+          "previous_change_percent": 24.88,
           "history": [
             {
               "date": "2021/09/13",
@@ -492355,6 +492753,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -3.49,
+          "previous_change_percent": -5.37,
           "history": [
             {
               "date": "2021/09/13",
@@ -493699,6 +494098,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": 1060.42,
+          "previous_change_percent": 1083.42,
           "history": [
             {
               "date": "2021/09/13",
@@ -495041,6 +495441,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": 466.28,
+          "previous_change_percent": 469.51,
           "history": [
             {
               "date": "2021/09/13",
@@ -496383,6 +496784,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": 422.24,
+          "previous_change_percent": 424.5,
           "history": [
             {
               "date": "2021/09/13",
@@ -497725,6 +498127,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": 382.22,
+          "previous_change_percent": 383.57,
           "history": [
             {
               "date": "2021/09/13",
@@ -499067,6 +499470,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": 349.08,
+          "previous_change_percent": 349.71,
           "history": [
             {
               "date": "2021/09/13",
@@ -500409,6 +500813,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": 289.83,
+          "previous_change_percent": 293.86,
           "history": [
             {
               "date": "2021/09/13",
@@ -501751,6 +502156,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 284.96,
+          "previous_change_percent": 279.44,
           "history": [
             {
               "date": "2021/09/13",
@@ -503093,6 +503499,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": 227.09,
+          "previous_change_percent": 230.33,
           "history": [
             {
               "date": "2021/09/13",
@@ -504435,6 +504842,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": 190.95,
+          "previous_change_percent": 195.33,
           "history": [
             {
               "date": "2021/09/13",
@@ -505777,6 +506185,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 59.81,
+          "previous_change_percent": 59.68,
           "history": [
             {
               "date": "2021/09/13",
@@ -507119,6 +507528,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": 48.2,
+          "previous_change_percent": 48.14,
           "history": [
             {
               "date": "2021/09/13",
@@ -508461,6 +508871,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 48.11,
+          "previous_change_percent": 49.31,
           "history": [
             {
               "date": "2021/09/13",
@@ -509803,6 +510214,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 32.67,
+          "previous_change_percent": 31.29,
           "history": [
             {
               "date": "2021/09/13",
@@ -511145,6 +511557,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": 26.41,
+          "previous_change_percent": 24.88,
           "history": [
             {
               "date": "2021/09/13",
@@ -512489,6 +512902,7 @@
           "industry": "半導体・製造装置",
           "price": 32840.0,
           "change_percent": 1060.42,
+          "previous_change_percent": 1083.42,
           "history": [
             {
               "date": "2021/09/13",
@@ -513831,6 +514245,7 @@
           "industry": "半導体・製造装置",
           "price": 13020.0,
           "change_percent": 382.22,
+          "previous_change_percent": 383.57,
           "history": [
             {
               "date": "2021/09/13",
@@ -515173,6 +515588,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": 289.83,
+          "previous_change_percent": 293.86,
           "history": [
             {
               "date": "2021/09/13",
@@ -516515,6 +516931,7 @@
           "industry": "通信・IT投資",
           "price": 6810.0,
           "change_percent": 284.96,
+          "previous_change_percent": 279.44,
           "history": [
             {
               "date": "2021/09/13",
@@ -517857,6 +518274,7 @@
           "industry": "半導体・製造装置",
           "price": 53700.0,
           "change_percent": 190.95,
+          "previous_change_percent": 195.33,
           "history": [
             {
               "date": "2021/09/13",
@@ -519199,6 +519617,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 59.81,
+          "previous_change_percent": 59.68,
           "history": [
             {
               "date": "2021/09/13",
@@ -520541,6 +520960,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 48.11,
+          "previous_change_percent": 49.31,
           "history": [
             {
               "date": "2021/09/13",
@@ -521883,6 +522303,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 32.67,
+          "previous_change_percent": 31.29,
           "history": [
             {
               "date": "2021/09/13",
@@ -523227,6 +523648,7 @@
           "industry": "半導体・製造装置",
           "price": 53590.0,
           "change_percent": 349.08,
+          "previous_change_percent": 349.71,
           "history": [
             {
               "date": "2021/09/13",
@@ -524569,6 +524991,7 @@
           "industry": "半導体・製造装置",
           "price": 35280.0,
           "change_percent": 26.41,
+          "previous_change_percent": 24.88,
           "history": [
             {
               "date": "2021/09/13",
@@ -525913,6 +526336,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": 188.16,
+          "previous_change_percent": 186.96,
           "history": [
             {
               "date": "2021/09/13",
@@ -527255,6 +527679,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 150.1,
+          "previous_change_percent": 149.01,
           "history": [
             {
               "date": "2021/09/13",
@@ -528597,6 +529022,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 89.2,
+          "previous_change_percent": 89.91,
           "history": [
             {
               "date": "2021/09/13",
@@ -529939,6 +530365,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": 52.0,
+          "previous_change_percent": 52.0,
           "history": [
             {
               "date": "2021/09/13",
@@ -531281,6 +531708,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": 48.2,
+          "previous_change_percent": 48.14,
           "history": [
             {
               "date": "2021/09/13",
@@ -532625,6 +533053,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": 188.16,
+          "previous_change_percent": 186.96,
           "history": [
             {
               "date": "2021/09/13",
@@ -533967,6 +534396,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 150.1,
+          "previous_change_percent": 149.01,
           "history": [
             {
               "date": "2021/09/13",
@@ -535309,6 +535739,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 89.2,
+          "previous_change_percent": 89.91,
           "history": [
             {
               "date": "2021/09/13",
@@ -536651,6 +537082,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": 52.0,
+          "previous_change_percent": 52.0,
           "history": [
             {
               "date": "2021/09/13",
@@ -537993,6 +538425,7 @@
           "industry": "電機・精密",
           "price": 3625.0,
           "change_percent": 48.2,
+          "previous_change_percent": 48.14,
           "history": [
             {
               "date": "2021/09/13",
@@ -539337,6 +539770,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 347.69,
+          "previous_change_percent": 351.81,
           "history": [
             {
               "date": "2021/09/13",
@@ -540679,6 +541113,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": 319.95,
+          "previous_change_percent": 321.59,
           "history": [
             {
               "date": "2021/09/13",
@@ -542021,6 +542456,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": 296.31,
+          "previous_change_percent": 303.05,
           "history": [
             {
               "date": "2021/09/13",
@@ -543363,6 +543799,7 @@
           "industry": "電機・精密",
           "price": 5173.0,
           "change_percent": 289.83,
+          "previous_change_percent": 293.86,
           "history": [
             {
               "date": "2021/09/13",
@@ -544705,6 +545142,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": 225.78,
+          "previous_change_percent": 232.24,
           "history": [
             {
               "date": "2021/09/13",
@@ -546047,6 +546485,7 @@
           "industry": "通信",
           "price": 2976.5,
           "change_percent": 59.81,
+          "previous_change_percent": 59.68,
           "history": [
             {
               "date": "2021/09/13",
@@ -547389,6 +547828,7 @@
           "industry": "通信",
           "price": 172.2,
           "change_percent": 32.67,
+          "previous_change_percent": 31.29,
           "history": [
             {
               "date": "2021/09/13",
@@ -548733,6 +549173,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": 227.09,
+          "previous_change_percent": 230.33,
           "history": [
             {
               "date": "2021/09/13",
@@ -550075,6 +550516,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": -47.64,
+          "previous_change_percent": -46.81,
           "history": [
             {
               "date": "2021/09/13",
@@ -551419,6 +551861,7 @@
           "industry": "電機・精密",
           "price": 5168.0,
           "change_percent": 227.09,
+          "previous_change_percent": 230.33,
           "history": [
             {
               "date": "2021/09/13",
@@ -552761,6 +553204,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": 22.54,
+          "previous_change_percent": 23.31,
           "history": [
             {
               "date": "2021/09/13",
@@ -554105,6 +554549,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": 189.0,
+          "previous_change_percent": 190.92,
           "history": [
             {
               "date": "2021/09/13",
@@ -555447,6 +555892,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": 55.62,
+          "previous_change_percent": 51.84,
           "history": [
             {
               "date": "2021/09/13",
@@ -556789,6 +557235,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -45.62,
+          "previous_change_percent": -46.24,
           "history": [
             {
               "date": "2021/09/13",
@@ -558133,6 +558580,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": 189.0,
+          "previous_change_percent": 190.92,
           "history": [
             {
               "date": "2021/09/13",
@@ -559475,6 +559923,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": 58.78,
+          "previous_change_percent": 57.18,
           "history": [
             {
               "date": "2021/09/13",
@@ -560817,6 +561266,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": 55.62,
+          "previous_change_percent": 51.84,
           "history": [
             {
               "date": "2021/09/13",
@@ -562159,6 +562609,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": 51.66,
+          "previous_change_percent": 49.16,
           "history": [
             {
               "date": "2021/09/13",
@@ -563501,6 +563952,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": 43.49,
+          "previous_change_percent": 41.65,
           "history": [
             {
               "date": "2021/09/13",
@@ -564843,6 +565295,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": 22.54,
+          "previous_change_percent": 23.31,
           "history": [
             {
               "date": "2021/09/13",
@@ -566185,6 +566638,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -3.49,
+          "previous_change_percent": -5.37,
           "history": [
             {
               "date": "2021/09/13",
@@ -567527,6 +567981,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -25.66,
+          "previous_change_percent": -27.53,
           "history": [
             {
               "date": "2021/09/13",
@@ -568869,6 +569324,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -45.62,
+          "previous_change_percent": -46.24,
           "history": [
             {
               "date": "2021/09/13",
@@ -570213,6 +570669,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 347.69,
+          "previous_change_percent": 351.81,
           "history": [
             {
               "date": "2021/09/13",
@@ -571555,6 +572012,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": 319.95,
+          "previous_change_percent": 321.59,
           "history": [
             {
               "date": "2021/09/13",
@@ -572897,6 +573355,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": 296.31,
+          "previous_change_percent": 303.05,
           "history": [
             {
               "date": "2021/09/13",
@@ -574239,6 +574698,7 @@
           "industry": "電機・精密",
           "price": 4179.0,
           "change_percent": 189.0,
+          "previous_change_percent": 190.92,
           "history": [
             {
               "date": "2021/09/13",
@@ -575583,6 +576043,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": -47.64,
+          "previous_change_percent": -46.81,
           "history": [
             {
               "date": "2021/09/13",
@@ -576927,6 +577388,7 @@
           "industry": "電機・精密",
           "price": 6037.0,
           "change_percent": -47.64,
+          "previous_change_percent": -46.81,
           "history": [
             {
               "date": "2021/09/13",
@@ -578271,6 +578733,7 @@
           "industry": "自動車部品",
           "price": 2186.5,
           "change_percent": 55.62,
+          "previous_change_percent": 51.84,
           "history": [
             {
               "date": "2021/09/13",
@@ -579613,6 +580076,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": 51.66,
+          "previous_change_percent": 49.16,
           "history": [
             {
               "date": "2021/09/13",
@@ -580955,6 +581419,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": 43.49,
+          "previous_change_percent": 41.65,
           "history": [
             {
               "date": "2021/09/13",
@@ -582297,6 +582762,7 @@
           "industry": "自動車",
           "price": 2555.5,
           "change_percent": 22.54,
+          "previous_change_percent": 23.31,
           "history": [
             {
               "date": "2021/09/13",
@@ -583639,6 +584105,7 @@
           "industry": "自動車部品",
           "price": 1888.5,
           "change_percent": -3.49,
+          "previous_change_percent": -5.37,
           "history": [
             {
               "date": "2021/09/13",
@@ -584981,6 +585448,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -25.66,
+          "previous_change_percent": -27.53,
           "history": [
             {
               "date": "2021/09/13",
@@ -586323,6 +586791,7 @@
           "industry": "自動車",
           "price": 307.3,
           "change_percent": -45.62,
+          "previous_change_percent": -46.24,
           "history": [
             {
               "date": "2021/09/13",
@@ -587667,6 +588136,7 @@
           "industry": "自動車",
           "price": 2971.0,
           "change_percent": 51.66,
+          "previous_change_percent": 49.16,
           "history": [
             {
               "date": "2021/09/13",
@@ -589009,6 +589479,7 @@
           "industry": "自動車",
           "price": 1620.0,
           "change_percent": 43.49,
+          "previous_change_percent": 41.65,
           "history": [
             {
               "date": "2021/09/13",
@@ -590353,6 +590824,7 @@
           "industry": "自動車",
           "price": 1989.5,
           "change_percent": 58.78,
+          "previous_change_percent": 57.18,
           "history": [
             {
               "date": "2021/09/13",
@@ -591697,6 +592169,7 @@
           "industry": "自動車部品",
           "price": 2594.5,
           "change_percent": -25.66,
+          "previous_change_percent": -27.53,
           "history": [
             {
               "date": "2021/09/13",
@@ -593041,6 +593514,7 @@
           "industry": "総合商社",
           "price": 5038.0,
           "change_percent": 319.95,
+          "previous_change_percent": 321.59,
           "history": [
             {
               "date": "2021/09/13",
@@ -594383,6 +594857,7 @@
           "industry": "総合商社",
           "price": 5156.0,
           "change_percent": 296.31,
+          "previous_change_percent": 303.05,
           "history": [
             {
               "date": "2021/09/13",
@@ -595725,6 +596200,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": 225.78,
+          "previous_change_percent": 232.24,
           "history": [
             {
               "date": "2021/09/13",
@@ -597067,6 +597543,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 136.74,
+          "previous_change_percent": 133.85,
           "history": [
             {
               "date": "2021/09/13",
@@ -598409,6 +598886,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 119.77,
+          "previous_change_percent": 118.65,
           "history": [
             {
               "date": "2021/09/13",
@@ -599753,6 +600231,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 223.89,
+          "previous_change_percent": 226.28,
           "history": [
             {
               "date": "2021/09/13",
@@ -601097,6 +601576,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 223.89,
+          "previous_change_percent": 226.28,
           "history": [
             {
               "date": "2021/09/13",
@@ -602441,6 +602921,7 @@
           "industry": "総合商社",
           "price": 2299.0,
           "change_percent": 223.89,
+          "previous_change_percent": 226.28,
           "history": [
             {
               "date": "2021/09/13",
@@ -603783,6 +604264,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 20690.0,
           "change_percent": 188.16,
+          "previous_change_percent": 186.96,
           "history": [
             {
               "date": "2021/09/13",
@@ -605125,6 +605607,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 4283.0,
           "change_percent": 150.1,
+          "previous_change_percent": 149.01,
           "history": [
             {
               "date": "2021/09/13",
@@ -606467,6 +606950,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 5382.0,
           "change_percent": 89.2,
+          "previous_change_percent": 89.91,
           "history": [
             {
               "date": "2021/09/13",
@@ -607809,6 +608293,7 @@
           "industry": "ゲーム・エンタメ",
           "price": 8401.0,
           "change_percent": 52.0,
+          "previous_change_percent": 52.0,
           "history": [
             {
               "date": "2021/09/13",
@@ -609153,6 +609638,7 @@
           "industry": "総合商社",
           "price": 1840.0,
           "change_percent": 347.69,
+          "previous_change_percent": 351.81,
           "history": [
             {
               "date": "2021/09/13",
@@ -610495,6 +610981,7 @@
           "industry": "通信",
           "price": 239.2,
           "change_percent": 48.11,
+          "previous_change_percent": 49.31,
           "history": [
             {
               "date": "2021/09/13",
@@ -611839,6 +612326,7 @@
           "industry": "総合商社",
           "price": 5864.0,
           "change_percent": 225.78,
+          "previous_change_percent": 232.24,
           "history": [
             {
               "date": "2021/09/13",
@@ -613183,6 +613671,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": 466.28,
+          "previous_change_percent": 469.51,
           "history": [
             {
               "date": "2021/09/13",
@@ -614525,6 +615014,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": 422.24,
+          "previous_change_percent": 424.5,
           "history": [
             {
               "date": "2021/09/13",
@@ -615867,6 +616357,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": 408.8,
+          "previous_change_percent": 412.12,
           "history": [
             {
               "date": "2021/09/13",
@@ -617211,6 +617702,7 @@
           "industry": "銀行",
           "price": 3601.0,
           "change_percent": 466.28,
+          "previous_change_percent": 469.51,
           "history": [
             {
               "date": "2021/09/13",
@@ -618553,6 +619045,7 @@
           "industry": "銀行",
           "price": 8476.0,
           "change_percent": 422.24,
+          "previous_change_percent": 424.5,
           "history": [
             {
               "date": "2021/09/13",
@@ -619895,6 +620388,7 @@
           "industry": "銀行",
           "price": 6801.0,
           "change_percent": 408.8,
+          "previous_change_percent": 412.12,
           "history": [
             {
               "date": "2021/09/13",
@@ -621239,6 +621733,7 @@
           "industry": "医薬品",
           "price": 6476.0,
           "change_percent": 52.45,
+          "previous_change_percent": 55.11,
           "history": [
             {
               "date": "2021/09/13",
@@ -622581,6 +623076,7 @@
           "industry": "医薬品",
           "price": 5615.0,
           "change_percent": 50.25,
+          "previous_change_percent": 49.69,
           "history": [
             {
               "date": "2021/09/13",
@@ -623923,6 +624419,7 @@
           "industry": "医薬品",
           "price": 2237.0,
           "change_percent": 17.43,
+          "previous_change_percent": 17.61,
           "history": [
             {
               "date": "2021/09/13",
@@ -625265,6 +625762,7 @@
           "industry": "医薬品",
           "price": 2710.5,
           "change_percent": -3.27,
+          "previous_change_percent": -5.57,
           "history": [
             {
               "date": "2021/09/13",
@@ -626607,6 +627105,7 @@
           "industry": "医薬品",
           "price": 4620.0,
           "change_percent": -44.25,
+          "previous_change_percent": -44.34,
           "history": [
             {
               "date": "2021/09/13",
@@ -627951,6 +628450,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 370.08,
+          "previous_change_percent": 386.79,
           "history": [
             {
               "date": "2021/09/13",
@@ -629293,6 +629793,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 136.74,
+          "previous_change_percent": 133.85,
           "history": [
             {
               "date": "2021/09/13",
@@ -630635,6 +631136,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 119.77,
+          "previous_change_percent": 118.65,
           "history": [
             {
               "date": "2021/09/13",
@@ -631979,6 +632481,7 @@
           "industry": "海運",
           "price": 3348.0,
           "change_percent": 370.08,
+          "previous_change_percent": 386.79,
           "history": [
             {
               "date": "2021/09/13",
@@ -633321,6 +633824,7 @@
           "industry": "海運",
           "price": 7039.0,
           "change_percent": 136.74,
+          "previous_change_percent": 133.85,
           "history": [
             {
               "date": "2021/09/13",
@@ -634663,6 +635167,7 @@
           "industry": "海運",
           "price": 7201.0,
           "change_percent": 119.77,
+          "previous_change_percent": 118.65,
           "history": [
             {
               "date": "2021/09/13",
@@ -636008,6 +636513,7 @@
         "industry": "半導体・製造装置",
         "price": 32840.0,
         "change_percent": 1060.42,
+        "previous_change_percent": 1083.42,
         "history": [
           {
             "date": "2021/09/13",
@@ -637350,6 +637856,7 @@
         "industry": "銀行",
         "price": 3601.0,
         "change_percent": 466.28,
+        "previous_change_percent": 469.51,
         "history": [
           {
             "date": "2021/09/13",
@@ -638692,6 +639199,7 @@
         "industry": "銀行",
         "price": 8476.0,
         "change_percent": 422.24,
+        "previous_change_percent": 424.5,
         "history": [
           {
             "date": "2021/09/13",
@@ -640034,6 +640542,7 @@
         "industry": "銀行",
         "price": 6801.0,
         "change_percent": 408.8,
+        "previous_change_percent": 412.12,
         "history": [
           {
             "date": "2021/09/13",
@@ -641376,6 +641885,7 @@
         "industry": "半導体・製造装置",
         "price": 13020.0,
         "change_percent": 382.22,
+        "previous_change_percent": 383.57,
         "history": [
           {
             "date": "2021/09/13",
@@ -642718,6 +643228,7 @@
         "industry": "海運",
         "price": 3348.0,
         "change_percent": 370.08,
+        "previous_change_percent": 386.79,
         "history": [
           {
             "date": "2021/09/13",
@@ -644060,6 +644571,7 @@
         "industry": "半導体・製造装置",
         "price": 53590.0,
         "change_percent": 349.08,
+        "previous_change_percent": 349.71,
         "history": [
           {
             "date": "2021/09/13",
@@ -645402,6 +645914,7 @@
         "industry": "総合商社",
         "price": 1840.0,
         "change_percent": 347.69,
+        "previous_change_percent": 351.81,
         "history": [
           {
             "date": "2021/09/13",
@@ -646744,6 +647257,7 @@
         "industry": "総合商社",
         "price": 5038.0,
         "change_percent": 319.95,
+        "previous_change_percent": 321.59,
         "history": [
           {
             "date": "2021/09/13",
@@ -648086,6 +648600,7 @@
         "industry": "総合商社",
         "price": 5156.0,
         "change_percent": 296.31,
+        "previous_change_percent": 303.05,
         "history": [
           {
             "date": "2021/09/13",
@@ -649430,6 +649945,7 @@
         "industry": "電機・精密",
         "price": 6037.0,
         "change_percent": -47.64,
+        "previous_change_percent": -46.81,
         "history": [
           {
             "date": "2021/09/13",
@@ -650772,6 +651288,7 @@
         "industry": "自動車",
         "price": 307.3,
         "change_percent": -45.62,
+        "previous_change_percent": -46.24,
         "history": [
           {
             "date": "2021/09/13",
@@ -652114,6 +652631,7 @@
         "industry": "医薬品",
         "price": 4620.0,
         "change_percent": -44.25,
+        "previous_change_percent": -44.34,
         "history": [
           {
             "date": "2021/09/13",
@@ -653456,6 +653974,7 @@
         "industry": "自動車部品",
         "price": 2594.5,
         "change_percent": -25.66,
+        "previous_change_percent": -27.53,
         "history": [
           {
             "date": "2021/09/13",
@@ -654798,6 +655317,7 @@
         "industry": "自動車部品",
         "price": 1888.5,
         "change_percent": -3.49,
+        "previous_change_percent": -5.37,
         "history": [
           {
             "date": "2021/09/13",
@@ -656140,6 +656660,7 @@
         "industry": "医薬品",
         "price": 2710.5,
         "change_percent": -3.27,
+        "previous_change_percent": -5.57,
         "history": [
           {
             "date": "2021/09/13",
@@ -657482,6 +658003,7 @@
         "industry": "医薬品",
         "price": 2237.0,
         "change_percent": 17.43,
+        "previous_change_percent": 17.61,
         "history": [
           {
             "date": "2021/09/13",
@@ -658824,6 +659346,7 @@
         "industry": "自動車",
         "price": 2555.5,
         "change_percent": 22.54,
+        "previous_change_percent": 23.31,
         "history": [
           {
             "date": "2021/09/13",
@@ -660166,6 +660689,7 @@
         "industry": "半導体・製造装置",
         "price": 35280.0,
         "change_percent": 26.41,
+        "previous_change_percent": 24.88,
         "history": [
           {
             "date": "2021/09/13",
@@ -661508,6 +662032,7 @@
         "industry": "通信",
         "price": 172.2,
         "change_percent": 32.67,
+        "previous_change_percent": 31.29,
         "history": [
           {
             "date": "2021/09/13",
