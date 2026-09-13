@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -449,10 +448,11 @@ canvas {
 
 
 /* ==================================================
-   ランキングのページ送り
+   ランキングの「もっと見る」
+   ※業界・テーマランキング用
 ================================================== */
 
-.ranking-page-button {
+.ranking-expand-button {
     width: 100%;
 
     border: none;
@@ -473,7 +473,37 @@ canvas {
     line-height: 1;
 }
 
-.ranking-page-button:active {
+.ranking-expand-button:active {
+    background: #f5f5f5;
+}
+
+
+/* ==================================================
+   値上がり銘柄ランキングのページ切り替え
+================================================== */
+
+.stock-page-button {
+    width: 100%;
+
+    border: none;
+
+    background: white;
+
+    color: #777;
+
+    font-size: 20px;
+
+    padding:
+        8px
+        0
+        4px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+.stock-page-button:active {
     background: #f5f5f5;
 }
 
@@ -676,7 +706,7 @@ canvas {
 
 
 <!-- ==================================================
-     値上がり銘柄ランキング
+     値上がり銘柄 TOP10
 ================================================== -->
 
 <div class="card">
@@ -735,18 +765,16 @@ let topChartSelected = {
 let detailStockSelected = {};
 
 
-/* ==================================================
-   値上がり銘柄ランキングのページ
-================================================== */
-
 /*
-   0 = 1〜10位
-   1 = 11〜20位
-   2 = 21〜30位
+   値上がり銘柄ランキングの現在ページ
+
+   0 → 1～10位
+   1 → 11～20位
+   2 → 21～30位
    ...
 */
 
-let gainersPage = 0;
+let stockRankingPage = 0;
 
 
 /* ==================================================
@@ -884,7 +912,8 @@ function buildPeriodRankingSnapshot(
     );
 
     /*
-       値上がり銘柄は全順位を保存する
+       値上がり銘柄は全銘柄について
+       前回順位を保存する。
     */
 
     gainers.forEach((stock, index) => {
@@ -1392,7 +1421,6 @@ function changeFromHistory(
     }
 
     return last - 100;
-
 }
 
 
@@ -1497,19 +1525,15 @@ function groupListForPeriod(
         : "theme";
 
     return Object.keys(map)
-
         .map(name => {
 
-            const stocks =
-                map[name] || [];
+            const stocks = map[name] || [];
 
             return {
 
-                [key]:
-                    name,
+                [key]: name,
 
-                stocks:
-                    stocks,
+                stocks: stocks,
 
                 change_percent:
                     groupAverageChange(
@@ -1522,10 +1546,9 @@ function groupListForPeriod(
 
         })
 
-        .sort(
-            (a, b) =>
-                (b.change_percent ?? -Infinity) -
-                (a.change_percent ?? -Infinity)
+        .sort((a, b) =>
+            (b.change_percent ?? -Infinity) -
+            (a.change_percent ?? -Infinity)
         );
 
 }
@@ -1559,32 +1582,24 @@ function sortStocksByPeriod(
     usePreviousData = false
 ) {
 
-    return [...(stocks || [])].sort(
-        (a, b) => {
+    return [...(stocks || [])].sort((a, b) => {
 
-            const av =
-                rankingChange(
-                    a,
-                    period,
-                    usePreviousData
-                );
+        const av = rankingChange(
+            a,
+            period,
+            usePreviousData
+        );
 
-            const bv =
-                rankingChange(
-                    b,
-                    period,
-                    usePreviousData
-                );
+        const bv = rankingChange(
+            b,
+            period,
+            usePreviousData
+        );
 
-            return (
-                bv ?? -Infinity
-            ) -
-            (
-                av ?? -Infinity
-            );
+        return (bv ?? -Infinity) -
+            (av ?? -Infinity);
 
-        }
-    );
+    });
 
 }
 
@@ -2467,6 +2482,7 @@ function renderThemeRanking() {
 
 /* ==================================================
    業界・テーマランキング共通
+   ※ここは元の仕様を維持
 ================================================== */
 
 function renderGroupRanking(
@@ -2861,6 +2877,12 @@ function renderGroupRanking(
 
         }
     );
+
+
+    /*
+       業界・テーマランキングは
+       これまで通り10位の下に▽
+    */
 
     if (
         groups.length > 10
@@ -3378,6 +3400,7 @@ function renderStockList(
                 row
             );
 
+
             /*
                業界・テーマ内銘柄
             */
@@ -3404,6 +3427,7 @@ function renderStockList(
                 );
 
             }
+
 
             /*
                値上がり銘柄TOP
@@ -3679,6 +3703,7 @@ function renderStockList(
         }
     );
 
+
     if (
         stateKey !== null
     ) {
@@ -3835,8 +3860,8 @@ function getPreviousStockRank(
 
 
 /* ==================================================
-   値上がり銘柄ランキング
-   10件ずつページ送り
+   値上がり銘柄TOP
+   10銘柄ずつページ表示
 ================================================== */
 
 function renderGainers() {
@@ -3865,8 +3890,10 @@ function renderGainers() {
         "";
 
     const stocks =
-        dataset.top_gainers
-        || [];
+        sortStocksByPeriod(
+            dataset.top_gainers || [],
+            selectedPeriod
+        );
 
     if (
         !stocks.length
@@ -3881,56 +3908,72 @@ function renderGainers() {
 
 
     /*
-       現在の期間で騰落率順に並べる
-    */
-
-    const sorted =
-        sortStocksByPeriod(
-            stocks,
-            selectedPeriod
-        );
-
-
-    /*
        ページ数
     */
 
+    const pageSize =
+        10;
+
     const totalPages =
         Math.ceil(
-            sorted.length / 10
+            stocks.length /
+            pageSize
         );
 
 
     /*
-       ページ番号を安全な範囲にする
+       ページがデータ数を超えないようにする
     */
 
     if (
-        gainersPage < 0
+        stockRankingPage >= totalPages
     ) {
 
-        gainersPage = 0;
+        stockRankingPage =
+            Math.max(
+                0,
+                totalPages - 1
+            );
 
     }
 
-    if (
-        gainersPage >= totalPages
-    ) {
 
-        gainersPage =
-            totalPages - 1;
+    /*
+       現在ページ
+    */
 
-    }
+    const start =
+        stockRankingPage *
+        pageSize;
+
+    const end =
+        Math.min(
+            start + pageSize,
+            stocks.length
+        );
+
+
+    const visibleStocks =
+        stocks.slice(
+            start,
+            end
+        );
 
 
     /*
        ------------------------------------------
        前のページへ戻るボタン
+       
+       11～20位などの場合、
+       そのページの「上」に▽を表示。
+       
+       指示どおり、▽を押すと
+       10個前のランキングへ戻る。
        ------------------------------------------
     */
 
     if (
-        gainersPage > 0
+        stockRankingPage > 0
     ) {
 
         const previousButton =
@@ -3939,19 +3982,24 @@ function renderGainers() {
             );
 
         previousButton.className =
-            "ranking-page-button";
+            "stock-page-button";
+
+        /*
+           見た目は「▽」
+           ユーザーが指定した仕様
+        */
 
         previousButton.textContent =
-            "△";
+            "▽";
 
         previousButton.title =
-            `${gainersPage * 10 - 9}〜${gainersPage * 10}位を表示`;
+            `${start}位から${start + 1}位前へ戻る`;
 
         previousButton.addEventListener(
             "click",
             () => {
 
-                gainersPage--;
+                stockRankingPage--;
 
                 renderGainers();
 
@@ -3967,34 +4015,24 @@ function renderGainers() {
 
     /*
        ------------------------------------------
-       現在の10件を取得
+       現在ページの銘柄
        ------------------------------------------
     */
 
-    const start =
-        gainersPage * 10;
-
-    const pageStocks =
-        sorted.slice(
-            start,
-            start + 10
-        );
-
-
-    /*
-       ------------------------------------------
-       10件を表示
-       ------------------------------------------
-    */
-
-    pageStocks.forEach(
+    visibleStocks.forEach(
         (
             stock,
             pageIndex
         ) => {
 
-            const globalIndex =
-                start + pageIndex;
+            /*
+               実際のランキング順位
+            */
+
+            const currentRank =
+                start +
+                pageIndex +
+                1;
 
             const value =
                 changeFromHistory(
@@ -4003,9 +4041,6 @@ function renderGainers() {
                         selectedPeriod
                     )
                 );
-
-            const currentRank =
-                globalIndex + 1;
 
             const previousRank =
                 getPreviousStockRank(
@@ -4075,9 +4110,7 @@ function renderGainers() {
 
 
             /*
-               ------------------------------------------
                銘柄詳細
-               ------------------------------------------
             */
 
             const detail =
@@ -4157,8 +4190,9 @@ function renderGainers() {
             let currentPeriod =
                 selectedPeriod;
 
+
             const key =
-                `gainer:${stock.code}:${gainersPage}:${pageIndex}`;
+                `gainer:${stock.code}:${Math.random()}`;
 
 
             const draw =
@@ -4172,14 +4206,17 @@ function renderGainers() {
                             b => {
 
                                 b.classList.toggle(
+
                                     "active",
-                                    b.dataset.period ===
+
+                                    b.dataset.period
+                                    ===
                                     currentPeriod
+
                                 );
 
                             }
                         );
-
 
                     const prepared =
                         makeDatasets(
@@ -4198,13 +4235,12 @@ function renderGainers() {
 
                         );
 
-
                     let markerDate =
                         null;
 
-
                     if (
-                        currentPeriod === "6m"
+                        currentPeriod ===
+                        "6m"
                     ) {
 
                         markerDate =
@@ -4222,9 +4258,9 @@ function renderGainers() {
 
                     }
 
-
                     if (
-                        currentPeriod === "5y"
+                        currentPeriod ===
+                        "5y"
                     ) {
 
                         markerDate =
@@ -4242,7 +4278,6 @@ function renderGainers() {
 
                     }
 
-
                     if (
                         detailCharts[key]
                     ) {
@@ -4253,12 +4288,10 @@ function renderGainers() {
 
                     }
 
-
                     const canvas =
                         detail.querySelector(
                             "canvas"
                         );
-
 
                     if (
                         !prepared.labels.length
@@ -4272,7 +4305,6 @@ function renderGainers() {
                         return;
 
                     }
-
 
                     detailCharts[key] =
                         createLineChart(
@@ -4292,6 +4324,10 @@ function renderGainers() {
                 };
 
 
+            /*
+               銘柄クリック
+            */
+
             row.addEventListener(
                 "click",
                 () => {
@@ -4301,22 +4337,19 @@ function renderGainers() {
                             "open"
                         );
 
-
                     detail.classList.toggle(
                         "open",
                         !open
                     );
-
 
                     row
                         .querySelector(
                             ".stock-arrow"
                         )
                         .textContent =
-                            open
-                                ? "▼"
-                                : "▲";
-
+                        open
+                            ? "▼"
+                            : "▲";
 
                     if (!open) {
                         draw();
@@ -4325,6 +4358,10 @@ function renderGainers() {
                 }
             );
 
+
+            /*
+               詳細期間変更
+            */
 
             detail
                 .querySelectorAll(
@@ -4356,13 +4393,19 @@ function renderGainers() {
 
     /*
        ------------------------------------------
-       次の10件へ
+       次のページへ
+       
+       10位の下
+       20位の下
+       30位の下
+       ...
+       
+       最後のページでは表示しない
        ------------------------------------------
     */
 
     if (
-        gainersPage <
-        totalPages - 1
+        end < stocks.length
     ) {
 
         const nextButton =
@@ -4371,19 +4414,19 @@ function renderGainers() {
             );
 
         nextButton.className =
-            "ranking-page-button";
+            "stock-page-button";
 
         nextButton.textContent =
             "▽";
 
         nextButton.title =
-            `${start + 11}〜${start + 20}位を表示`;
+            `${end + 1}位から表示`;
 
         nextButton.addEventListener(
             "click",
             () => {
 
-                gainersPage++;
+                stockRankingPage++;
 
                 renderGainers();
 
@@ -4457,7 +4500,7 @@ function renderAll() {
 
     /*
        期間変更時は
-       グラフ選択をリセット
+       TOP10グラフ選択をリセット
     */
 
     topChartSelected.industry =
@@ -4471,11 +4514,12 @@ function renderAll() {
 
 
     /*
-       値上がり銘柄は
-       期間変更時に1〜10位へ戻す
+       値上がり銘柄ランキングも
+       新しい期間では1～10位から開始
     */
 
-    gainersPage = 0;
+    stockRankingPage =
+        0;
 
 
     renderTopChart(
@@ -4543,13 +4587,6 @@ function setupGlobalPeriodButtons() {
 
                         rankingExpanded.theme =
                             false;
-
-                        /*
-                           値上がりランキングも
-                           1〜10位に戻す
-                        */
-
-                        gainersPage = 0;
 
                         renderAll();
 
@@ -4692,31 +4729,23 @@ fetch(
             "1m",
             "6m",
             "5y"
-        ].forEach(
-            period => {
+        ].forEach(period => {
 
-                const dataset =
-                    DATA[period];
+            const dataset =
+                DATA[period];
 
-                if (!dataset) {
-                    return;
-                }
-
-                previousRankingSnapshot
-                    .periods[period] =
-
-                    buildPeriodRankingSnapshot(
-
-                        dataset,
-
-                        period,
-
-                        true
-
-                    );
-
+            if (!dataset) {
+                return;
             }
-        );
+
+            previousRankingSnapshot.periods[period] =
+                buildPeriodRankingSnapshot(
+                    dataset,
+                    period,
+                    true
+                );
+
+        });
 
         renderAll();
 
@@ -4745,4 +4774,3 @@ fetch(
 
 </body>
 </html>
-
